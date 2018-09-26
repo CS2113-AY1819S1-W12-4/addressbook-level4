@@ -6,13 +6,13 @@ import java.util.Objects;
  * Represents an ingredient in the list of ingredients
  * Guarantees: TODO
  */
-public class Ingredient {
+public abstract class Ingredient {
 
     // Identity field
-    private final IngredientName name;
+    protected final IngredientName name;
 
     // Data fields
-    private IngredientQuantity quantity;
+    protected IngredientQuantity quantity;
     // TODO: ingredient cost
 
     public Ingredient(IngredientName name, IngredientQuantity quantity) {
@@ -33,22 +33,8 @@ public class Ingredient {
     }
 
     @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-
-        if (!(other instanceof Ingredient)) {
-            return false;
-        }
-
-        Ingredient otherIngredient = (Ingredient) other;
-        return otherIngredient.getName().equals(getName())
-                && otherIngredient.getQuantity() == getQuantity();
-    }
+    public abstract boolean equals(Object other);
 
     @Override
-    public int hashCode() {
-        return Objects.hash(name, quantity);
-    }
+    public abstract int hashCode();
 }
