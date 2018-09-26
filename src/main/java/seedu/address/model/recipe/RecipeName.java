@@ -3,6 +3,10 @@ package seedu.address.model.recipe;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+/**
+ * Represents an Recipe's name
+ * Guarantees: TODO
+ */
 public class RecipeName {
     public static final String MESSAGE_NAME_CONSTRAINTS =
             "Names should only contain alphanumeric characters and spaces, and it should not be blank";

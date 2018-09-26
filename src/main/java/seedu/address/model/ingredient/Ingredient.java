@@ -1,7 +1,5 @@
 package seedu.address.model.ingredient;
 
-import java.util.Objects;
-
 /**
  * Represents an ingredient in the list of ingredients
  * Guarantees: TODO
