@@ -48,7 +48,7 @@ public class IngredientName {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Name // instanceof handles nulls
+                || (other instanceof IngredientName // instanceof handles nulls
                 && ingredientName.equals(((IngredientName) other).ingredientName)); // state check
     }
 
