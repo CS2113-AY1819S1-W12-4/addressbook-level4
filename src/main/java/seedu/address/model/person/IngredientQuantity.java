@@ -12,7 +12,8 @@ public class IngredientQuantity {
     public static final String MESSAGE_QUANTITY_CONSTRAINTS =
             "Quantity should only contain numbers";
     public static final String QUANTITY_VALIDATION_REGEX = "\\d+";
-    public int quantity;
+
+    private int value;
 
     /**
      * Constructs an {@code IngredientQuantity}.
@@ -22,7 +23,7 @@ public class IngredientQuantity {
     public IngredientQuantity(String quantity) {
         requireNonNull(quantity);
         checkArgument(isValidQuantity(quantity), MESSAGE_QUANTITY_CONSTRAINTS);
-        this.quantity = Integer.parseInt(quantity);
+        this.value = Integer.parseInt(quantity);
     }
 
     /**
@@ -32,21 +33,29 @@ public class IngredientQuantity {
         return test.matches(QUANTITY_VALIDATION_REGEX);
     }
 
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
     @Override
     public String toString() {
-        return Integer.toString(quantity);
+        return Integer.toString(value);
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof IngredientQuantity // instanceof handles nulls
-                && quantity == (((IngredientQuantity) other).quantity)); // state check
+                && value == (((IngredientQuantity) other).value)); // state check
     }
 
     @Override
     public int hashCode() {
-        return quantity; // primitive int is its own hash
+        return value; // primitive int is its own hash
     }
 
 }
