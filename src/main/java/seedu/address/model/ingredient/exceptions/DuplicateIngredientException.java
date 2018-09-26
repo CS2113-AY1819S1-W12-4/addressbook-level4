@@ -1,4 +1,4 @@
-package seedu.address.model.person.exceptions;
+package seedu.address.model.ingredient.exceptions;
 
 /**
  * Signals that the operation will result in duplicate Ingredients (Ingredients are considered duplicates
