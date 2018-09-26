@@ -25,7 +25,7 @@ public class IngredientName {
      *
      * @param name A valid name.
      */
-    public Name(String name) {
+    public IngredientName(String name) {
         requireNonNull(name);
         checkArgument(isValidName(name), MESSAGE_NAME_CONSTRAINTS);
         ingredientName = name;
