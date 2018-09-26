@@ -13,6 +13,7 @@ public class Ingredient {
 
     // Data fields
     private IngredientQuantity quantity;
+    // TODO: ingredient cost
 
     public Ingredient(IngredientName name, IngredientQuantity quantity) {
         this.name = name;
