@@ -12,23 +12,23 @@ public class IngredientQuantity {
     public static final String MESSAGE_QUANTITY_CONSTRAINTS =
             "Quantity should only contain numbers";
     public static final String QUANTITY_VALIDATION_REGEX = "\\d+";
-    public final int quantity;
+    public int quantity;
 
     /**
-     * Constructs a {@code Phone}.
+     * Constructs an {@code IngredientQuantity}.
      *
      * @param quantity A valid quantity value expressed as a string.
      */
     public IngredientQuantity(String quantity) {
         requireNonNull(quantity);
-        checkArgument(isValidPhone(quantity), MESSAGE_QUANTITY_CONSTRAINTS);
+        checkArgument(isValidQuantity(quantity), MESSAGE_QUANTITY_CONSTRAINTS);
         this.quantity = Integer.parseInt(quantity);
     }
 
     /**
-     * Returns true if a given string is a valid phone number.
+     * Returns true if a given string is a valid quantity value.
      */
-    public static boolean isValidPhone(String test) {
+    public static boolean isValidQuantity(String test) {
         return test.matches(QUANTITY_VALIDATION_REGEX);
     }
 
