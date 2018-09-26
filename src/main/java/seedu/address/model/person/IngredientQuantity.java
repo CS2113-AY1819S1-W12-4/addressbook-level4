@@ -9,7 +9,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Guarantees: TODO
  */
 public class IngredientQuantity {
-        public static final String MESSAGE_QUANTITY_CONSTRAINTS =
+    public static final String MESSAGE_QUANTITY_CONSTRAINTS =
             "Quantity should only contain numbers";
     public static final String QUANTITY_VALIDATION_REGEX = "\\d+";
     public final int quantity;
