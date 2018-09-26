@@ -21,9 +21,9 @@ public class IngredientName {
     public final String ingredientName;
 
     /**
-     * Constructs a {@code Name}.
+     * Constructs an {@code IngredientName}.
      *
-     * @param name A valid name.
+     * @param name A valid ingredient name.
      */
     public IngredientName(String name) {
         requireNonNull(name);
