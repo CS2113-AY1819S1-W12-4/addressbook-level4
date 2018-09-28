@@ -1,7 +1,7 @@
 package seedu.address.model.ingredient;
 
 /**
- * Represents an ingredient in the list of ingredients
+ * Represents an ingredient that makes up a food item
  * Guarantees: TODO
  */
 public abstract class Ingredient {
