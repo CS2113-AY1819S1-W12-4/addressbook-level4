@@ -18,6 +18,11 @@ public abstract class Ingredient {
         this.quantity = quantity;
     }
 
+    public Ingredient(IngredientName name) {
+        this.name = name;
+        quantity = new IngredientQuantity("0");
+    }
+
     public IngredientName getName() {
         return name;
     }

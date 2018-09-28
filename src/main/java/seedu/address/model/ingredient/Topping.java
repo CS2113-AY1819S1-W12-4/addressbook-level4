@@ -11,6 +11,10 @@ public class Topping extends Ingredient {
         super(name, quantity);
     }
 
+    public Topping(IngredientName name) {
+        super(name);
+    }
+
     @Override
     public boolean equals(Object other) {
         if (this == other) {

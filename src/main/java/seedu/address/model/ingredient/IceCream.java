@@ -10,6 +10,10 @@ public class IceCream extends Ingredient {
         super(name, quantity);
     }
 
+    public IceCream(IngredientName name) {
+        super(name);
+    }
+
     @Override
     public boolean equals(Object other) {
         if (this == other) {
