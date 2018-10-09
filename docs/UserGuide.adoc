@@ -75,12 +75,12 @@ Examples:
 === Adding a food item: `additem`
 
 Adds a food item to the food item manager +
-Format: `additem n/FOOD_ITEM_NAME r/RECIPE_NAME p/PRICE`
+Format: `additem n/DRINK_ITEM p/DEFAULT_SELLING_PRICE`
 
 Examples:
 
-* `additem n/Vanilla Icecream r/Vanilla Recipe p/2.50`
-* `additem p/3.00 n/Hot Fudge Sundae r/Hot Fudge Sundae Recipe`
+* `additem n/coca cola p/2.50`
+* `additem p/s`
 
 === Listing all food items : `viewall`
 
