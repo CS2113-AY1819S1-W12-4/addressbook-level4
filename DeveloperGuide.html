@@ -608,10 +608,10 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>Internally, <code>Analysis#analyseProfit()</code> calls <code>Analysis#analyseCost()</code> and <code>Analysis#analyseRevenue()</code> to calculate the profit, using the formula “profit = revenue - cost”.</p>
 </div>
 <div class="paragraph">
-<p><code>Analysis#analyseRevenue()</code> iterates through the <code>TransactionList</code> and checks the <code>Transaction</code>’s <code>TransactionType</code>. If the <code>TransactionType</code> is <code>SALE</code>, the <code>Price</code> at which the drink is sold is obtained and added to a sum of revenues. On the other hand, if the <code>TransactionType</code> is <code>IMPORT</code>, the <code>Transaction</code> will be ignored.</p>
+<p><code>Analysis#analyseRevenue()</code> iterates through the <code>TransactionList</code> and checks the <code>Transaction</code>’s <code>TransactionType</code>. If the <code>TransactionType</code> is <code>SALE</code>, the <code>Price</code> at which the drink is sold is obtained and added to a sum of revenues. On the other hand, if the <code>TransactionType</code> is <code>IMPORT</code>, the <code>Transaction</code> will be ignored. The sum of revenues will be wrapped in a <code>Price</code> object and returned to the calling function.</p>
 </div>
 <div class="paragraph">
-<p>The opposite applies for <code>Analysis#analyseCost()</code>. It iterates through <code>TransactionList</code>, similar to <code>Analysis#analyseRevenue()</code>. Now, if the <code>TransactionType</code> is <code>IMPORT</code>, the <code>Price</code> at which the drink is bought for is obtained and added to a sum of costs.</p>
+<p>The opposite applies for <code>Analysis#analyseCost()</code>. It iterates through <code>TransactionList</code>, similar to <code>Analysis#analyseRevenue()</code>. Now, if the <code>TransactionType</code> is <code>IMPORT</code>, the <code>Price</code> at which the drink is bought for is obtained and added to a sum of costs. The sum of costs will be wrapped in <code>Price</code> and returned to the calling function.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2393,4 +2393,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 17:27:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 17:44:36 UTC</div></div></div></body></html>
