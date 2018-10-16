@@ -37,15 +37,15 @@ public class XmlAdaptedDrink {
     private List<XmlAdaptedTag> tagged = new ArrayList<>();
 
     /**
-     * Constructs an XmlAdaptedPerson.
+     * Constructs an XmlAdaptedDrink.
      * This is the no-arg constructor that is required by JAXB.
      */
     public XmlAdaptedDrink() {}
 
     /**
-     * Constructs an {@code XmlAdaptedPerson} with the given person details.
+     * Constructs an {@code XmlAdaptedDrink} with the given drink details.
      */
-    public XmlAdaptedPerson(String name, String costPrice, String retailPrice, String stock, List<XmlAdaptedTag> tagged) {
+    public XmlAdaptedDrink(String name, String costPrice, String retailPrice, String stock, List<XmlAdaptedTag> tagged) {
         this.name = name;
         this.costPrice = costPrice;
         this.retailPrice = retailPrice;
@@ -56,11 +56,11 @@ public class XmlAdaptedDrink {
     }
 
     /**
-     * Converts a given Person into this class for JAXB use.
+     * Converts a given Drink into this class for JAXB use.
      *
-     * @param source future changes to this will not affect the created XmlAdaptedPerson
+     * @param source future changes to this will not affect the created XmlAdaptedDrink
      */
-    public XmlAdaptedPerson(Drink source) {
+    public XmlAdaptedDrink(Drink source) {
         name = source.getName().name;
         costPrice = source.getCostPrice().toString();
         retailPrice = source.getRetailPrice().toString();
@@ -71,14 +71,14 @@ public class XmlAdaptedDrink {
     }
 
     /**
-     * Converts this JAXB-friendly adapted person object into the model's Person object.
+     * Converts this JAXB-friendly adapted drink object into the model's Drink object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted person
+     * @throws IllegalValueException if there were any data constraints violated in the adapted drink
      */
     public Drink toModelType() throws IllegalValueException {
-        final List<Tag> personTags = new ArrayList<>();
+        final List<Tag> drinkTags = new ArrayList<>();
         for (XmlAdaptedTag tag : tagged) {
-            personTags.add(tag.toModelType());
+            drinkTags.add(tag.toModelType());
         }
 
         if (name == null) {
@@ -113,7 +113,7 @@ public class XmlAdaptedDrink {
         }
         final Stock modelStock = new Stock(stock);
 
-        final Set<Tag> modelTags = new HashSet<>(personTags);
+        final Set<Tag> modelTags = new HashSet<>(drinkTags);
         return new Drink(modelName, modelCostPrice, modelRetailPrice, modelStock, modelTags);
     }
 
@@ -123,7 +123,7 @@ public class XmlAdaptedDrink {
             return true;
         }
 
-        if (!(other instanceof XmlAdaptedPerson)) {
+        if (!(other instanceof XmlAdaptedDrink)) {
             return false;
         }
 
