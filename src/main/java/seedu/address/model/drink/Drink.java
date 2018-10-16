@@ -26,9 +26,12 @@ public class Drink {
     /**
      * Every field must be present and not null.
      */
-    public Drink(Name name, Set<Tag> tags) {
+    public Drink(Name name, Price costPrice, Price retailPrice, Stock stock, Set<Tag> tags) {
         requireAllNonNull(name, tags);
         this.name = name;
+        this.costPrice = costPrice;
+        this.retailPrice = retailPrice;
+        this.stock = stock;
         this.tags.addAll(tags);
     }
 
