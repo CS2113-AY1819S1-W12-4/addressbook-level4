@@ -29,10 +29,11 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#analyses-of-profits-and-quantities-sold-in-the-company">3.1. Analyses of profits and quantities sold in the company</a></li>
+<li><a href="#undo-redo-feature">3.2. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -586,9 +587,86 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
+<h3 id="analyses-of-profits-and-quantities-sold-in-the-company"><a class="link" href="#analyses-of-profits-and-quantities-sold-in-the-company">3.1. Analyses of profits and quantities sold in the company</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<div class="paragraph">
+<p>To facilitate the analyses of total profit, revenue and costs of the company, as well as the quantities of drinks sold, transactions (sales and imports) are logged using <code>Transaction</code>. They will be logged when the drink stock increases due to import (<code>TransactionType</code> is <code>IMPORT</code>), or when they decrease due to a sale (<code>TransactionType</code> is <code>SALE</code>). These transactions are stored into a list of transactions, in <code>TransactionList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Analyses are conducted in <code>Analysis</code>. The following operations are implemented for the analyses of profit, revenue and costs:
+* <code>Analysis#analyseProfit()</code>
+* <code>Analysis#analyseCost()</code>
+* <code>Analysis#analyseRevenue()</code></p>
+</div>
+<div class="paragraph">
+<p>The methods that enable the analyses of quantities sold are:
+* <code>Analysis#analyseQuantitiesSold(Drink drink)</code>
+* &lt;to be added&gt;</p>
+</div>
+<div class="paragraph">
+<p>Internally, <code>Analysis#analyseProfit()</code> calls <code>Analysis#analyseCost()</code> and <code>Analysis#analyseRevenue()</code> to calculate the profit, using the formula “profit = revenue - cost”.</p>
+</div>
+<div class="paragraph">
+<p><code>Analysis#analyseRevenue()</code> iterates through the <code>TransactionList</code> and checks the <code>Transaction</code>’s <code>TransactionType</code>. If the <code>TransactionType</code> is <code>SALE</code>, the <code>Price</code> at which the drink is sold is obtained and added to a sum of revenues. On the other hand, if the <code>TransactionType</code> is <code>IMPORT</code>, the <code>Transaction</code> will be ignored.</p>
+</div>
+<div class="paragraph">
+<p>The opposite applies for <code>Analysis#analyseCost()</code>. It iterates through <code>TransactionList</code>, similar to <code>Analysis#analyseRevenue()</code>. Now, if the <code>TransactionType</code> is <code>IMPORT</code>, the <code>Price</code> at which the drink is bought for is obtained and added to a sum of costs.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Current implementation:</strong> Currently, the entire <code>TransactionList</code> since the beginning of using the application is used for the analyses. This presents the overview of the company’s profit margin since it started using the application, and is useful for tracking long term growth.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement</p>
+</li>
+<li>
+<p>Cons: Inefficient in terms of time complexity.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative:</strong> Record the increases in revenue and cost when every transaction is logged.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More time efficient.</p>
+</li>
+<li>
+<p>Cons: We must ensure that the additions are correct. Difficult to extend this to allow for the analyses over different time periods.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-plans"><a class="link" href="#future-plans">3.1.3. Future Plans</a></h4>
+<div class="paragraph">
+<p>In the future, there will be a <code>TransactionList</code> for each calendar month, to allow for the analyses of desired attributes in time periods of: 1 day, 7 days and 1 month.</p>
+</div>
+<div class="paragraph">
+<p>For the analyses over 1 month, the same approach as mentioned above will be implemented.</p>
+</div>
+<div class="paragraph">
+<p>For the analyses over 1 day, the <code>Date</code> of the <code>Transaction</code> will be checked before adding the respective <code>Price</code> into either the sum of revenues or costs. If the <code>Date</code> is the same as that of the current day’s date, then the <code>Price</code> will be added.</p>
+</div>
+<div class="paragraph">
+<p>For the analyses over 7 days, a similar concept as that for analyses over 1 day will be used. Special care will have to be taken to account for changes in month over the span of 7 days, and possibly changes in the year.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.2. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -718,7 +796,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -788,20 +866,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -832,7 +910,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2315,4 +2393,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 16:16:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 17:27:32 UTC</div></div></div></body></html>
