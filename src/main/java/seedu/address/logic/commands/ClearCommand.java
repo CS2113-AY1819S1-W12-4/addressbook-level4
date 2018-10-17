@@ -2,10 +2,9 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import oldcode.Model;
 import seedu.address.logic.CommandHistory;
 import seedu.address.model.AddressBook;
-
+import oldcode.Model;
 
 /**
  * Clears the address book.
