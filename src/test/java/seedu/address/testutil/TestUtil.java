@@ -5,13 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-<<<<<<< HEAD
-import oldcode.Model;
 import seedu.address.commons.core.index.Index;
-=======
-import seedu.address.commons.core.index.Index;
-import oldCode.Model;
->>>>>>> parent of 979a87ba... refactored oldCode into oldcode for checkstyle
+import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
 /**

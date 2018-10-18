@@ -1,9 +1,8 @@
-package oldCode;
+package seedu.address.model;
 
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
 
 /**
