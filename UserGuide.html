@@ -95,7 +95,7 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>FrozenBook.jar</code> <a href="https://github.com/CS2113-AY1819S1-W12-4/main/releases">here</a>.</p>
+<p>Download the latest <code>DrinkIO.jar</code> <a href="https://github.com/CS2113-AY1819S1-W12-4/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -117,13 +117,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>viewall</code></strong> : Shows a list of all the food items offered in the shop, together with their prices.</p>
+<p><strong><code>viewall</code></strong> : Shows a list of all the drinks stocked in the inventory, together with their prices.</p>
 </li>
 <li>
-<p><strong><code>add</code> </strong><code>Vanilla Icecream, Chocolate Icecream [2]</code> : Adds a transaction of 1 Vanilla Icecream and 2 Chocolate Icecream.</p>
+<p><strong><code>add</code> </strong><code>Coca Cola, Green Tea [2]</code> : Adds a transaction of 1 Coca Cola and 2 Green Tea.</p>
 </li>
 <li>
-<p><strong><code>stock</code> </strong><code>Vanilla Icecream 10</code> : Increases the stock quantity of Vanilla Icecream by 10 servings</p>
+<p><strong><code>stock</code> </strong><code>Coca Cola 10</code> : Increases the stock quantity Coca Cola by 10 cans</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : Exits the app</p>
@@ -390,9 +390,9 @@ When t/tag is added, it will show a list that has all the drinks with that parti
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-expiry-dates-of-batches-of-an-ingredient-code-importdate-code"><a class="link" href="#view-expiry-dates-of-batches-of-an-ingredient-code-importdate-code">10.1.8. View expiry dates of batches of an ingredient: <code>importDate</code></a></h4>
+<h4 id="view-import-dates-for-a-batch-of-drinks-code-importdate-code"><a class="link" href="#view-import-dates-for-a-batch-of-drinks-code-importdate-code">10.1.8. View import dates for a batch of drinks: <code>importDate</code></a></h4>
 <div class="paragraph">
-<p>Displays the import dates of batches of the ingredient desired.
+<p>Displays the import dates of batches of the drink desired.
 	Format: <code>importDate [-d] INGREDIENT_NAME</code></p>
 </div>
 <div class="admonitionblock note">
@@ -424,7 +424,7 @@ Format: <code>help</code></p>
 <div class="sect3">
 <h4 id="add-new-drink-items-code-additem-code"><a class="link" href="#add-new-drink-items-code-additem-code">10.2.2. Add new drink items: <code>addItem</code></a></h4>
 <div class="paragraph">
-<p>Add a new food item to the food item manager for sales.
+<p>Add a new drink item to the drink item manager for sales.
 	Format: <code>addItem n/DrinkItem p/DEFAULT_SELLING_PRICE</code></p>
 </div>
 <div class="admonitionblock note">
@@ -483,7 +483,7 @@ Format: <code>deleteAccount u/USER_NAME</code></p>
 <div class="sect3">
 <h4 id="viewing-help-code-help-code-3"><a class="link" href="#viewing-help-code-help-code-3">10.3.1. Viewing Help: <code>help</code></a></h4>
 <div class="paragraph">
-<p>Shows available commands with brief description of what can stock taker do.
+<p>Shows available commands with brief description of what a stock taker can do.
 Format: <code>help</code></p>
 </div>
 </div>
@@ -509,7 +509,7 @@ Examples:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>DRINK NAME is predefined by manager, so alert message will appear if drink name are not in the predefined list. However, drink name will be case-insensitive.</p>
+<p>DRINK NAME is predefined by manager, so alert message will appear if the drink name is not in the predefined list. In addition, drink name will be case-insensitive.</p>
 </div>
 </td>
 </tr>
@@ -540,7 +540,7 @@ Examples:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>DRINK NAME is predefined by manager, so alert message will appear if drink name are not in the predefined list</p>
+<p>DRINK NAME is predefined by manager, so alert message will appear if the drink name is not in the predefined list</p>
 </li>
 <li>
 <p>Quantity sold cannot be more than stock. Or else a warning message will be shown.</p>
@@ -729,7 +729,7 @@ Format: <code>exit</code></p>
 <div class="sect3">
 <h4 id="saving-the-data"><a class="link" href="#saving-the-data">10.5.6. Saving the data</a></h4>
 <div class="paragraph">
-<p>FrozenBook data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>DrinkIO data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
@@ -771,7 +771,7 @@ There is no need to save manually.</p>
 <p><strong>change password</strong> : <code>changePassword o/OLD_PASSWORD n/NEW_PASSWORD</code></p>
 </li>
 <li>
-<p><strong>view stock by Name</strong> :` view [-d] [n/Drink_NAME] [-b]`</p>
+<p><strong>view stock by Name</strong> : <code>view [-d] [n/Drink_NAME] [-b]</code></p>
 </li>
 <li>
 <p><strong>view stock by quantity</strong> : <code>quantity [-d] [n/Drink_NAME] [-b] [t/tag]</code></p>
@@ -837,4 +837,4 @@ There is no need to save manually.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 04:23:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 04:25:22 UTC</div></div></div></body></html>
