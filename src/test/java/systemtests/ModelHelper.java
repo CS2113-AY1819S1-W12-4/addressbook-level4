@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import oldcode.Model;
+import oldCode.Model;
 import seedu.address.model.person.Person;
 
 /**

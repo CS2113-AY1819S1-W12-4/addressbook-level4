@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import seedu.address.logic.CommandHistory;
-import oldcode.Model;
-import oldcode.ModelManager;
+import oldCode.Model;
+import oldCode.ModelManager;
 import seedu.address.model.UserPrefs;
 
 /**

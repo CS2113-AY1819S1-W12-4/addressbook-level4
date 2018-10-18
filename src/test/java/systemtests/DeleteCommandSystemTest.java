@@ -12,12 +12,12 @@ import static seedu.address.testutil.TypicalPersons.KEYWORD_MATCHING_MEIER;
 
 import org.junit.Test;
 
-import oldcode.Model;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
+import oldCode.Model;
 import seedu.address.model.person.Person;
 
 public class DeleteCommandSystemTest extends AddressBookSystemTest {

@@ -9,8 +9,8 @@ import org.junit.Test;
 
 import seedu.address.commons.events.ui.ExitAppRequestEvent;
 import seedu.address.logic.CommandHistory;
-import oldcode.Model;
-import oldcode.ModelManager;
+import oldCode.Model;
+import oldCode.ModelManager;
 import seedu.address.ui.testutil.EventsCollectorRule;
 
 public class ExitCommandTest {

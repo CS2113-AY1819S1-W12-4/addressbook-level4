@@ -8,7 +8,7 @@ import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 
 import seedu.address.model.IngredientModel;
-import oldcode.Model;
+import oldCode.Model;
 
 
 

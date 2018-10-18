@@ -12,11 +12,11 @@ import static seedu.address.testutil.TypicalPersons.KEYWORD_MATCHING_MEIER;
 
 import org.junit.Test;
 
-import oldcode.Model;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.UndoCommand;
+import oldCode.Model;
 
 public class SelectCommandSystemTest extends AddressBookSystemTest {
     @Test
