@@ -75,9 +75,9 @@ this is testing for DRINK I/O name
 
 Different Colour:
 
-[White]#DRINK I/O#
+[white]#DRINK I/O#
 
-[Silver]#DRINK I/O#
+[silver]#DRINK I/O#
 
 [Gray]#DRINK I/O#
 
