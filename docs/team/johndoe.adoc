@@ -1,8 +1,8 @@
 = John Doe - Project Portfolio
 :site-section: AboutUs
 :imagesDir: ../images
-:stylesDir: ../stylesheets
-
+:stylesDir: ../stylesheets/asciidoctor.css
+:xrefstyle: full
 == PROJECT: AddressBook - Level 4
 
 ---
@@ -73,7 +73,9 @@ _{Optionally, you may include other projects in your portfolio.}_
 
 this is testing for DRINK I/O name
 
-Different Colour:
+Different Colour
+
+[underline]#testing#
 
 [white]#DRINK I/O#
 
@@ -99,13 +101,15 @@ Different Colour:
 
 [Teal]#DRINK I/O#
 
-[Blue]#DRINK I/O#
+[blue]#DRINK I/O#
 
 [Navy]#DRINK I/O#
 
 [Fuchsia]#DRINK I/O#
 
 [Purple]#DRINK I/O#
+<<DRINK I/O>>
+[hello]
 
 Bold:
 
