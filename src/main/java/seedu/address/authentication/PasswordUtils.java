@@ -1,13 +1,10 @@
 package seedu.address.authentication;
 //@@author tianhang
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 
 import java.util.Arrays;
 import java.util.Base64;
-import java.util.Random;
-
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
@@ -16,24 +13,12 @@ import javax.crypto.spec.PBEKeySpec;
  * code learn from http://www.appsdeveloperblog.com/encrypt-user-password-example-java/
  */
 public class PasswordUtils {
+    //fixed salt for the seek for cs2113, can made dynamic when needed
+    private static final String salt = "EqdmPh53c9x33EygXpTpcoJvc4VXLK";
 
-    private static final Random RANDOM = new SecureRandom();
-    private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static final int ITERATIONS = 10000;
     private static final int KEY_LENGTH = 256;
 
-    /**
-     * generate a salt that encrypt and decrypt the password based on length
-     * @param length
-     * @return
-     */
-    public static String getSalt(int length) {
-        StringBuilder returnValue = new StringBuilder(length);
-        for (int i = 0; i < length; i++) {
-            returnValue.append(ALPHABET.charAt(RANDOM.nextInt(ALPHABET.length())));
-        }
-        return new String(returnValue);
-    }
 
     /**
      * It hash password
@@ -41,7 +26,7 @@ public class PasswordUtils {
      * @param salt complexity of hashed password
      * @return
      */
-    public static byte[] hash(char[] password, byte[] salt) {
+    private static byte[] hash(char[] password, byte[] salt) {
         PBEKeySpec spec = new PBEKeySpec(password, salt, ITERATIONS, KEY_LENGTH);
         Arrays.fill(password, Character.MIN_VALUE);
         try {
@@ -57,10 +42,9 @@ public class PasswordUtils {
     /**
      *
      * @param password
-     * @param salt
      * @return hashed password
      */
-    public static String generateSecurePassword(String password, String salt) {
+    public static String generateSecurePassword(String password) {
         String returnValue = null;
         byte[] securePassword = hash(password.toCharArray(), salt.getBytes());
 
@@ -73,15 +57,14 @@ public class PasswordUtils {
      * Verify password Input
      * @param providedPassword
      * @param securedPassword
-     * @param salt
      * @return
      */
     public static boolean verifyUserPassword(String providedPassword,
-                                             String securedPassword, String salt) {
+                                             String securedPassword) {
         boolean returnValue = false;
 
         // Generate New secure password with the same salt
-        String newSecurePassword = generateSecurePassword(providedPassword, salt);
+        String newSecurePassword = generateSecurePassword(providedPassword);
 
         // Check if two passwords are equal
         returnValue = newSecurePassword.equalsIgnoreCase(securedPassword);
