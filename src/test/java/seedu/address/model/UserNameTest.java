@@ -1,12 +1,13 @@
 package seedu.address.model;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
 import seedu.address.model.user.UserName;
 import seedu.address.testutil.Assert;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class UserNameTest {
     @Test
@@ -36,10 +37,11 @@ public class UserNameTest {
     }
 
     @Test
-    public void isUserNameTooLong(){
+    public void isUserNameTooLong() {
         Assert.assertThrows(NullPointerException.class, () -> UserName.isUserNameTooLong (null));
         //invalid userName
-        assertTrue (UserName.isUserNameTooLong ("sjkflasdhfjklashfjklashfjklashfjklashfjklsdhafjklhasdkflhaslfjkhaslkfsdfggdfsgs")); // longer than 30 words
+        assertTrue (UserName.isUserNameTooLong (
+                "sjkflasdhfjklashfjklashfjklashfjklashfjklsdhafjklhasdkflhasl")); // longer than 30 words
 
         //valid userName
         assertFalse (UserName.isUserNameTooLong("tester123tester123tester123")); //long name that is less than 30 char

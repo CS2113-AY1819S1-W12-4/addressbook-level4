@@ -27,20 +27,20 @@ public class PasswordTest {
         // invalid userName
         assertFalse(Password.isValidPassword("")); // empty string
         assertFalse(Password.isValidPassword(" ")); // spaces only
-        assertFalse(Password.isValidPassword("^")); // only non-alphanumeric characters
-        assertFalse(Password.isValidPassword("peter*")); // contains non-alphanumeric characters
         assertFalse(Password.isValidPassword("password password")); //contain space
 
         // valid userName
         assertTrue(Password.isValidPassword("myPassword")); // alphabets only
         assertTrue(Password.isValidPassword("myPassword123")); // numbers and alphabets
+        assertTrue(Password.isValidPassword("myPassword123^&*")); // numbers and alphabets
     }
 
     @Test
-    public void isUserNameTooLong(){
+    public void isUserNameTooLong() {
         Assert.assertThrows(NullPointerException.class, () -> Password.isPasswordTooLong (null));
         //invalid userName
-        assertTrue (Password.isPasswordTooLong ("sjkflasdhfjklashfjklashfjklashfjklashfjklsdhafjklhasdkflhaslfjkhaslkfsdfggdfsgs")); // longer than 30 words
+        assertTrue (Password.isPasswordTooLong (
+                "sjkflasdhfjklashfjklashfjklashfjklashfjklsdhafjklhasdkflhasl")); // longer than 30 char
 
         //valid userName
         assertFalse (Password.isPasswordTooLong("tester123tester123tester123")); //long name that is less than 30 char
