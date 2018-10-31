@@ -17,7 +17,7 @@ import seedu.address.commons.core.CurrentUser;
 import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.Version;
-import seedu.address.commons.events.Logic.LogicChangedEvent;
+import seedu.address.commons.events.logic.LogicChangedEvent;
 import seedu.address.commons.events.model.ChangeModelEvent;
 import seedu.address.commons.events.model.InitInventoryListEvent;
 import seedu.address.commons.exceptions.DataConversionException;

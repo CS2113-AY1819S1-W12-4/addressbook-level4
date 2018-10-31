@@ -15,7 +15,7 @@ import seedu.address.commons.core.Config;
 import seedu.address.commons.core.CurrentUser;
 import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.commons.events.Logic.LogicChangedEvent;
+import seedu.address.commons.events.logic.LogicChangedEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.events.ui.NewResultAvailableEvent;
 import seedu.address.commons.events.ui.RestartUiEvent;
@@ -142,9 +142,8 @@ public class UiManager extends ComponentManager implements Ui {
     }
     @Subscribe
     private void handleRestartUiEvent(RestartUiEvent event) {
-        mainWindow.releaseResources();
+        logger.info("Starting UI...");
         mainWindow.show(); //This should be called before creating other UI parts
-        mainWindow.fillInnerParts ();
         EventsCenter.getInstance().post(new NewResultAvailableEvent (
                 String.format (WELCOME_MESSAGE, CurrentUser.getAuthenticationLevel ())));
     }

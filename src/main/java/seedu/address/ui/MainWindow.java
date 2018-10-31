@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import seedu.address.commons.core.Config;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.commons.events.Logic.LogicChangedEvent;
+import seedu.address.commons.events.logic.LogicChangedEvent;
 import seedu.address.commons.events.ui.ExitAppRequestEvent;
 import seedu.address.commons.events.ui.ShowHelpRequestEvent;
 import seedu.address.logic.Logic;
@@ -203,6 +203,7 @@ public class MainWindow extends UiPart<Stage> {
     }
     @Subscribe
     private void handleLogicChangedEvent(LogicChangedEvent event) {
+        System.out.println ("in mainWindow");
         this.logic = event.logic;
     }
 }

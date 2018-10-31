@@ -13,7 +13,6 @@ import seedu.address.logic.parser.user.AccountantParser;
 import seedu.address.logic.parser.user.AdminParser;
 import seedu.address.logic.parser.user.ManagerParser;
 import seedu.address.logic.parser.user.StockTakerParser;
-import seedu.address.model.LoginInfoManager;
 import seedu.address.model.Model;
 import seedu.address.model.drink.Drink;
 import seedu.address.model.user.accountant.AccountantModel;
