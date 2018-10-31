@@ -215,7 +215,6 @@ public class MainWindow extends UiPart<Stage> {
     }
     @Subscribe
     private void handleLogicChangedEvent(LogicChangedEvent event) {
-        System.out.println ("in mainWindow");
         this.logic = event.logic;
     }
 }
