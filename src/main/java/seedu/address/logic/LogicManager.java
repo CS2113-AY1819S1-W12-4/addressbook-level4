@@ -26,18 +26,16 @@ import seedu.address.model.user.stocktaker.StockTakerModel;
  */
 public class LogicManager extends ComponentManager implements Logic {
     private final Logger logger = LogsCenter.getLogger(LogicManager.class);
-    private final Model model;
-    private LoginInfoManager loginInfoManager;
     private final CommandHistory history;
     //private final AddressBookParser addressBookParser;
     private final AdminParser adminParser;
     private final StockTakerParser stockTakerParser;
     private final ManagerParser managerParser;
     private final AccountantParser accountantParser;
+    private Model model;
+    public LogicManager(Model newModel) {
 
-    public LogicManager(Model model) {
-
-        this.model = model;
+        model = newModel;
         history = new CommandHistory();
         //addressBookParser = new AddressBookParser();
         adminParser = new AdminParser();
@@ -45,7 +43,6 @@ public class LogicManager extends ComponentManager implements Logic {
         managerParser = new ManagerParser();
         accountantParser = new AccountantParser();
     }
-
     @Override
     public CommandResult execute(String commandText) throws CommandException, ParseException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");

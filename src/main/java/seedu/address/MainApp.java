@@ -266,7 +266,7 @@ public class MainApp extends Application {
      */
     private void closeUiWindow() {
         logger.info("============================ [ Stopping DRINK I/O ] =============================");
-        EventsCenter.getInstance().post(new StopUiEvent ());
+        //EventsCenter.getInstance().post(new StopUiEvent ());
         try {
             storage.saveLoginInfo (loginInfoList);
             storage.saveUserPrefs(userPrefs);
@@ -274,7 +274,6 @@ public class MainApp extends Application {
             logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
         }
         //EventsCenter.clearSubscribers ();
-        //initEventsCenter();
     }
     @Subscribe
     public void handleExitAppRequestEvent(ExitAppRequestEvent event) {
