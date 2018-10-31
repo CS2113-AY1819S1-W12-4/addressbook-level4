@@ -36,7 +36,8 @@ public class MainWindow extends UiPart<Stage> {
 
     // Independent Ui parts residing in this Ui container
     private BrowserPanel browserPanel;
-    private PersonListPanel personListPanel;
+    //private PersonListPanel personListPanel;
+    private DrinkListPanel drinkListPanel;
     private Config config;
     private UserPrefs prefs;
     private HelpWindow helpWindow;
@@ -51,7 +52,8 @@ public class MainWindow extends UiPart<Stage> {
     private MenuItem helpMenuItem;
 
     @FXML
-    private StackPane personListPanelPlaceholder;
+    //private StackPane personListPanelPlaceholder;
+    private StackPane drinkListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -88,6 +90,7 @@ public class MainWindow extends UiPart<Stage> {
 
     /**
      * Sets the accelerator of a MenuItem.
+     *
      * @param keyCombination the KeyCombination value of the accelerator
      */
     private void setAccelerator(MenuItem menuItem, KeyCombination keyCombination) {
@@ -123,8 +126,13 @@ public class MainWindow extends UiPart<Stage> {
         browserPanel = new BrowserPanel();
         browserPlaceholder.getChildren().add(browserPanel.getRoot());
 
-        personListPanel = new PersonListPanel(logic.getFilteredDrinkList ());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+
+        //personListPanel = new PersonListPanel(logic.getFilteredPersonList());
+        //\personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+
+        drinkListPanel = new DrinkListPanel(logic.getFilteredDrinkList());
+        drinkListPanelPlaceholder.getChildren().add(drinkListPanel.getRoot());
+
 
         ResultDisplay resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -188,8 +196,12 @@ public class MainWindow extends UiPart<Stage> {
         raise(new ExitAppRequestEvent());
     }
 
-    public PersonListPanel getPersonListPanel() {
-        return personListPanel;
+    //public PersonListPanel getPersonListPanel() {
+    //    return personListPanel;
+    //}
+
+    public DrinkListPanel getDrinkListPanel() {
+        return drinkListPanel;
     }
 
     void releaseResources() {

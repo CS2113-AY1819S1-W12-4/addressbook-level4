@@ -68,8 +68,8 @@ public class UiManager extends ComponentManager implements Ui {
             logger.severe(StringUtil.getDetails(e));
             showFatalErrorDialogAndShutdown("Fatal error during initializing", e);
         }
-        EventsCenter.getInstance().post(new NewResultAvailableEvent (
-                                            String.format (WELCOME_MESSAGE, CurrentUser.getAuthenticationLevel ())));
+        EventsCenter.getInstance().post(new NewResultAvailableEvent(
+                String.format(WELCOME_MESSAGE, CurrentUser.getAuthenticationLevel())));
     }
 
     @Override
