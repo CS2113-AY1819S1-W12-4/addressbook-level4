@@ -145,6 +145,28 @@ public class CommandBox extends UiPart<Region> {
             }
         }
     }
+    //=============uncomment this if u find comfirmation is annoying and c
+    // comment out the above two method handleCommandEntered and handleConfirmCommand============
+    //    @FXML
+    //    private void handleCommandEntered() {
+    //        try {
+    //
+    //            CommandResult commandResult = logic.execute(commandTextField.getText());
+    //            initHistory();
+    //            historySnapshot.next();
+    //            // process result of the command
+    //            commandTextField.setText("");
+    //            logger.info("Result: " + commandResult.feedbackToUser);
+    //            raise(new NewResultAvailableEvent(commandResult.feedbackToUser));
+    //
+    //        } catch (CommandException | ParseException e) {
+    //            initHistory();
+    //            // handle command failure
+    //            setStyleToIndicateCommandFailure();
+    //            logger.info("Invalid command: " + commandTextField.getText());
+    //            raise(new NewResultAvailableEvent(e.getMessage()));
+    //        }
+    //    }
 
     /**
      *Returns true if test is equal to y or Y
