@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>John Doe - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Drink-IO</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://cs2113-ay1819s1-w12-4.github.io/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>John Doe - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="blue">DRINK I/O</span> is a desktop inventory manager application specially for <strong>small enterprise</strong> to help them increase productivity by digitizing the paperwork such as input and output of good.</p>
+</div>
+<div class="paragraph">
+<p>Most of the user interactions are via CLI, while there exists a GUI created with JavaFX. It is written in Java and has about 10kLoC.</p>
+</div>
+<div class="paragraph">
+<p>The source code is based on the AddressBook-Level4 project created by SE-EDU initiative.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: partition command into 3 role (manager, accountant and stock taker)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allow 3 role to do explicit command that only related to their roles(more details are in user guide)</p>
+</li>
+<li>
+<p>Justification: Definition of role is important as it prevent one user to abuse or misuse other user&#8217;s command. Hence, it increase the security of the application greatly.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. Any command added has either to fall the the 3 roles or create a new role to suit the command.
+The implementation too was challenging as it required changes to existing initiation ,model, storage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: User login</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allow different roles to login to the system.</p>
+</li>
+<li>
+<p>Justification: This features increase the security of the product significantly because it restrict the application user to account holder.</p>
+</li>
+<li>
+<p>Highlights: The implementation too was challenging as it required changes to existing initiation and UI. It also create a standalone "addressbook" that stores user information using JSON file.
+Credits: <a href="http://www.appsdeveloperblog.com/encrypt-user-password-example-java/" class="bare">http://www.appsdeveloperblog.com/encrypt-user-password-example-java/</a> Learn the use javax.crypto and other java function to hashed and verify password.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Morph command and command parser to fit the product</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases jar file <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#6</a>, <a href="https://github.com">#32</a></p>
+</li>
+<li>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com/nusCS2113-AY1819S1/forum/issues/72" class="bare">https://github.com/nusCS2113-AY1819S1/forum/issues/72</a>, <a href="https://github.com/nusCS2113-AY1819S1/forum/issues/43" class="bare">https://github.com/nusCS2113-AY1819S1/forum/issues/43</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated sceneBuilder and JFoenix to the project (<a href="https://github.com/nusCS2113-AY1819S1/forum/issues/11" class="bare">https://github.com/nusCS2113-AY1819S1/forum/issues/11</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="logging-in"><a class="link" href="#logging-in">Logging in</a></h3>
+<div class="paragraph">
+<p>Upon entering starting up the application, you will be met by the login page below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginPic/login_page_main.PNG" alt="login page main" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>To login, you can use either the CLI or GUI to input your <code>USERNAME</code> and <code>PASSWORD</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>GUI Login</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter your <code>USERNAME</code> and <code>PASSWORD</code> into the respective username and password fields</p>
+</li>
+<li>
+<p>Click on the <kbd>LOGIN</kbd> button</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>CLI Login</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter your <code>USERNAME</code> and <code>PASSWORD</code> into the terminal in this format</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Format: <code>USERNAME</code> <code>PASSWORD</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Press the <kbd>ENTER</kbd> key</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>User name and password are seperated with a single space when using CLI input</p>
+</li>
+<li>
+<p>Both username and password are single words. No spaces are allowed in username or password.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples for CLI input:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>tester 123</code></span></p>
+</li>
+<li>
+<p><span class="example"><code>stocktaker 123</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The example provided is a default login account for admins. This account is created only for testing purposes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>After successfully logging in, a confirmation message would be shown indicating your authentication level:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginPic/login_confirmation.PNG" alt="login confirmation" width="300">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-out"><a class="link" href="#logging-out">Logging out</a></h3>
+<div class="paragraph">
+<p>Logging out of the application will bring you back to the login screen.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>To log out, enter the following command into the command bar</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Command format: <code>logout</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Press the <kbd>ENTER</kbd> key</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="managing-your-product_name-account"><a class="link" href="#managing-your-product_name-account">Managing Your {product_name} Account</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="changing-your-password"><a class="link" href="#changing-your-password">Changing your password</a></h3>
+<div class="paragraph">
+<p>When you receive an account from manager, you want to change the password to increase security.
+Format: <code>changePassword o/[OLD_PASSWORD] n/[NEW_PASSWORD]</code></p>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples for changePassword:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>changePassword o/123 n/1234</code></span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If password changes is successful, a message will be shown:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginPic/password_change_successful.PNG" alt="password change successful" width="300">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="create-additional-account"><a class="link" href="#create-additional-account">Create additional account</a></h3>
+<div class="paragraph">
+<p>As a <span class="red">manager</span>, you want to create new account for new employee.</p>
+</div>
+<div class="paragraph">
+<p>Format:`createAccount u/USER_NAME p/PASSWORD a/AUTHENTICATION_LEVEL`</p>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples for create new account:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>createAccount u/tester p/myPassword a/admin</code></span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If create account is successful, a message will be shown:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginPic/create_new_account_successful.PNG" alt="create new account successful" width="300">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-account"><a class="link" href="#delete-account">Delete account</a></h3>
+<div class="paragraph">
+<p>As a <span class="red">manager</span>, you want to delete a account when it is no longer used.
+Format: <code>deleteAccount u/USER_NAME</code></p>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples for delete old account:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>deleteAccount u/tester</code></span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If delete account is successful, a message will be shown:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginPic/deleteAccount_successful.PNG" alt="deleteAccount successful" width="300">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="login-logout-feature"><a class="link" href="#login-logout-feature">Login/logout feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The login feature is a standalone feature that enable security check on user. It has a fxml page that name <code>LoginPage.fxml</code> at <code>main\resources\view</code>
+The controller of the fxml page named <code>LoginController</code> at <code>seedu.address\controller</code></p>
+</div>
+<div class="paragraph">
+<p>Given below is a class diagram for login function</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoginUMLDiagram/Login_Class_Diagram.png" alt="Login Class Diagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how login mechanism behave at each step.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoginUMLDiagram/Login_sequence_diagram.png" alt="Login sequence diagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>LoginController</code> will check for username and password will the LoginUtils
+Once the username and password is correct, it will continue to <code>InventoryListInitializer</code>.
+It will also start the ui.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoginUMLDiagram/LoginUtils_Sequence_Diagram.png" alt="LoginUtils Sequence Diagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example of access login information for <code>loginInfoList.json</code> during initiation of the application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoginUMLDiagram/LoginList_Read_Sequence_Diagram.png" alt="LoginList Read Sequence Diagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-store-the-data"><a class="link" href="#aspect-how-to-store-the-data">Aspect: How to store the data</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Saves the login detail in a json file called <code>loginInfoList.json</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Have a systematic and elegant way to store data.</p>
+</li>
+<li>
+<p>Cons: Hard to implement</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store the data in enum.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement</p>
+</li>
+<li>
+<p>Cons: Fixed database. Cannot add /modify/delete accounts. (suitable for very small project)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-format-for-store-data"><a class="link" href="#aspect-data-format-for-store-data">Aspect: Data format for store data</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store in Json file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Json is popular and have have support online.</p>
+</li>
+<li>
+<p>Pros :JSON is relatively easier to implement compared to XML</p>
+</li>
+<li>
+<p>Cons: Have to write serialized method for JSON file.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store in XML file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Classic and matured product</p>
+</li>
+<li>
+<p>Pros: Have serialized code in original ab4.</p>
+</li>
+<li>
+<p>Cons: It has many rule to set before implementation.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 03:29:05 UTC</div></div></div></body></html>
