@@ -74,6 +74,7 @@ public class AdminParser {
             return new ViewTransactionsCommand();
 
         // ========= accountant commands ==================
+
         case AnalyseCostsCommand.COMMAND_WORD:
             return new AnalyseCostsCommand();
 
