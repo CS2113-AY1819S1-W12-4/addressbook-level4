@@ -47,8 +47,8 @@
 </li>
 <li><a href="#managing-transactions">7. Managing Transactions</a>
 <ul class="sectlevel2">
-<li><a href="#creating-an-import-transaction">7.1. Creating an import transaction</a></li>
-<li><a href="#creating-a-sales-transaction">7.2. Creating a sales transaction</a></li>
+<li><a href="#creating-a-purchase-transaction">7.1. Creating a purchase transaction</a></li>
+<li><a href="#creating-a-sale-transaction">7.2. Creating a sale transaction</a></li>
 <li><a href="#viewing-transactions">7.3. Viewing transactions</a></li>
 </ul>
 </li>
@@ -56,28 +56,32 @@
 <ul class="sectlevel2">
 <li><a href="#viewing-overall-cost-revenue-and-profit">8.1. Viewing overall cost, revenue and profit</a></li>
 <li><a href="#filtering-popular-items-code-coming-in-v1-4-code">8.2. Filtering popular items <code>[Coming in v1.4]</code></a></li>
-<li><a href="#viewing-an-item-s-transactions-code-coming-in-v1-4-code">8.3. Viewing an item’s transactions <code>[Coming in v1.4]</code></a></li>
-<li><a href="#viewing-an-item-s-cost-revenue-and-profit-code-coming-in-v1-4-code">8.4. Viewing an item’s cost, revenue and profit <code>[Coming in v1.4]</code></a></li>
+<li><a href="#viewing-an-item-s-transactions-code-coming-in-v1-4-code">8.3. Viewing an item�s transactions <code>[Coming in v1.4]</code></a></li>
+<li><a href="#viewing-an-item-s-cost-revenue-and-profit-code-coming-in-v1-4-code">8.4. Viewing an item�s cost, revenue and profit <code>[Coming in v1.4]</code></a></li>
 </ul>
 </li>
-<li><a href="#setting-reminders">9. Setting Reminders</a></li>
+<li><a href="#setting-reminders-code-coming-in-v1-4-code">9. Setting Reminders <code>[Coming in v1.4]</code></a></li>
 <li><a href="#overview-of-role-specific-commands">10. Overview of Role-Specific Commands</a>
 <ul class="sectlevel2">
-<li><a href="#global-command">10.1. Global Command</a></li>
+<li><a href="#global-commands">10.1. Global Commands</a></li>
 <li><a href="#manager">10.2. Manager</a></li>
 <li><a href="#stock-taker-2">10.3. Stock Taker</a></li>
 <li><a href="#accountant-2">10.4. Accountant</a></li>
-<li><a href="#original-command">10.5. Original command</a></li>
+<li><a href="#viewing-transactions-code-viewtrans-code">10.5. Viewing transactions: <code>viewTrans</code></a></li>
+<li><a href="#administrator-2">10.6. Administrator</a></li>
+<li><a href="#saving-the-data-code-coming-in-v1-4-code">10.7. Saving the data <code>[Coming in v1.4]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">10.8. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#upcoming-features-in-future-releases">11. Upcoming Features in Future Releases</a></li>
 <li><a href="#faq">12. FAQ</a></li>
 <li><a href="#command-summary">13. Command Summary</a>
 <ul class="sectlevel2">
-<li><a href="#common-command">13.1. Common Command</a></li>
+<li><a href="#common-commands">13.1. Common Commands</a></li>
 <li><a href="#manager-2">13.2. Manager</a></li>
 <li><a href="#stock-taker-3">13.3. Stock Taker</a></li>
 <li><a href="#accountant-3">13.4. Accountant</a></li>
+<li><a href="#administrator-3">13.5. Administrator</a></li>
 </ul>
 </li>
 </ul>
@@ -88,7 +92,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong><span class="blue"><em>Drink I/O</em></span></strong> is a desktop application that helps you to manage your drink distribution company.
-You can use <strong><span class="blue"><em>Drink I/O</em></span></strong> to keep track of your inventory, analyse your company’s sales performance and
+You can use <strong><span class="blue"><em>Drink I/O</em></span></strong> to keep track of your inventory, analyse your company�s sales performance and
 set reminders to help you import more goods should their stocks fall low.
 <strong><span class="blue"><em>Drink I/O</em></span></strong> is optimised for Command Line Interface (CLI), allowing you to manage your store
 faster than traditional Graphical User Interface (GUI) apps, while retaining the benefits of a GUI</p>
@@ -357,10 +361,29 @@ Format: <code>changePassword o/[OLD_PASSWORD] n/[NEW_PASSWORD]</code></p>
 <div class="sect2">
 <h3 id="create-additional-account"><a class="link" href="#create-additional-account">5.2. Create additional account</a></h3>
 <div class="paragraph">
-<p>As a <span class="red">manager</span>, you want to create new account for new employee.</p>
+<p>As a <span class="red">manager</span> or <span class="red">administrator</span>, you want to create new account for new employee.</p>
 </div>
 <div class="paragraph">
 <p>Format:`createAccount u/USER_NAME p/PASSWORD a/AUTHENTICATION_LEVEL`</p>
+</div>
+<div class="paragraph">
+<p><code>AUTHENTICATION_LEVEL</code> must be one of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ADMIN</code></p>
+</li>
+<li>
+<p><code>MANAGER</code></p>
+</li>
+<li>
+<p><code>STOCKTAKER</code></p>
+</li>
+<li>
+<p><code>ACCOUNTANT</code></p>
+</li>
+</ul>
 </div>
 <div class="exampleblock example">
 <div class="content">
@@ -370,7 +393,7 @@ Format: <code>changePassword o/[OLD_PASSWORD] n/[NEW_PASSWORD]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><span class="example"><code>createAccount u/tester p/myPassword a/admin</code></span></p>
+<p><span class="example"><code>createAccount u/tester p/myPassword a/ADMIN</code></span></p>
 </li>
 </ul>
 </div>
@@ -577,9 +600,9 @@ you can record your sales and imports of drinks into <strong><span class="blue">
 handle the updating of the inventory for you in real-time.</p>
 </div>
 <div class="sect2">
-<h3 id="creating-an-import-transaction"><a class="link" href="#creating-an-import-transaction">7.1. Creating an import transaction</a></h3>
+<h3 id="creating-a-purchase-transaction"><a class="link" href="#creating-a-purchase-transaction">7.1. Creating a purchase transaction</a></h3>
 <div class="paragraph">
-<p>When you buy and receive new goods, and want to update your stocks, you can enter an import transaction to do so.</p>
+<p>When you buy and receive new goods, and want to update your stocks, you can enter a purchase transaction to do so.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -623,7 +646,7 @@ To record an import transaction,</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Enter <code>import</code> into the command box</p>
+<p>Enter <code>buy</code> into the command box</p>
 </li>
 <li>
 <p>Key in <code>n/</code>, followed by name of drink (<code>NAME</code>)</p>
@@ -682,7 +705,7 @@ Otherwise, the transaction will not be entered into the system.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-sales-transaction"><a class="link" href="#creating-a-sales-transaction">7.2. Creating a sales transaction</a></h3>
+<h3 id="creating-a-sale-transaction"><a class="link" href="#creating-a-sale-transaction">7.2. Creating a sale transaction</a></h3>
 <div class="paragraph">
 <p>When you make a sale to your customers, recording the sale in <strong><span class="blue"><em>Drink I/O</em></span></strong> allows you
 to update your transactions as well as the current stock.</p>
@@ -961,17 +984,17 @@ To view the total profit earned,</p>
 
 </div>
 <div class="sect2">
-<h3 id="viewing-an-item-s-transactions-code-coming-in-v1-4-code"><a class="link" href="#viewing-an-item-s-transactions-code-coming-in-v1-4-code">8.3. Viewing an item’s transactions <code>[Coming in v1.4]</code></a></h3>
+<h3 id="viewing-an-item-s-transactions-code-coming-in-v1-4-code"><a class="link" href="#viewing-an-item-s-transactions-code-coming-in-v1-4-code">8.3. Viewing an item�s transactions <code>[Coming in v1.4]</code></a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="viewing-an-item-s-cost-revenue-and-profit-code-coming-in-v1-4-code"><a class="link" href="#viewing-an-item-s-cost-revenue-and-profit-code-coming-in-v1-4-code">8.4. Viewing an item’s cost, revenue and profit <code>[Coming in v1.4]</code></a></h3>
+<h3 id="viewing-an-item-s-cost-revenue-and-profit-code-coming-in-v1-4-code"><a class="link" href="#viewing-an-item-s-cost-revenue-and-profit-code-coming-in-v1-4-code">8.4. Viewing an item�s cost, revenue and profit <code>[Coming in v1.4]</code></a></h3>
 
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-reminders"><a class="link" href="#setting-reminders">9. Setting Reminders</a></h2>
+<h2 id="setting-reminders-code-coming-in-v1-4-code"><a class="link" href="#setting-reminders-code-coming-in-v1-4-code">9. Setting Reminders <code>[Coming in v1.4]</code></a></h2>
 <div class="sectionbody">
 
 </div>
@@ -982,7 +1005,7 @@ To view the total profit earned,</p>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong></p>
+<p><strong>General Command Format</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1010,7 +1033,7 @@ To view the total profit earned,</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="global-command"><a class="link" href="#global-command">10.1. Global Command</a></h3>
+<h3 id="global-commands"><a class="link" href="#global-commands">10.1. Global Commands</a></h3>
 <div class="sect3">
 <h4 id="exiting-program-code-exit-code"><a class="link" href="#exiting-program-code-exit-code">10.1.1. Exiting Program: <code>exit</code></a></h4>
 <div class="paragraph">
@@ -1021,7 +1044,7 @@ Format: <code>exit</code></p>
 <div class="sect3">
 <h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">10.1.2. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
-<p>View help for respective user
+<p>View help for respective users
 Format: <code>help</code></p>
 </div>
 </div>
@@ -1046,77 +1069,6 @@ Format: <code>changePassword o/OLD_PASSWORD n/NEW_PASSWORD</code></p>
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="view-stock-numbers-of-an-drink-based-on-name-code-view-code"><a class="link" href="#view-stock-numbers-of-an-drink-based-on-name-code-view-code">10.1.4. View stock numbers of an drink based on name: <code>view</code></a></h4>
-<div class="paragraph">
-<p>Format: <code>view [-d] [n/Drink_NAME] [-b]</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The default view is for a type of drink.
-The default order will be a alphabetical order.
-When command -d is added, the list will show an decreasing alphabetical order.
-When command -b is added, the list will show a list based on individually batch.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-stock-numbers-of-an-drink-based-on-quantity-code-quantity-code"><a class="link" href="#view-stock-numbers-of-an-drink-based-on-quantity-code-quantity-code">10.1.5. View stock numbers of an drink based on quantity: <code>quantity</code></a></h4>
-<div class="paragraph">
-<p>Displays specifically the quantities left of the ingredient desired.
-	Format: <code>quantity [-d] [n/Drink_NAME] [-b] [t/tag]</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The default view is for a type of drink.
-The default order will be a increasing order whereby the least number of drink will be showed first
-When command -d is added, the list will show an decreasing order.
-When n/Drink Name is added, the list will only show the quantity related to the name.
-When command -b is added, the list will show a list based on individually batch.
-When t/tag is added, it will show a list that has all the drinks with that particular tag.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-import-dates-for-a-batch-of-drinks-code-importdate-code"><a class="link" href="#view-import-dates-for-a-batch-of-drinks-code-importdate-code">10.1.6. View import dates for a batch of drinks: <code>importDate</code></a></h4>
-<div class="paragraph">
-<p>Displays the import dates of batches of the drink desired.
-	Format: <code>importDate [-d] INGREDIENT_NAME</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The default order will be a increasing order whereby the earliest importing date will be showed first
-When command -d is added, the list will show an decreasing order</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="manager"><a class="link" href="#manager">10.2. Manager</a></h3>
@@ -1128,10 +1080,10 @@ Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-new-drink-items-code-additem-code"><a class="link" href="#add-new-drink-items-code-additem-code">10.2.2. Add new drink items: <code>addItem</code></a></h4>
+<h4 id="add-new-drink-into-inventory-code-add-code"><a class="link" href="#add-new-drink-into-inventory-code-add-code">10.2.2. Add new drink into inventory: <code>add</code></a></h4>
 <div class="paragraph">
-<p>Add a new drink item to the drink item manager for sales.
-	Format: <code>addItem n/DrinkItem p/DEFAULT_SELLING_PRICE</code></p>
+<p>Add a new drink to the drink inventory.
+	Format: <code>add n/DrinkItem p/DEFAULT_SELLING_PRICE cp/DEFAULT_COST_PRICE</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1141,28 +1093,7 @@ Format: <code>help</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>All the drink item added will be in a predefined list. As such, stock taker only able to add batches that is in this predefined list.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-history-of-actions-code-history-code"><a class="link" href="#view-history-of-actions-code-history-code">10.2.3. View history of actions: <code>history</code></a></h4>
-<div class="paragraph">
-<p>Displays list of actions done by user over a specified time frame.
-	Format: <code>history START_DATE END_DATE</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Start date must be earlier than end date</p>
+<p>All the drinks added will be in a predefined list. As such, stock taker only able to add batches that is in this predefined list.</p>
 </div>
 </td>
 </tr>
@@ -1180,16 +1111,16 @@ Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="import-transaction-of-a-drink-item-code-add-code"><a class="link" href="#import-transaction-of-a-drink-item-code-add-code">10.3.2. Import transaction of a drink item: <code>add</code></a></h4>
+<h4 id="increase-stock-of-a-drink-code-buy-code"><a class="link" href="#increase-stock-of-a-drink-code-buy-code">10.3.2. Increase stock of a drink: <code>buy</code></a></h4>
 <div class="paragraph">
-<p>Records import of a drink item.
-	Format: <code>add n/DRINK_NAME  d/DATE_OF_IMPORT  q/QUANTITY_IMPORT p/TOTAL_IMPORT_PRICE</code>
+<p>Records import of a drink.
+	Format: <code>buy n/DRINK_NAME q/QUANTITY_IMPORT</code>
 Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Add n/coca cola d/10/06/18 q/12 p/345.68</code></p>
+<p><code>Add n/coca cola q/12</code></p>
 </li>
 </ul>
 </div>
@@ -1201,7 +1132,7 @@ Examples:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>DRINK NAME is predefined by manager, so alert message will appear if the drink name is not in the predefined list. In addition, drink name will be case-insensitive.</p>
+<p>DRINK_NAME is predefined by manager, so alert message will appear if the drink name is not in the predefined list. In addition, drink name will be case-insensitive.</p>
 </div>
 </td>
 </tr>
@@ -1209,16 +1140,16 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sale-transaction-of-a-drink-item-code-sell-code"><a class="link" href="#sale-transaction-of-a-drink-item-code-sell-code">10.3.3. Sale transaction of a drink item: <code>sell</code></a></h4>
+<h4 id="decrease-stock-of-a-drink-code-sell-code"><a class="link" href="#decrease-stock-of-a-drink-code-sell-code">10.3.3. Decrease stock of a drink: <code>sell</code></a></h4>
 <div class="paragraph">
-<p>Record sale of a drink item
-           Format: <code>sell n/DRINK_NAME  d/DATE_SOLD  q/QUANTITY_SOLD p/TOTAL_SELLING_PRICE</code>
+<p>Record sale of a drink.
+           Format: <code>sell n/DRINK_NAME  q/QUANTITY_SOLD</code>
 Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Sell n/coca cola d/12/06/18 q/15 p/758</code></p>
+<p><code>Sell n/coca cola q/15</code></p>
 </li>
 </ul>
 </div>
@@ -1232,10 +1163,11 @@ Examples:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>DRINK NAME is predefined by manager, so alert message will appear if the drink name is not in the predefined list</p>
+<p>DRINK_NAME is predefined by manager, so an alert message will appear if the drink name is
+not in the inventory list</p>
 </li>
 <li>
-<p>Quantity sold cannot be more than stock. Or else a warning message will be shown.</p>
+<p>Quantity sold cannot be more than stock. Otherwise, a warning message will be shown.</p>
 </li>
 </ul>
 </div>
@@ -1250,12 +1182,19 @@ Examples:</p>
 <div class="sect3">
 <h4 id="viewing-help-code-help-code-4"><a class="link" href="#viewing-help-code-help-code-4">10.4.1. Viewing Help: <code>help</code></a></h4>
 <div class="paragraph">
-<p>Shows available commands with brief description of what can accountant do.
-Format: <code>help</code></p>
+<p>Shows available commands with brief description of what can accountant do.<br>
+    Format: <code>help</code></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-transactions-code-viewtrans-code"><a class="link" href="#viewing-transactions-code-viewtrans-code">10.5. Viewing transactions: <code>viewTrans</code></a></h3>
+<div class="paragraph">
+<p>Shows transactions made since the start of use of Drink I/O.<br>
+    Format: <code>viewTrans</code></p>
 </div>
 <div class="sect3">
-<h4 id="get-the-total-profit-of-the-shop-over-specified-periods-code-profit-code"><a class="link" href="#get-the-total-profit-of-the-shop-over-specified-periods-code-profit-code">10.4.2. Get the total profit of the shop over specified periods: <code>profit</code></a></h4>
+<h4 id="get-the-total-profit-of-the-shop-over-specified-periods-code-profit-code-code-coming-in-v1-4-code"><a class="link" href="#get-the-total-profit-of-the-shop-over-specified-periods-code-profit-code-code-coming-in-v1-4-code">10.5.1. Get the total profit of the shop over specified periods: <code>profit</code> <code>[Coming in v1.4]</code></a></h4>
 <div class="paragraph">
 <p>View the total profit earned in time periods of a day, 7 days and 30 days.
 	Format: <code>profit</code></p>
@@ -1268,9 +1207,9 @@ Format: <code>help</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>To view profit earned up to now in the current day, no parameters are used. i.e. just “profit”
-To view profit earned in last 7 days, append “-w”
-To view profit earned in last 30 days, append “-m”</p>
+<p>To view profit earned up to now in the current day, no parameters are used. i.e. just �profit�
+To view profit earned in last 7 days, append �-w�
+To view profit earned in last 30 days, append �-m�</p>
 </div>
 </td>
 </tr>
@@ -1278,34 +1217,28 @@ To view profit earned in last 30 days, append “-m”</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-the-quantities-of-each-drink-item-sold-over-specified-periods-code-sales-code"><a class="link" href="#get-the-quantities-of-each-drink-item-sold-over-specified-periods-code-sales-code">10.4.3. Get the quantities of each drink item sold over specified periods: <code>sales</code></a></h4>
+<h4 id="get-the-quantities-of-each-drink-item-sold-over-specified-periods-code-sales-code-code-coming-in-v1-4-code"><a class="link" href="#get-the-quantities-of-each-drink-item-sold-over-specified-periods-code-sales-code-code-coming-in-v1-4-code">10.5.2. Get the quantities of each drink item sold over specified periods: <code>sales</code> <code>[Coming in v1.4]</code></a></h4>
 <div class="paragraph">
 <p>View the sales number of each drink item in a period specified by the starting date and ending date.
 	Format: <code>sales STARTING_DATE ENDING_DATE</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-the-trend-of-cost-of-every-ingredient-over-specified-periods-code-viewcost-code"><a class="link" href="#get-the-trend-of-cost-of-every-ingredient-over-specified-periods-code-viewcost-code">10.4.4. Get the trend of cost of every ingredient over specified periods: <code>viewcost</code></a></h4>
+<h4 id="get-the-trend-of-cost-of-every-drink-over-specified-periods-code-viewcost-code-code-coming-in-v1-4-code"><a class="link" href="#get-the-trend-of-cost-of-every-drink-over-specified-periods-code-viewcost-code-code-coming-in-v1-4-code">10.5.3. Get the trend of cost of every drink over specified periods: <code>viewcost</code> <code>[Coming in v1.4]</code></a></h4>
 <div class="paragraph">
 <p>View the variation tendency of the cost of every ingredient in a period specified by the starting date and ending date.
 	Format: <code>viewcost STARTING_DATE ENDING_DATE</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="update-the-current-cost-of-certain-ingredients-code-editcost-code"><a class="link" href="#update-the-current-cost-of-certain-ingredients-code-editcost-code">10.4.5. Update the current cost of certain ingredients: <code>editcost</code></a></h4>
+<h4 id="update-the-current-cost-of-certain-drinks-code-editcost-code-code-coming-in-v1-4-code"><a class="link" href="#update-the-current-cost-of-certain-drinks-code-editcost-code-code-coming-in-v1-4-code">10.5.4. Update the current cost of certain drinks: <code>editcost</code> <code>[Coming in v1.4]</code></a></h4>
 <div class="paragraph">
 <p>Update the cost of ingredients every time they change to keep track.
 	Format: <code>editcost INGREDIENT_NAME UNIT_COST</code></p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="original-command"><a class="link" href="#original-command">10.5. Original command</a></h3>
-<div class="paragraph">
-<p>Keep for reference of syntax</p>
-</div>
 <div class="sect3">
-<h4 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">10.5.1. Listing entered commands : <code>history</code></a></h4>
+<h4 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">10.5.5. Listing entered commands : <code>history</code></a></h4>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -1326,31 +1259,34 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">10.5.2. Clearing all entries : <code>clear</code></a></h4>
-<div class="paragraph">
-<p>Clears all data from the FrozenBook.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">10.5.3. Exiting the program : <code>exit</code></a></h4>
+<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">10.5.6. Exiting the program : <code>exit</code></a></h4>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="administrator-2"><a class="link" href="#administrator-2">10.6. Administrator</a></h3>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">10.5.4. Saving the data</a></h4>
+<h4 id="creating-an-account-code-createaccount-code"><a class="link" href="#creating-an-account-code-createaccount-code">10.6.1. Creating an account: <code>createAccount</code></a></h4>
+<div class="paragraph">
+<p>Creates a new Drink I/O account.
+    Format: <code>createAccount u/USER_NAME p/PASSWORD a/AUTHENTICATION_LEVEL</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data-code-coming-in-v1-4-code"><a class="link" href="#saving-the-data-code-coming-in-v1-4-code">10.7. Saving the data <code>[Coming in v1.4]</code></a></h3>
 <div class="paragraph">
 <p>DrinkIO data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">10.5.5. Encrypting data files <code>[coming in v2.0]</code></a></h4>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">10.8. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
-</div>
 </div>
 </div>
 </div>
@@ -1375,7 +1311,7 @@ with the file that contains the data of your previous <strong><span class="blue"
 <h2 id="command-summary"><a class="link" href="#command-summary">13. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="common-command"><a class="link" href="#common-command">13.1. Common Command</a></h3>
+<h3 id="common-commands"><a class="link" href="#common-commands">13.1. Common Commands</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1390,15 +1326,6 @@ with the file that contains the data of your previous <strong><span class="blue"
 <li>
 <p><strong>change password</strong> : <code>changePassword o/OLD_PASSWORD n/NEW_PASSWORD</code></p>
 </li>
-<li>
-<p><strong>view stock by Name</strong> : <code>view [-d] [n/Drink_NAME] [-b]</code></p>
-</li>
-<li>
-<p><strong>view stock by quantity</strong> : <code>quantity [-d] [n/Drink_NAME] [-b] [t/tag]</code></p>
-</li>
-<li>
-<p><strong>view stock by import date</strong> : <code>importDate [-d] INGREDIENT_NAME</code></p>
-</li>
 </ul>
 </div>
 </div>
@@ -1407,10 +1334,7 @@ with the file that contains the data of your previous <strong><span class="blue"
 <div class="ulist">
 <ul>
 <li>
-<p><strong>add new item</strong> : <code>addItem n/DrinkItem p/DEFAULT_SELLING_PRICE</code></p>
-</li>
-<li>
-<p><strong>view history</strong> : <code>history START_DATE END_DATE</code></p>
+<p><strong>add new item</strong> : <code>add n/DRINK_NAME p/DEFAULT_SELLING_PRICE cp/DEFAULT_COST_PRICE</code></p>
 </li>
 <li>
 <p><strong>create account</strong> : <code>createAccount u/USER_NAME p/PASSWORD a/AUTHENTICATION_LEVEL</code></p>
@@ -1426,10 +1350,10 @@ with the file that contains the data of your previous <strong><span class="blue"
 <div class="ulist">
 <ul>
 <li>
-<p><strong>add new batch of good</strong> : <code>add n/DRINK_NAME  d/DATE_OF_IMPORT  q/QUANTITY_IMPORT p/TOTAL_IMPORT_PRICE</code></p>
+<p><strong>increase quantity of stock</strong> : <code>buy n/DRINK_NAME q/QUANTITY</code></p>
 </li>
 <li>
-<p><strong>record Sale transaction of a drink item</strong> : <code>sell n/DRINK_NAME  d/DATE_SOLD  q/QUANTITY_SOLD p/TOTAL_SELLING_PRICE</code></p>
+<p><strong>decrease quantity of stock</strong> : <code>sell n/DRINK_NAME q/QUANTITY</code></p>
 </li>
 </ul>
 </div>
@@ -1439,22 +1363,26 @@ with the file that contains the data of your previous <strong><span class="blue"
 <div class="ulist">
 <ul>
 <li>
-<p><strong>total profit</strong> : <code>profit</code></p>
+<p><strong>get total profit</strong> : <code>profit</code> <code>[coming in v1.4]</code></p>
 </li>
 <li>
-<p><strong>sale of item</strong> : <code>sales</code></p>
+<p><strong>get total costs</strong> : <code>analyseCosts</code></p>
 </li>
 <li>
-<p><strong>cost of item</strong> : <code>costs</code></p>
+<p><strong>view transactions</strong> : <code>viewTrans</code></p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="administrator-3"><a class="link" href="#administrator-3">13.5. Administrator</a></h3>
+<div class="ulist">
+<ul>
 <li>
-<p><strong>view cost trend</strong> : <code>viewcost</code></p>
-</li>
-<li>
-<p><strong>edit current cost</strong> : <code>editcost</code></p>
+<p><strong>create account</strong> : <code>createAccount u/USER_NAME p/PASSWORD a/AUTHENTICATION_LEVEL</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 03:14:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 08:30:13 UTC</div></div></div></body></html>
