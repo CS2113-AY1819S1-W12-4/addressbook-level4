@@ -93,7 +93,7 @@
 <div class="paragraph">
 <p><strong><span class="blue"><em>Drink I/O</em></span></strong> is a desktop application that helps you to manage your drink distribution company.
 You can use <strong><span class="blue"><em>Drink I/O</em></span></strong> to keep track of your inventory, analyse your company�s sales performance and
-set reminders to help you import more goods should their stocks fall low.
+set reminders to help you purchase more goods should their stocks fall low.
 <strong><span class="blue"><em>Drink I/O</em></span></strong> is optimised for Command Line Interface (CLI), allowing you to manage your store
 faster than traditional Graphical User Interface (GUI) apps, while retaining the benefits of a GUI</p>
 </div>
@@ -470,7 +470,7 @@ your inventory to let <strong><span class="blue"><em>Drink I/O</em></span></stro
 </div>
 <div class="paragraph">
 <p><strong>Command format</strong>:
-<code>addDrink n/NAME p/SELLING_PRICE cp/COST_PRICE</code></p>
+<code>add n/NAME p/SELLING_PRICE cp/COST_PRICE</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -510,7 +510,7 @@ To enter a new drink into <strong><span class="blue"><em>Drink I/O</em></span></
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Enter <code>addDrink</code> into the command box</p>
+<p>Enter <code>add</code> into the command box</p>
 </li>
 <li>
 <p>Key in <code>n/</code>, followed by name of drink (<code>NAME</code>)</p>
@@ -596,7 +596,7 @@ entered into <strong><span class="blue"><em>Drink I/O</em></span></strong><br></
 <div class="sectionbody">
 <div class="paragraph">
 <p>Buying and selling likely occurs frequently in your company. To manage the ins and outs of your drinks,
-you can record your sales and imports of drinks into <strong><span class="blue"><em>Drink I/O</em></span></strong>, and let <strong><span class="blue"><em>Drink I/O</em></span></strong>
+you can record your sales and purchases of drinks into <strong><span class="blue"><em>Drink I/O</em></span></strong>, and let <strong><span class="blue"><em>Drink I/O</em></span></strong>
 handle the updating of the inventory for you in real-time.</p>
 </div>
 <div class="sect2">
@@ -616,7 +616,7 @@ handle the updating of the inventory for you in real-time.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command format</strong>:
-<code>import n/NAME q/QUANTITY</code></p>
+<code>buy n/NAME q/QUANTITY</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -641,7 +641,7 @@ handle the updating of the inventory for you in real-time.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step-by-Step Instructions</strong><br>
-To record an import transaction,</p>
+To record a purchase transaction,</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -652,7 +652,7 @@ To record an import transaction,</p>
 <p>Key in <code>n/</code>, followed by name of drink (<code>NAME</code>)</p>
 </li>
 <li>
-<p>Key in <code>q/</code>, followed by quantity imported (<code>QUANTITY</code>)</p>
+<p>Key in <code>q/</code>, followed by quantity purchased (<code>QUANTITY</code>)</p>
 </li>
 <li>
 <p>Press <kbd>enter</kbd></p>
@@ -662,7 +662,7 @@ To record an import transaction,</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If you see the message "import transaction recorded!", the transaction had been successfully
+<p>If you see the message "Purchase transaction recorded!", the transaction had been successfully
 entered into <strong><span class="blue"><em>Drink I/O</em></span></strong><br></p>
 </li>
 <li>
@@ -682,7 +682,8 @@ entered into <strong><span class="blue"><em>Drink I/O</em></span></strong><br></
 <td class="content">
 <div class="paragraph">
 <p>The drink you want to transact must be recorded in <strong><span class="blue"><em>Drink I/O</em></span></strong>.
-Otherwise, the transaction will not be entered into the system.</p>
+Otherwise,
+the transaction will not be entered into the system.</p>
 </div>
 </td>
 </tr>
@@ -761,7 +762,7 @@ To record a sale transaction,</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If you see the message "sale transaction recorded!", the transaction had been
+<p>If you see the message "Sale transaction recorded!", the transaction had been
 successfully entered into <strong><span class="blue"><em>Drink I/O</em></span></strong></p>
 </li>
 <li>
@@ -1113,14 +1114,14 @@ Format: <code>help</code></p>
 <div class="sect3">
 <h4 id="increase-stock-of-a-drink-code-buy-code"><a class="link" href="#increase-stock-of-a-drink-code-buy-code">10.3.2. Increase stock of a drink: <code>buy</code></a></h4>
 <div class="paragraph">
-<p>Records import of a drink.
-	Format: <code>buy n/DRINK_NAME q/QUANTITY_IMPORT</code>
+<p>Records purchase of a drink.<br>
+	Format: <code>buy n/DRINK_NAME q/QUANTITY_PURCHASED</code><br>
 Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Add n/coca cola q/12</code></p>
+<p><code>buy n/coca cola q/12</code></p>
 </li>
 </ul>
 </div>
@@ -1132,7 +1133,8 @@ Examples:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>DRINK_NAME is predefined by manager, so alert message will appear if the drink name is not in the predefined list. In addition, drink name will be case-insensitive.</p>
+<p>DRINK_NAME is predefined by manager, so an alert message will appear if the drink name is not in the predefined list.
+In addition, drink name is <mark>case-insensitive</mark>.</p>
 </div>
 </td>
 </tr>
@@ -1149,7 +1151,7 @@ Examples:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Sell n/coca cola q/15</code></p>
+<p><code>sell n/coca cola q/15</code></p>
 </li>
 </ul>
 </div>
@@ -1385,4 +1387,4 @@ with the file that contains the data of your previous <strong><span class="blue"
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 12:05:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 12:19:12 UTC</div></div></div></body></html>
