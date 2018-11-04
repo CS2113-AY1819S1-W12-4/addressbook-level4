@@ -12,6 +12,7 @@ import seedu.address.model.Model;
 import seedu.address.model.drink.Drink;
 import seedu.address.model.user.admin.AdminModel;
 import seedu.address.model.user.admin.AdminModelManager;
+import seedu.address.model.user.manager.ManagerModel;
 
 /**
  * Adds a drink to the inventory list.
@@ -44,6 +45,7 @@ public class AddDrinkCommand extends Command {
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
+        assert model instanceof ManagerModel;
         requireNonNull(model);
 
         if (model.hasDrink(toAdd)) {
@@ -52,12 +54,6 @@ public class AddDrinkCommand extends Command {
 
         model.addDrink(toAdd);
 
-        if (model instanceof AdminModel) {
-            System.out.println("add drinkCommand");
-            System.out.println(((AdminModelManager) model).isValid());
-        } else {
-            System.out.println("not rights");
-        }
         return new CommandResult(String.format(MESSAGE_SUCCESS,
                 toAdd.getName().toString(), toAdd.getRetailPrice().toString()));
     }

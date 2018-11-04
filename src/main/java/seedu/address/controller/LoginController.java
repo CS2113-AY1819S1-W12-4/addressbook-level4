@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import seedu.address.authentication.LoginUtils;
@@ -24,7 +25,7 @@ import seedu.address.commons.events.model.InitInventoryListEvent;
 import seedu.address.commons.events.ui.RestartUiEvent;
 import seedu.address.commons.events.ui.StartUiEvent;
 import seedu.address.model.LoginInfoManager;
-
+import seedu.address.ui.LoginHelpWindow;
 
 
 /**
@@ -44,12 +45,28 @@ public class LoginController {
     private Label loginError;
     @FXML
     private TextField commandBox;
+    @FXML
+    private Text help;
+
     private String commandInput;
     private final Logger logger = LogsCenter.getLogger(LoginController.class);
 
     public LoginController() {
         username = "";
         password = "";
+    }
+
+    /**
+     * handle when help is clicked
+     */
+    @FXML
+    public void handleHelpButtonClicked(MouseEvent event){
+        openHelpWindow();
+    }
+
+    private void openHelpWindow(){
+        LoginHelpWindow loginHelpWindow = new LoginHelpWindow ();
+        loginHelpWindow.show ();
     }
 
     /**

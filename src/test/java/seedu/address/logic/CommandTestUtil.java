@@ -1,4 +1,4 @@
-package seedu.address.logic.commands;
+package java.seedu.address.logic;
 
 /**
  * Contains helper methods for testing commands.
