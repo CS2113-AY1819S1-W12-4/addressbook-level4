@@ -16,6 +16,7 @@
 
     document.addEventListener("DOMContentLoaded", function(event) {
       document.getElementById("name").innerHTML=getJsonFromUrl().name;
+      document.getElementById("costPrice").innerHTML=getJsonFromUrl().costPrice;
     });
   </script>
 </head>
@@ -29,7 +30,7 @@
     <font face = "Verdana", size = "2">
       <img src="https://raw.githubusercontent.com/CS2113-AY1819S1-W12-4/main/master/docs/images/placeholder.png"
            align="right" width="300">
-      Selling Price: To be filled once morphed<br />
+      Selling Price: <span id="costPrice"></span><br />
       Cost Price: To be filled once morphed<br /><br />
 
       In Stock: To be filled once morphed<br />
