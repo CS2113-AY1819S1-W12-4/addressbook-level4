@@ -1,11 +1,12 @@
 package seedu.address.model.user;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import seedu.address.testutil.Assert;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class AuthenticationLevelTest {
     @Test
@@ -27,7 +28,8 @@ public class AuthenticationLevelTest {
         assertFalse(AuthenticationLevel.isAuthenticationLevelValid("")); // empty string
         assertFalse(AuthenticationLevel.isAuthenticationLevelValid(" ")); // spaces only
         assertFalse(AuthenticationLevel.isAuthenticationLevelValid("^")); // only non-alphanumeric characters
-        assertFalse(AuthenticationLevel.isAuthenticationLevelValid("accountant")); // invalide name as it require all caps
+        assertFalse(AuthenticationLevel.isAuthenticationLevelValid("accountant"));
+        // invalide name as it require all caps
 
         // valid AuthenticationLevel
         assertTrue(AuthenticationLevel.isAuthenticationLevelValid("ADMIN")); // for admin AuthenticationLevel

@@ -10,8 +10,6 @@ import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.drink.Drink;
-import seedu.address.model.user.admin.AdminModel;
-import seedu.address.model.user.admin.AdminModelManager;
 import seedu.address.model.user.manager.ManagerModel;
 
 /**

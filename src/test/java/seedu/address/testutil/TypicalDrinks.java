@@ -1,12 +1,12 @@
 package seedu.address.testutil;
 //@@author liu-tianhang
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import seedu.address.model.drink.Drink;
 import seedu.address.model.drink.UniqueDrinkList;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * A utility class containing a list of {@code Drink} objects to be used in tests.

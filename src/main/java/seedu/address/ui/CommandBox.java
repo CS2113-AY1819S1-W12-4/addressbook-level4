@@ -129,7 +129,7 @@ public class CommandBox extends UiPart<Region> {
      * Handles the Enter button pressed event.
      */
     @FXML
-    private void handleCommandEntered() throws ParseException{
+    private void handleCommandEntered() throws ParseException {
         if (commandEntered.isEmpty ()) {
             commandEntered = commandTextField.getText ();
             ConfirmCommandParser confirmCommandParser = new ConfirmCommandParser ();
@@ -143,16 +143,16 @@ public class CommandBox extends UiPart<Region> {
                     String.format (CONFIRMATION_OF_COMMAND_MESSAGE , commandEntered)));
             commandTextField.setText ("");
         } else {
-                if (checkCommandConfirmation (commandTextField.getText ())) {
-                    handleConfirmCommand ();
-                    commandEntered = "";
-                    commandTextField.setText ("");
-                } else {
-                    EventsCenter.getInstance ().post (new NewResultAvailableEvent (FAILURE_TO_CONFIRM_COMMAND_MESSAGE));
-                    commandEntered = "";
-                    commandTextField.setText ("");
-                }
+            if (checkCommandConfirmation (commandTextField.getText ())) {
+                handleConfirmCommand ();
+                commandEntered = "";
+                commandTextField.setText ("");
+            } else {
+                EventsCenter.getInstance ().post (new NewResultAvailableEvent (FAILURE_TO_CONFIRM_COMMAND_MESSAGE));
+                commandEntered = "";
+                commandTextField.setText ("");
             }
+        }
 
     }
     //=============uncomment this if u find comfirmation is annoying and c

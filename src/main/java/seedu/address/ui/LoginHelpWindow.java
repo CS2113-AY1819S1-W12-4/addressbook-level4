@@ -1,19 +1,16 @@
 package seedu.address.ui;
 
-import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-import javafx.scene.web.WebView;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import seedu.address.commons.core.LogsCenter;
-
 import java.util.logging.Logger;
 
-public class LoginHelpWindow extends UiPart<Stage>{
+import javafx.fxml.FXML;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+
+import seedu.address.commons.core.LogsCenter;
+/**
+ * Help window on Login Page
+ */
+public class LoginHelpWindow extends UiPart<Stage> {
 
     public static final String USERGUIDE_FILE_PATH = "/docs/HelpWindow.html";
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
@@ -70,34 +67,4 @@ public class LoginHelpWindow extends UiPart<Stage>{
         return getRoot().isShowing();
     }
 
-    /**
-     * Focuses on the help loginWindow.
-     */
-    public void focus() {
-        getRoot().requestFocus();
-    }
-//        public void display() {
-//            Stage window = new Stage();
-//            window.initModality(Modality.APPLICATION_MODAL);
-//            window.setTitle("Help window");
-//            window.setMinWidth(250);
-//            Label label = new Label();
-//            label.setText("Please enter your username and password. The default password is UserName: \"tester\" and password :\"123\" ");
-//
-//            Button okButton = new Button("Ok");
-//
-//            okButton.setOnAction(e -> window.close());
-//
-//
-//            VBox layout = new VBox(10);
-//
-//
-//            layout.getChildren().addAll(label, okButton);
-//            layout.setAlignment(Pos.CENTER);
-//            Scene scene = new Scene (layout);
-//            window.setScene(scene);
-//            window.showAndWait();
-//
-//        }
-
-    }
+}

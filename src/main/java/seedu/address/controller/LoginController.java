@@ -1,5 +1,13 @@
+//@@author liu-tianhang
 package seedu.address.controller;
 
+import static seedu.address.controller.LoginControllerConstantMessage.EMPTY_PASSWORD_MESSAGE;
+import static seedu.address.controller.LoginControllerConstantMessage.EMPTY_STRING;
+import static seedu.address.controller.LoginControllerConstantMessage.EMPTY_USERNAME_MESSAGE;
+import static seedu.address.controller.LoginControllerConstantMessage.MAX_PASSWORD_LENGTH_MESSAGE;
+import static seedu.address.controller.LoginControllerConstantMessage.MAX_USERNAME_LENGTH_MESSAGE;
+import static seedu.address.controller.LoginControllerConstantMessage.WRONG_FORMAT_FOR_USERNAME_AND_PASSWORD_MESSAGE;
+import static seedu.address.controller.LoginControllerConstantMessage.WRONG_USERNAME_AND_PASSWORD_MESSAGE;
 import static seedu.address.model.user.Password.MAX_LENGTH_FOR_PASSWORD;
 import static seedu.address.model.user.UserName.MAX_LENGTH_FOR_USERNAME;
 
@@ -25,6 +33,8 @@ import seedu.address.commons.events.model.InitInventoryListEvent;
 import seedu.address.commons.events.ui.RestartUiEvent;
 import seedu.address.commons.events.ui.StartUiEvent;
 import seedu.address.model.LoginInfoManager;
+import seedu.address.model.user.Password;
+import seedu.address.model.user.UserName;
 import seedu.address.ui.LoginHelpWindow;
 
 
@@ -60,11 +70,11 @@ public class LoginController {
      * handle when help is clicked
      */
     @FXML
-    public void handleHelpButtonClicked(MouseEvent event){
+    public void handleHelpButtonClicked(MouseEvent event) {
         openHelpWindow();
     }
 
-    private void openHelpWindow(){
+    private void openHelpWindow() {
         LoginHelpWindow loginHelpWindow = new LoginHelpWindow ();
         loginHelpWindow.show ();
     }
@@ -96,7 +106,7 @@ public class LoginController {
             } else if (count == 1) {
                 password = splited[count];
             } else if (count > 1) {
-                loginError.setText ("Wrong format for username and password");
+                loginError.setText (WRONG_FORMAT_FOR_USERNAME_AND_PASSWORD_MESSAGE);
             }
             count++;
         }
@@ -152,30 +162,52 @@ public class LoginController {
         if (!isLengthOfUserNameValid () || !isLengthOfPasswordValid ()) {
             return;
         }
-        LoginUtils loginUtils = new LoginUtils (username, password, loginInfoManager);
-        if (!loginUtils.isUsernameEmpty ()) {
-            loginError.setText("Please enter username");
-            return;
-        } else if (!loginUtils.isPasswordEmpty ()) {
-            loginError.setText("Please enter password");
+        if (!isFormatOfUserNameAndPasswordCorrect ()) {
             return;
         }
-        if (loginUtils.isPasswordAndUserNameValid ()) {
+        if (isLoginInfoCorrect ()) {
             changeStageToMainUi();
             clearLoginInput();
         } else {
+            loginError.setText(WRONG_USERNAME_AND_PASSWORD_MESSAGE);
             clearLoginInput();
-            loginError.setText("wrong username or password");
         }
     }
 
+    /**
+     * Check with storage about the account
+     */
+    private boolean isLoginInfoCorrect () {
+        UserName userName = new UserName (this.username);
+        Password password = new Password (this.password);
+        LoginUtils loginUtils = new LoginUtils (userName, password, loginInfoManager);
+
+        if (loginUtils.isPasswordAndUserNameValid ()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    /**
+     *Returns true if the input follow the format of UserName and Password
+     */
+    private boolean isFormatOfUserNameAndPasswordCorrect () {
+        if (!UserName.isValidUserName (this.username)) {
+            loginError.setText(EMPTY_USERNAME_MESSAGE);
+            return false;
+        } else if (!Password.isValidPassword (this.password)) {
+            loginError.setText(EMPTY_PASSWORD_MESSAGE);
+            return false;
+        }
+        return true;
+    }
     /**
      *Return false if userName length is more than {@code MAX_LENGTH_FOR_USERNAME}
      *
      */
     private boolean isLengthOfUserNameValid() {
         if (username.length () > MAX_LENGTH_FOR_USERNAME) {
-            loginError.setText("UserName Length should not be more than 30");
+            loginError.setText(MAX_USERNAME_LENGTH_MESSAGE);
             return false;
         }
         return true;
@@ -185,7 +217,7 @@ public class LoginController {
      */
     private boolean isLengthOfPasswordValid() {
         if (password.length () > MAX_LENGTH_FOR_PASSWORD) {
-            loginError.setText("Password Length should not be more than 30");
+            loginError.setText(MAX_PASSWORD_LENGTH_MESSAGE);
             return false;
         }
         return true;
@@ -195,12 +227,12 @@ public class LoginController {
      * Set back the ui into clean state
      */
     private void clearLoginInput() {
-        usernameField.setText ("");
-        passwordField.setText ("");
-        commandBox.setText ("");
-        loginError.setText ("");
-        username = "";
-        password = "";
+        usernameField.setText (EMPTY_STRING);
+        passwordField.setText (EMPTY_STRING);
+        commandBox.setText (EMPTY_STRING);
+        loginError.setText (EMPTY_STRING);
+        username = EMPTY_STRING;
+        password = EMPTY_STRING;
 
     }
     /**

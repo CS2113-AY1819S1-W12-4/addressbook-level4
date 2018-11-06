@@ -1,13 +1,11 @@
 package seedu.address.authentication;
 //@@author liu-tianhang
-import org.junit.Test;
-import seedu.address.testutil.Assert;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.authentication.PasswordUtils.generateSecurePassword;
-import static seedu.address.authentication.PasswordUtils.verifyUserPassword;
+
+import org.junit.Test;
 
 public class PasswordUtilsTest {
     @Test

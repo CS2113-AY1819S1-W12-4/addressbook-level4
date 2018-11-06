@@ -11,6 +11,9 @@ import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
 //@@author liu-tianhang
+/**
+ * A utility class to help with building Drink objects.
+ */
 public class DrinkBuilder {
     public static final String DEFAULT_NAME = "Coca cola";
     public static final String DEFAULT_COST_PRICE = "3.90";
@@ -24,7 +27,7 @@ public class DrinkBuilder {
     private Quantity quantity;
     private Set<Tag> tags;
 
-    public DrinkBuilder(){
+    public DrinkBuilder() {
         name = new Name (DEFAULT_NAME);
         costPrice = new Price (DEFAULT_COST_PRICE);
         retailPrice = new Price (DEFAULT_RETAIL_PRICE);
@@ -67,6 +70,8 @@ public class DrinkBuilder {
         this.quantity = new Quantity (quantity);
         return this;
     }
-    public Drink build(){ return new Drink (name, costPrice, retailPrice, quantity, tags);}
+    public Drink build() {
+        return new Drink (name, costPrice, retailPrice, quantity, tags);
+    }
 }
 

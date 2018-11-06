@@ -1,29 +1,32 @@
 package seedu.address.logic.commands;
 //@@author liu-tianhang
-import javafx.collections.ObservableList;
+import static java.util.Objects.requireNonNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.function.Predicate;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import javafx.collections.ObservableList;
+
 import seedu.address.commons.core.LoginInfo;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.InventoryList;
 import seedu.address.model.ReadOnlyInventoryList;
 import seedu.address.model.drink.Drink;
-import seedu.address.testutil.DrinkBuilder;
 import seedu.address.model.user.AuthenticationLevel;
 import seedu.address.model.user.Password;
 import seedu.address.model.user.UserName;
 import seedu.address.model.user.manager.ManagerModel;
+import seedu.address.testutil.DrinkBuilder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.function.Predicate;
-
-import static java.util.Objects.requireNonNull;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class AddDrinkCommandTest {
     private static final CommandHistory EMPTY_COMMAND_HISTORY = new CommandHistory();
@@ -40,7 +43,7 @@ public class AddDrinkCommandTest {
     }
 
     @Test
-    public void execute_drinkAcceptedByManagerModel_addSuccessful() throws Exception{
+    public void execute_drinkAcceptedByManagerModel_addSuccessful() throws Exception {
         ManagerModelStubAcceptingPersonAdded modelStub = new ManagerModelStubAcceptingPersonAdded ();
         Drink validDrink = new DrinkBuilder ().build ();
 
@@ -85,7 +88,7 @@ public class AddDrinkCommandTest {
         assertFalse(addCokeCommand.equals(addPepsiCommand));
     }
 
-    private class ManagerModelStub implements ManagerModel{
+    private class ManagerModelStub implements ManagerModel {
 
         @Override
         public void createNewAccount (UserName userName, Password password, AuthenticationLevel authenticationLevel) {
@@ -151,15 +154,15 @@ public class AddDrinkCommandTest {
     /**
      * A model stub that contains a single drink
      */
-    private class ManagerModelStubWithDrink extends ManagerModelStub{
+    private class ManagerModelStubWithDrink extends ManagerModelStub {
         private final Drink drink;
 
-        ManagerModelStubWithDrink(Drink drink){
+        ManagerModelStubWithDrink(Drink drink) {
             requireNonNull(drink);
             this.drink = drink;
         }
         @Override
-        public boolean hasDrink (Drink drink){
+        public boolean hasDrink (Drink drink) {
             requireNonNull (drink);
             return this.drink.isSameDrink (drink);
         }
@@ -167,7 +170,7 @@ public class AddDrinkCommandTest {
     /**
      * A model stub that always accept the drink being added.
      */
-    public class ManagerModelStubAcceptingPersonAdded extends ManagerModelStub{
+    public class ManagerModelStubAcceptingPersonAdded extends ManagerModelStub {
         final ArrayList<Drink> drinksAdded = new ArrayList<> ();
 
         @Override

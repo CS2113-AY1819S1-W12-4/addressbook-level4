@@ -1,14 +1,12 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddDrinkCommand;
 import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
@@ -25,9 +23,6 @@ import seedu.address.logic.commands.user.CreateAccountCommand;
 import seedu.address.logic.commands.user.DeleteAccountCommand;
 import seedu.address.logic.commands.user.LogoutCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.logic.parser.user.ChangePasswordCommandParser;
-import seedu.address.logic.parser.user.CreateAccountCommandParser;
-import seedu.address.logic.parser.user.DeleteAccountCommandParser;
 
 /**
  * Parses user input.
@@ -56,68 +51,68 @@ public class ConfirmCommandParser {
         final String arguments = matcher.group("arguments");
 
         switch (commandWord) {
-            // ========= manager commands ==================
-            case AddDrinkCommand.COMMAND_WORD:
-                return true;
+        // ========= manager commands ==================
+        case AddDrinkCommand.COMMAND_WORD:
+            return true;
 
-            // ========= stock taker commands ==================
-            case SellDrinkCommand.COMMAND_WORD:
-                return true;
+        // ========= stock taker commands ==================
+        case SellDrinkCommand.COMMAND_WORD:
+            return true;
 
-            case BuyDrinkCommand.COMMAND_WORD:
-                return true;
+        case BuyDrinkCommand.COMMAND_WORD:
+            return true;
 
-            case ViewTransactionsCommand.COMMAND_WORD:
-                return false;
+        case ViewTransactionsCommand.COMMAND_WORD:
+            return false;
 
-            // ========= accountant commands ==================
+        // ========= accountant commands ==================
 
-            case AnalyseCostsCommand.COMMAND_WORD:
-                return false;
-
-
-
-            // ==========login related command===============//
-
-            case ChangePasswordCommand.COMMAND_WORD:
-                return true;
+        case AnalyseCostsCommand.COMMAND_WORD:
+            return false;
 
 
-            case CreateAccountCommand.COMMAND_WORD:
-                return true;
+
+        // ==========login related command===============//
+
+        case ChangePasswordCommand.COMMAND_WORD:
+            return true;
 
 
-            case DeleteAccountCommand.COMMAND_WORD:
-                return true;
+        case CreateAccountCommand.COMMAND_WORD:
+            return true;
 
-            case LogoutCommand.COMMAND_WORD:
-                return false;
-            //=============general command==================//
-            case SelectCommand.COMMAND_WORD:
-                return false;
 
-            case DeleteCommand.COMMAND_WORD:
-                return true;
+        case DeleteAccountCommand.COMMAND_WORD:
+            return true;
 
-            case ClearCommand.COMMAND_WORD:
-                return true;
+        case LogoutCommand.COMMAND_WORD:
+            return false;
+        //=============general command==================//
+        case SelectCommand.COMMAND_WORD:
+            return false;
 
-            case FindCommand.COMMAND_WORD:
-                return false;
+        case DeleteCommand.COMMAND_WORD:
+            return true;
 
-            case ListCommand.COMMAND_WORD:
-                return false;
+        case ClearCommand.COMMAND_WORD:
+            return true;
 
-            case HistoryCommand.COMMAND_WORD:
-                return false;
-            case ExitCommand.COMMAND_WORD:
-                return false;
+        case FindCommand.COMMAND_WORD:
+            return false;
 
-            case HelpCommand.COMMAND_WORD:
-                return false;
+        case ListCommand.COMMAND_WORD:
+            return false;
 
-            default:
-                return false;
+        case HistoryCommand.COMMAND_WORD:
+            return false;
+        case ExitCommand.COMMAND_WORD:
+            return false;
+
+        case HelpCommand.COMMAND_WORD:
+            return false;
+
+        default:
+            return false;
         }
     }
 

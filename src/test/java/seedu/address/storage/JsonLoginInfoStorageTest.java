@@ -19,7 +19,8 @@ import seedu.address.storage.logininfo.JsonLoginInfoStorage;
 
 public class JsonLoginInfoStorageTest {
 
-    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "java", "seedu", "address", "data", "JsonLoginInfoStorageTest");
+    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "java",
+                                                    "seedu", "address", "data", "JsonLoginInfoStorageTest");
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -33,7 +34,8 @@ public class JsonLoginInfoStorageTest {
         readLoginInfo (null);
     }
 
-    private Optional<LoginInfoManager> readLoginInfo (String userLoginFileInTestDataFolder) throws DataConversionException {
+    private Optional<LoginInfoManager> readLoginInfo (String userLoginFileInTestDataFolder)
+                                        throws DataConversionException {
         Path prefsFilePath = addToTestDataPathIfNotNull(userLoginFileInTestDataFolder);
         return new JsonLoginInfoStorage (prefsFilePath).readLoginInfo(prefsFilePath);
     }
