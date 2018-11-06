@@ -12,6 +12,7 @@ public class TransactionTypeTest {
     private TransactionType saleType = TransactionType.SALE;
     private TransactionType importType = TransactionType.PURCHASE;
 
+    // TODO: decide whether these are necessary
     @Test
     public void constructor_sale_returnSale() {
         Assert.assertEquals(saleType, TransactionType.valueOf("SALE"));

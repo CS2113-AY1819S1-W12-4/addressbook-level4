@@ -4,6 +4,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.HYPHEN_MONTH;
 import static seedu.address.logic.parser.CliSyntax.HYPHEN_WEEK_REGEX;
 
+import seedu.address.analysis.AnalysisPeriodType;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
@@ -37,7 +38,7 @@ public class AnalyseCostsCommand extends Command {
         requireAllNonNull(model);
         assert model instanceof AccountantModel;
         AccountantModel accountantModel = (AccountantModel) model;
-        Price totalCosts = accountantModel.analyseCosts();
+        Price totalCosts = accountantModel.analyseCosts(AnalysisPeriodType.DAY);
 
         return new CommandResult(String.format(MESSAGE_SUCCESS, totalCosts));
     }

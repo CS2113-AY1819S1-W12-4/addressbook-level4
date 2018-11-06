@@ -33,5 +33,4 @@ public class CliSyntax {
     /*accountant selection of time period*/
     public static final String HYPHEN_WEEK_REGEX = "-w";
     public static final String HYPHEN_MONTH = "-m";
-
 }
