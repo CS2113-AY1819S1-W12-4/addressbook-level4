@@ -1,13 +1,11 @@
-package seedu.address;
+package seedu.address.authentication;
+//@@author liu-tianhang
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-
-import seedu.address.authentication.PasswordUtils;
-
 
 public class PasswordUtilsTest {
     @Test
@@ -29,7 +27,7 @@ public class PasswordUtilsTest {
     public void verifyUserPasswordTest() {
         //expect to pass
         boolean result = PasswordUtils.verifyUserPassword ("myPassword123",
-                                                "HhaNvzTsVYwS/x/zbYXlLOE3ETMXQgllqrDaJY9PD/U=");
+                "HhaNvzTsVYwS/x/zbYXlLOE3ETMXQgllqrDaJY9PD/U=");
         assertTrue (result);
 
         result = PasswordUtils.verifyUserPassword ("ePYHc~dS*)8$+V-", "Xk2lFYYrsGuPMF6iOp/AwvLyvR17BWMcpaNcyo6ziGo=");
@@ -45,5 +43,4 @@ public class PasswordUtilsTest {
         result = PasswordUtils.verifyUserPassword ("ePYHc~dS*)8$+V-", "Xk2lFYYrsGuPMF6iOp/AwvLyvR17BWMcpaNcyo6ziGo");
         assertFalse(result);
     }
-
 }

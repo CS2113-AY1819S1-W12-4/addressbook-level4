@@ -1,11 +1,10 @@
-package seedu.address.model;
+package seedu.address.model.user;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import seedu.address.model.user.Password;
 import seedu.address.testutil.Assert;
 
 
