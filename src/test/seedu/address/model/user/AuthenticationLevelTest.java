@@ -1,13 +1,12 @@
 //@@author liu-tianhang
-package model.user;
+package seedu.address.model.user;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import seedu.address.model.user.AuthenticationLevel;
-import testutil.Assert;
+import seedu.address.testutil.Assert;
 
 
 public class AuthenticationLevelTest {

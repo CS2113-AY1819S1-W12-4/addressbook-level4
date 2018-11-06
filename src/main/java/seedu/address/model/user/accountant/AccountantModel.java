@@ -16,11 +16,11 @@ public interface AccountantModel extends Model {
     /**
      * Returns the total revenue earned.
      */
-//    Price analyseRevenue();
+    //    Price analyseRevenue();
 
     /**
      * Returns the total profit earned.
      */
-//    Price analyseProfit();
+    //    Price analyseProfit();
 
 }

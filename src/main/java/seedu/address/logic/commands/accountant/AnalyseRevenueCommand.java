@@ -1,6 +1,10 @@
 //@@author liu-tianhang
 package seedu.address.logic.commands.accountant;
 
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.parser.CliSyntax.HYPHEN_MONTH;
+import static seedu.address.logic.parser.CliSyntax.HYPHEN_WEEK;
+
 import seedu.address.analysis.AnalysisPeriodType;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.Command;
@@ -10,10 +14,9 @@ import seedu.address.model.Model;
 import seedu.address.model.drink.Price;
 import seedu.address.model.user.accountant.AccountantModel;
 
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-import static seedu.address.logic.parser.CliSyntax.HYPHEN_MONTH;
-import static seedu.address.logic.parser.CliSyntax.HYPHEN_WEEK;
-
+/**
+ * Command for show analysis Revenue
+ */
 public class AnalyseRevenueCommand extends Command {
     public static final String COMMAND_WORD = "revenue";
 

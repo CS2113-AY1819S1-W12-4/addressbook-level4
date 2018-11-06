@@ -110,15 +110,14 @@ public class AdminModelManager extends ModelManager implements AdminModel {
     public Price analyseCosts(AnalysisPeriodType period) {
         return analysis.analyseCost(period);
     }
-/*
-    @Override
-    public Price analyseRevenue() {
-        return analysis.analyseRevenue();
-    }
-
-    @Override
-    public Price analyseProfit() {
-        return analysis.analyseProfit();
-    }
-*/
+    /*
+        @Override
+        public Price analyseRevenue() {
+            return analysis.analyseRevenue();
+        }
+        @Override
+        public Price analyseProfit() {
+            return analysis.analyseProfit();
+        }
+    */
 }

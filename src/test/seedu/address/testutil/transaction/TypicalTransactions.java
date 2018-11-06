@@ -1,4 +1,4 @@
-package model.transaction.testutil;
+package seedu.address.testutil.transaction;
 
 import java.util.ArrayList;
 import java.util.Arrays;

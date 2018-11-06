@@ -22,7 +22,7 @@ public interface Model {
     /** Clears existing backing model and replaces with the provided new data. */
     void resetData(ReadOnlyInventoryList newData);
 
-    /** Returns the InventoryList */
+    /** Returns the inventoryList */
     ReadOnlyInventoryList getInventoryList();
 
     /**

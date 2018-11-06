@@ -1,5 +1,5 @@
 //@@author Lunastryke
-package model.drink;
+package seedu.address.model.drink;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -10,8 +10,8 @@ import java.time.format.DateTimeParseException;
 
 import org.junit.jupiter.api.Test;
 
-import model.testutil.Assert;
-import seedu.address.model.drink.Date;
+import seedu.address.testutil.Assert;
+
 
 class DateTest {
 

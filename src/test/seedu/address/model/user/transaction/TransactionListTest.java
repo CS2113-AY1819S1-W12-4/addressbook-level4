@@ -1,13 +1,15 @@
-package seedu.address.model.transaction;
+package seedu.address.model.user.transaction;
 
 import static org.junit.Assert.assertEquals;
-import static seedu.address.model.transaction.testutil.TypicalTransactions.getTypicalTransactionList;
+import static seedu.address.testutil.transaction.TypicalTransactions.getTypicalTransactionList;
 
 import java.util.Collections;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import seedu.address.model.transaction.TransactionList;
 
 public class TransactionListTest {
     @Rule
