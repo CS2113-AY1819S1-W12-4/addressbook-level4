@@ -20,7 +20,7 @@ public class AnalysisManager extends ComponentManager implements Analysis {
 
     @Override
     public Price analyseProfit() {
-        // TODO: stub
+        List<Transaction> transactions = transactionList.getTransactions();
         return null;
 
     }
@@ -30,7 +30,7 @@ public class AnalysisManager extends ComponentManager implements Analysis {
         List<Transaction> transactions = transactionList.getTransactions();
         float totalCost = 0;
         for (Transaction transaction : transactions) {
-            if (transaction.getTransactionType() == TransactionType.IMPORT) {
+            if (transaction.getTransactionType() == TransactionType.PURCHASE) {
                 totalCost += transaction.getAmountMoney().getValue();
             }
         }

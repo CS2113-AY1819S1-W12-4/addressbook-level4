@@ -2,16 +2,15 @@ package seedu.address.ui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import seedu.address.model.drink.Drink;
+import seedu.address.model.drink.Batch;
 
 /**
  * An UI component that displays information of a {@code Drink}.
  */
-public class DrinkCard extends UiPart<Region> {
-    private static final String FXML = "DrinkListCard.fxml";
+public class BatchCard extends UiPart<Region> {
+    private static final String FXML = "BatchListCard.fxml";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -21,32 +20,26 @@ public class DrinkCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
-    public final Drink drink;
+    public final Batch batch;
 
     @FXML
     private HBox cardPane;
     @FXML
-    private Label name;
+    private Label batchId;
     @FXML
     private Label id;
     @FXML
-    private Label stock;
+    private Label batchQuantity;
     @FXML
-    private FlowPane tags;
-    @FXML
-    private Label costPrice;
-    @FXML
-    private Label retailPrice;
+    private Label batchDate;
 
-    public DrinkCard(Drink drink, int displayedIndex) {
+    public BatchCard(Batch batch, int displayedIndex) {
         super(FXML);
-        this.drink = drink;
+        this.batch = batch;
         id.setText(displayedIndex + ". ");
-        name.setText(drink.getName().name);
-        stock.setText("Quantity in stock: " + Integer.toString(drink.getQuantity().getValue()));
-        costPrice.setText("Cost Price: $" + drink.getCostPrice().toString());
-        retailPrice.setText("Selling Price: $" + drink.getRetailPrice().toString());
-        drink.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        batchId.setText(batch.getBatchId().toString());
+        batchQuantity.setText("Quantity in batch: " + Integer.toString(batch.getBatchQuantity().getValue()));
+        batchDate.setText("Batch Date: " + batch.getBatchDate().toString());
     }
 
     @Override
@@ -57,13 +50,13 @@ public class DrinkCard extends UiPart<Region> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof DrinkCard)) {
+        if (!(other instanceof BatchCard)) {
             return false;
         }
 
         // state check
-        DrinkCard card = (DrinkCard) other;
+        BatchCard card = (BatchCard) other;
         return id.getText().equals(card.id.getText())
-                && drink.equals(card.drink);
+                && batch.equals(card.batch);
     }
 }

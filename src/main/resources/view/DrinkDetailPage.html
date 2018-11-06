@@ -13,13 +13,10 @@
       });
       return result;
     }
-
     document.addEventListener("DOMContentLoaded", function(event) {
-      document.getElementById("name").innerHTML=getJsonFromUrl().name;
-      document.getElementById("sellingPrice").innerHTML=getJsonFromUrl().sellingPrice;
-      document.getElementById("costPrice").innerHTML=getJsonFromUrl().costPrice;
-      document.getElementById("stock").innerHTML=getJsonFromUrl().stock;
-      document.getElementById("earliestBatchDate").innerHTML=getJsonFromUrl().earliestBatchDate;
+      document.getElementById("name").innerHTML= getJsonFromUrl().name;
+      document.getElementById("costPrice").innerHTML= sellingPrice;
+      document.getElementById("costPrice").innerHTML= costPrice;
     });
   </script>
 </head>
@@ -33,11 +30,12 @@
     <font face = "Verdana", size = "2">
       <img src="https://raw.githubusercontent.com/CS2113-AY1819S1-W12-4/main/master/docs/images/placeholder.png"
            align="right" width="300">
-      Selling Price: $ <span id="sellingPrice"></span><br />
-      Cost Price: $ <span id="costPrice"></span><br /><br />
-      In Stock: <span id="stock"></span><br />
+      Selling Price: <span id = "sellingPrice"></span><br />
+      Cost Price: <span id = "costPrice"></span><br /><br />
+
+      In Stock: To be filled once morphed<br />
       Batches in Inventory: To be filled once morphed<br />
-      Earliest Batch Import Date: <span id="earliestBatchDate"></span><br /><br />
+      Earliest Batch Import Date: To be filled once morphed<br /><br />
 
       Last Batch Imported Date: To be filled once morphed<br />
       Next Delivery Date: To be filled once morphed<br />

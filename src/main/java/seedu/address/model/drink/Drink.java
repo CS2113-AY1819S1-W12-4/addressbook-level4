@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import seedu.address.model.drink.exceptions.EmptyBatchListException;
 import seedu.address.model.drink.exceptions.InsufficientQuantityException;
 import seedu.address.model.tag.Tag;
 
@@ -124,6 +127,26 @@ public class Drink {
     }
 
     /**
+     * Gets the date of the earliest imported batch
+     * @return a Batch Date object
+     */
+    public BatchDate getEarliestBatchDate() {
+        try {
+            return uniqueBatchList.getEarliestBatchDate();
+        } catch (EmptyBatchListException e) {
+            return null;
+        }
+    }
+
+    public ObservableList<Batch> getObservableBatchList() {
+        try {
+            return uniqueBatchList.asUnmodifiableObservableList();
+        } catch (EmptyBatchListException e) {
+            return FXCollections.observableArrayList();
+        }
+    }
+
+    /**
      * Returns true if both persons have the same identity and data fields.
      * This defines a stronger notion of equality between two persons.
      */
@@ -139,6 +162,10 @@ public class Drink {
 
         Drink otherDrink = (Drink) other;
         return otherDrink.getName().equals(getName())
+                && otherDrink.getRetailPrice().equals(getRetailPrice())
+                && otherDrink.getCostPrice().equals(getCostPrice())
+                && otherDrink.getQuantity().equals(getQuantity())
+                // && otherDrink.getUniqueBatchList().equals(getUniqueBatchList())
                 && otherDrink.getTags().equals(getTags());
     }
 
@@ -170,7 +197,7 @@ public class Drink {
      * Increases the quantity of the drink, using {@code quantity} as the value to increase
      */
     public void increaseQuantity(Quantity quantity) {
-        BatchId tempId = new BatchId("01");
+        BatchId tempId = new BatchId();
         BatchPrice tempPrice = new BatchPrice(this.getCostPrice().toString());
         BatchQuantity tempQuantity = new BatchQuantity(quantity.toString());
         Batch toAdd = new Batch(tempId, tempQuantity, tempPrice);
