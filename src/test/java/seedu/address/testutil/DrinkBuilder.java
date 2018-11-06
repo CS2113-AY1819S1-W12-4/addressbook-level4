@@ -1,11 +1,15 @@
 package seedu.address.testutil;
 
-import seedu.address.model.drink.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import seedu.address.model.drink.Drink;
+import seedu.address.model.drink.Name;
+import seedu.address.model.drink.Price;
+import seedu.address.model.drink.Quantity;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
-import java.util.HashSet;
-import java.util.Set;
 //@@author liu-tianhang
 public class DrinkBuilder {
     public static final String DEFAULT_NAME = "Coca cola";
@@ -63,6 +67,6 @@ public class DrinkBuilder {
         this.quantity = new Quantity (quantity);
         return this;
     }
-    public Drink build(){ return new Drink (name, costPrice, retailPrice, quantity,tags);}
+    public Drink build(){ return new Drink (name, costPrice, retailPrice, quantity, tags);}
 }
 
