@@ -20,15 +20,9 @@ public class AddDrinkCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a new drink to Drink I/0. "
             + "Parameters: "
-<<<<<<< HEAD
-            + PREFIX_DRINK_NAME + "Drink item "
-            + PREFIX_DRINK_DEFAULT_SELLING_PRICE + "Default selling price "
-            + PREFIX_DRINK_COST_PRICE + "Cost price \n"
-=======
             + PREFIX_DRINK_NAME + "DRINK NAME "
             + PREFIX_DRINK_DEFAULT_SELLING_PRICE + "SELLING PRICE "
             + PREFIX_DRINK_COST_PRICE + "COST PRICE \n"
->>>>>>> 2ed7dc8a0f0b3503b6798d71663fece3f991eb78
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_DRINK_NAME + "Coca Cola Original "
             + PREFIX_DRINK_DEFAULT_SELLING_PRICE + "20.00 "
