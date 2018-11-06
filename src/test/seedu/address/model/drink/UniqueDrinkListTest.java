@@ -5,11 +5,11 @@ import static logic.CommandTestUtil.VALID_DRINK_NAME_COCA_COLA;
 import static logic.CommandTestUtil.VALID_DRINK_QUANTITY;
 import static logic.CommandTestUtil.VALID_DRINK_RETAIL_PRICE;
 import static logic.CommandTestUtil.VALID_DRINK_TAG_SOFTDRINK;
+import static model.testutil.TypicalDrinks.GREEN_TEA;
+import static model.testutil.TypicalDrinks.PEPSI;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static model.testutil.TypicalDrinks.GREEN_TEA;
-import static model.testutil.TypicalDrinks.PEPSI;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,11 +19,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import model.testutil.DrinkBuilder;
 import seedu.address.model.drink.Drink;
 import seedu.address.model.drink.UniqueDrinkList;
 import seedu.address.model.drink.exceptions.DrinkNotFoundException;
 import seedu.address.model.drink.exceptions.DuplicateDrinkException;
-import model.testutil.DrinkBuilder;
 
 public class UniqueDrinkListTest {
     @Rule

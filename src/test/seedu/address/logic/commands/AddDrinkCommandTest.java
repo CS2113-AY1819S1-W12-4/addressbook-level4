@@ -14,7 +14,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import javafx.collections.ObservableList;
-
+import model.testutil.DrinkBuilder;
 import seedu.address.commons.core.LoginInfo;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.AddDrinkCommand;
@@ -67,8 +67,8 @@ public class AddDrinkCommandTest {
     }
     @Test
     public void equals() {
-        Drink coke = new DrinkBuilder().withDrinkName("coca cola").build();
-        Drink pepsi = new DrinkBuilder().withDrinkName("pepsi").build();
+        Drink coke = new DrinkBuilder().withName ("coca cola").build();
+        Drink pepsi = new DrinkBuilder().withName ("pepsi").build();
         AddDrinkCommand addCokeCommand = new AddDrinkCommand(coke);
         AddDrinkCommand addPepsiCommand = new AddDrinkCommand(pepsi);
 

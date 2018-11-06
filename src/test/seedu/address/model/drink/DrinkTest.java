@@ -6,10 +6,10 @@ import static logic.CommandTestUtil.VALID_DRINK_QUANTITY;
 import static logic.CommandTestUtil.VALID_DRINK_RETAIL_PRICE;
 import static logic.CommandTestUtil.VALID_DRINK_TAG_SOFTDRINK;
 import static logic.CommandTestUtil.VALID_DRINK_TAG_TEA;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static model.testutil.TypicalDrinks.FNN_GRAPE;
 import static model.testutil.TypicalDrinks.FNN_GRAPE_COPY;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Rule;
 import org.junit.Test;

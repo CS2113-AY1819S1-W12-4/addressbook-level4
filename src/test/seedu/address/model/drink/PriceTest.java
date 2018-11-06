@@ -1,7 +1,7 @@
 package model.drink;
 
-import static java.seedu.address.logic.CommandTestUtil.VALID_DRINK_COST_PRICE;
-import static java.seedu.address.logic.CommandTestUtil.VALID_DRINK_RETAIL_PRICE;
+import static logic.CommandTestUtil.VALID_DRINK_COST_PRICE;
+import static logic.CommandTestUtil.VALID_DRINK_RETAIL_PRICE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

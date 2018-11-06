@@ -1,10 +1,11 @@
 package model.transaction;
 
-import static seedu.address.model.transaction.testutil.TypicalTransactions.BUY_PEPSI;
-import static seedu.address.model.transaction.testutil.TypicalTransactions.SALE_COKE_1;
+import static model.transaction.testutil.TypicalTransactions.BUY_PEPSI;
+import static model.transaction.testutil.TypicalTransactions.SALE_COKE_1;
 
 import org.junit.Assert;
 import org.junit.Test;
+
 import seedu.address.model.transaction.TransactionType;
 
 public class TransactionTypeTest {

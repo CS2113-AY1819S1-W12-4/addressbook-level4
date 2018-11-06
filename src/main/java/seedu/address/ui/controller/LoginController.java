@@ -1,6 +1,8 @@
 //@@author liu-tianhang
 package seedu.address.ui.controller;
 
+import static seedu.address.model.user.Password.MAX_LENGTH_FOR_PASSWORD;
+import static seedu.address.model.user.UserName.MAX_LENGTH_FOR_USERNAME;
 import static seedu.address.ui.controller.LoginControllerConstantMessage.EMPTY_PASSWORD_MESSAGE;
 import static seedu.address.ui.controller.LoginControllerConstantMessage.EMPTY_STRING;
 import static seedu.address.ui.controller.LoginControllerConstantMessage.EMPTY_USERNAME_MESSAGE;
@@ -8,8 +10,6 @@ import static seedu.address.ui.controller.LoginControllerConstantMessage.MAX_PAS
 import static seedu.address.ui.controller.LoginControllerConstantMessage.MAX_USERNAME_LENGTH_MESSAGE;
 import static seedu.address.ui.controller.LoginControllerConstantMessage.WRONG_FORMAT_FOR_USERNAME_AND_PASSWORD_MESSAGE;
 import static seedu.address.ui.controller.LoginControllerConstantMessage.WRONG_USERNAME_AND_PASSWORD_MESSAGE;
-import static seedu.address.model.user.Password.MAX_LENGTH_FOR_PASSWORD;
-import static seedu.address.model.user.UserName.MAX_LENGTH_FOR_USERNAME;
 
 import java.util.logging.Logger;
 

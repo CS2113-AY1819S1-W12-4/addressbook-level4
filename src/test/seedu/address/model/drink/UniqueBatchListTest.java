@@ -1,20 +1,20 @@
 //@@author Lunastryke
 package model.drink;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static model.testutil.TypicalBatches.COKE2;
 import static model.testutil.TypicalBatches.COKE6;
 import static model.testutil.TypicalBatches.getTypicalBatches;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
+import model.testutil.Assert;
 import seedu.address.model.drink.UniqueBatchList;
 import seedu.address.model.drink.exceptions.BatchNotFoundException;
-import model.testutil.Assert;
 
 class UniqueBatchListTest {
     @Rule
