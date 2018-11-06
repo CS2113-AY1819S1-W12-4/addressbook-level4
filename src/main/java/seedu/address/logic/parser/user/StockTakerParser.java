@@ -20,11 +20,11 @@ import seedu.address.logic.commands.stocktaker.BuyDrinkCommand;
 import seedu.address.logic.commands.stocktaker.SellDrinkCommand;
 import seedu.address.logic.commands.user.ChangePasswordCommand;
 import seedu.address.logic.commands.user.LogoutCommand;
-import seedu.address.logic.parser.BuyDrinkCommandParser;
+import seedu.address.logic.parser.stocktaker.BuyDrinkCommandParser;
 import seedu.address.logic.parser.DeleteCommandParser;
 import seedu.address.logic.parser.FindCommandParser;
 import seedu.address.logic.parser.SelectCommandParser;
-import seedu.address.logic.parser.SellDrinkCommandParser;
+import seedu.address.logic.parser.stocktaker.SellDrinkCommandParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 

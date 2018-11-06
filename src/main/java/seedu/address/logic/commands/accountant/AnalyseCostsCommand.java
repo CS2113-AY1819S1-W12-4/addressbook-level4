@@ -1,6 +1,8 @@
 package seedu.address.logic.commands.accountant;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.parser.CliSyntax.HYPHEN_MONTH;
+import static seedu.address.logic.parser.CliSyntax.HYPHEN_WEEK_REGEX;
 
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.Command;
@@ -14,16 +16,19 @@ import seedu.address.model.user.accountant.AccountantModel;
  * Analyses total costs of transactions.
  */
 public class AnalyseCostsCommand extends Command {
-    public static final String COMMAND_WORD = "analyseCosts";
+    public static final String COMMAND_WORD = "costs";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Analyse the total cost recorded in Drink I/O.";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Analyse the total cost recorded in Drink I/O."
+                                                + "optional + " + COMMAND_WORD + " " + HYPHEN_WEEK_REGEX
+                                                + "\n or" + COMMAND_WORD + " " + HYPHEN_MONTH;
 
     public static final String MESSAGE_SUCCESS = "Total costs: $%1$s";
+
 
     /**
      * Creates an AnalyseCostsCommand to compute total costs incurred.
      */
-    public AnalyseCostsCommand() {
+    public AnalyseCostsCommand(String regex) {
         // TODO: optional time period in the future
     }
 

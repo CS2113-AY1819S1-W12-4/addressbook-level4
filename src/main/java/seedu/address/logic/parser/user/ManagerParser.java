@@ -14,7 +14,7 @@ import seedu.address.logic.commands.user.ChangePasswordCommand;
 import seedu.address.logic.commands.user.CreateAccountCommand;
 import seedu.address.logic.commands.user.DeleteAccountCommand;
 import seedu.address.logic.commands.user.LogoutCommand;
-import seedu.address.logic.parser.AddDrinkCommandParser;
+import seedu.address.logic.parser.manager.AddDrinkCommandParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
