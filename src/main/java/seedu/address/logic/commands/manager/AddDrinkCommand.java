@@ -1,4 +1,4 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.manager;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
@@ -7,11 +7,12 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_DRINK_DEFAULT_SELLING_
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DRINK_NAME;
 
 import seedu.address.logic.CommandHistory;
+import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.drink.Drink;
-import seedu.address.model.user.admin.AdminModel;
-import seedu.address.model.user.admin.AdminModelManager;
+import seedu.address.model.user.manager.ManagerModel;
 
 /**
  * Adds a drink to the inventory list.
@@ -45,19 +46,14 @@ public class AddDrinkCommand extends Command {
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
+        ManagerModel managerModel = (ManagerModel) model;
 
-        if (model.hasDrink(toAdd)) {
+        if (managerModel.hasDrink(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_DRINK);
         }
 
-        model.addDrink(toAdd);
+        managerModel.addDrink(toAdd);
 
-        if (model instanceof AdminModel) {
-            System.out.println("add drinkCommand");
-            System.out.println(((AdminModelManager) model).isValid());
-        } else {
-            System.out.println("not rights");
-        }
         return new CommandResult(String.format(MESSAGE_SUCCESS,
                 toAdd.getName().toString(), toAdd.getRetailPrice().toString()));
     }

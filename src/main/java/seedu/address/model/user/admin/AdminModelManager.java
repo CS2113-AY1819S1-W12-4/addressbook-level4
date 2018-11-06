@@ -9,6 +9,7 @@ import seedu.address.model.LoginInfoManager;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyInventoryList;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.drink.Drink;
 import seedu.address.model.drink.Price;
 import seedu.address.model.drink.exceptions.InsufficientQuantityException;
 import seedu.address.model.transaction.Transaction;
@@ -31,7 +32,19 @@ public class AdminModelManager extends ModelManager implements AdminModel {
         return false;
     }
 
+    //===============manager command====================//
+    @Override
+    public void deleteDrink(Drink target) {
+        inventoryList.removeDrink(target);
+        indicateInventoryListChanged();
+    }
 
+    @Override
+    public void addDrink(Drink drink) {
+        inventoryList.addDrink(drink);
+        updateFilteredDrinkList(PREDICATE_SHOW_ALL_DRINKS);
+        indicateInventoryListChanged();
+    }
 
     //=====================Stock taker commands====================
     @Override

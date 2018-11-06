@@ -30,17 +30,6 @@ public interface Model {
      */
     boolean hasDrink(Drink drink);
 
-    /**
-     * Deletes the given drink.
-     * The drink must exist in the inventory list.
-     */
-    void deleteDrink(Drink target);
-
-    /**
-     * Adds the given drink.
-     * {@code drink} must not already exist in the address book.
-     */
-    void addDrink(Drink drink);
 
     /**
      * Replaces the given drink {@code target} with {@code editedDrink}.

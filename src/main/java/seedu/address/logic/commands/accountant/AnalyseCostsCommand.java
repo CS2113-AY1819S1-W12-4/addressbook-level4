@@ -15,7 +15,7 @@ import seedu.address.model.user.accountant.AccountantModel;
  * Analyses total costs of transactions.
  */
 public class AnalyseCostsCommand extends Command {
-    public static final String COMMAND_WORD = "analyseCosts";
+    public static final String COMMAND_WORD = "costs";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Analyse the total cost recorded in Drink I/O.";
 
