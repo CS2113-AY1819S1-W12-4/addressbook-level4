@@ -1,13 +1,13 @@
 //@@author liu-tianhang
-package seedu.address.controller;
+package seedu.address.ui.controller;
 
-import static seedu.address.controller.LoginControllerConstantMessage.EMPTY_PASSWORD_MESSAGE;
-import static seedu.address.controller.LoginControllerConstantMessage.EMPTY_STRING;
-import static seedu.address.controller.LoginControllerConstantMessage.EMPTY_USERNAME_MESSAGE;
-import static seedu.address.controller.LoginControllerConstantMessage.MAX_PASSWORD_LENGTH_MESSAGE;
-import static seedu.address.controller.LoginControllerConstantMessage.MAX_USERNAME_LENGTH_MESSAGE;
-import static seedu.address.controller.LoginControllerConstantMessage.WRONG_FORMAT_FOR_USERNAME_AND_PASSWORD_MESSAGE;
-import static seedu.address.controller.LoginControllerConstantMessage.WRONG_USERNAME_AND_PASSWORD_MESSAGE;
+import static seedu.address.ui.controller.LoginControllerConstantMessage.EMPTY_PASSWORD_MESSAGE;
+import static seedu.address.ui.controller.LoginControllerConstantMessage.EMPTY_STRING;
+import static seedu.address.ui.controller.LoginControllerConstantMessage.EMPTY_USERNAME_MESSAGE;
+import static seedu.address.ui.controller.LoginControllerConstantMessage.MAX_PASSWORD_LENGTH_MESSAGE;
+import static seedu.address.ui.controller.LoginControllerConstantMessage.MAX_USERNAME_LENGTH_MESSAGE;
+import static seedu.address.ui.controller.LoginControllerConstantMessage.WRONG_FORMAT_FOR_USERNAME_AND_PASSWORD_MESSAGE;
+import static seedu.address.ui.controller.LoginControllerConstantMessage.WRONG_USERNAME_AND_PASSWORD_MESSAGE;
 import static seedu.address.model.user.Password.MAX_LENGTH_FOR_PASSWORD;
 import static seedu.address.model.user.UserName.MAX_LENGTH_FOR_USERNAME;
 

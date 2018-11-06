@@ -1,4 +1,4 @@
-package seedu.address.controller;
+package seedu.address.ui.controller;
 
 /**
  * Constant String for login Controller

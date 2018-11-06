@@ -26,7 +26,7 @@ import seedu.address.commons.events.ui.LogoutEvent;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.commons.util.ConfigUtil;
 import seedu.address.commons.util.StringUtil;
-import seedu.address.controller.LoginController;
+import seedu.address.ui.controller.LoginController;
 import seedu.address.init.InventoryListInitializer;
 import seedu.address.logic.Logic;
 import seedu.address.model.LoginInfoManager;
