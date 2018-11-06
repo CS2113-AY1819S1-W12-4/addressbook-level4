@@ -31,6 +31,9 @@ public class CliSyntax {
     public static final Prefix PREFIX_NEW_PASSWORD = new Prefix("n/");
 
     /*accountant selection of time period*/
-    public static final String HYPHEN_WEEK_REGEX = "-w";
+
+    public static final String HYPHEN_DAY = "";
+    public static final String HYPHEN_WEEK = "-w";
     public static final String HYPHEN_MONTH = "-m";
+
 }

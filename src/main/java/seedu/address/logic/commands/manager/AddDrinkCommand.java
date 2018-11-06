@@ -45,8 +45,9 @@ public class AddDrinkCommand extends Command {
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
-        assert model instanceof ManagerModel;
+
         requireNonNull(model);
+        assert model instanceof ManagerModel;
         ManagerModel managerModel = (ManagerModel) model;
 
         if (managerModel.hasDrink(toAdd)) {
