@@ -10,30 +10,28 @@
 
 == Overview
 
-[blue]#DRINK I/O# is a desktop inventory manager application specially for *small enterprise* to help them increase productivity by digitizing the paperwork such as input and output of good.
+[blue]#DRINK I/O# is a desktop inventory application for small enterprises. The product aims to increase the *productivity* and *efficiency* of companies by digitizing the paperwork.
 
 Most of the user interactions are via CLI, while there exists a GUI created with JavaFX. It is written in Java and has about 10kLoC.
 
-The source code is based on the AddressBook-Level4 project created by SE-EDU initiative.
 
 == Summary of contributions
 
-* *Major enhancement*: partition command into 3 role (manager, accountant and stock taker)
-** What it does: allow 3 role to do explicit command that only related to their roles(more details are in user guide)
-** Justification: Definition of role is important as it prevent one user to abuse or misuse other user's command. Hence, it increase the security of the application greatly.
-** Highlights: This enhancement affects existing commands and commands to be added in future. Any command added has either to fall the the 3 roles or create a new role to suit the command.
-               The implementation too was challenging as it required changes to existing initiation ,model, storage.
+* *Major enhancement*: Partition command into 3 roles (manager, accountant and stock taker)
+** What it does: Allow 3 roles to do explicit command that only related to their roles(more details are in the https://github.com/CS2113-AY1819S1-W12-4/main/blob/master/docs/UserGuide.adoc[user guide])
+** Justification: This prevents one user from misuse or abuse other user commands. Hence, it increases the security of the application.
+** Highlights: The implementation too was challenging as it required changes to existing initiation,model, storage. SOLID principle are followed.
 
 
 * *Major enhancement*: User login
-** What it does: allow different roles to login to the system.
+** What it does: Allows different user to login to the system.
 ** Justification: This features increase the security of the product significantly because it restrict the application user to account holder.
 ** Highlights: The implementation too was challenging as it required changes to existing initiation and UI. It also create a standalone "addressbook" that stores user information using JSON file.
-Credits: http://www.appsdeveloperblog.com/encrypt-user-password-example-java/ Learn the use javax.crypto and other java function to hashed and verify password.
+Credits: http://www.appsdeveloperblog.com/encrypt-user-password-example-java/[source] Learn the use javax.crypto and other java function to hashed and verify password.
 
 
-* *Minor enhancement*: Morph command and command parser to fit the product
-
+* *Minor enhancement*: Create command and command parser for the product
+* *Minor enhancement*: Create individual help window for respective roles.
 
 * *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
 
@@ -43,9 +41,9 @@ Credits: http://www.appsdeveloperblog.com/encrypt-user-password-example-java/ Le
 *** Managed releases jar file `v1.3` - `v1.5rc` (3 releases) on GitHub
 ** Community:
 *** PRs reviewed (with non-trivial review comments): https://github.com[#6], https://github.com[#32]
-*** Contributed to forum discussions (examples:  https://github.com/nusCS2113-AY1819S1/forum/issues/72, https://github.com/nusCS2113-AY1819S1/forum/issues/43)
+*** Contributed to forum discussions (examples:  https://github.com/nusCS2113-AY1819S1/forum/issues/72[#72], https://github.com/nusCS2113-AY1819S1/forum/issues/43[#43])
 ** Tools:
-*** Integrated sceneBuilder and JFoenix to the project (https://github.com/nusCS2113-AY1819S1/forum/issues/11)
+*** Integrated sceneBuilder and JFoenix to the project (https://github.com/nusCS2113-AY1819S1/forum/issues/11[#11])
 
 
 == Contributions to the User Guide
