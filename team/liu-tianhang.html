@@ -10,13 +10,10 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="blue">DRINK I/O</span> is a desktop inventory manager application specially for <strong>small enterprise</strong> to help them increase productivity by digitizing the paperwork such as input and output of good.</p>
+<p><span class="blue">DRINK I/O</span> is a desktop inventory application for small enterprises. The product aims to increase the <strong>productivity</strong> and <strong>efficiency</strong> of companies by digitizing the paperwork.</p>
 </div>
 <div class="paragraph">
 <p>Most of the user interactions are via CLI, while there exists a GUI created with JavaFX. It is written in Java and has about 10kLoC.</p>
-</div>
-<div class="paragraph">
-<p>The source code is based on the AddressBook-Level4 project created by SE-EDU initiative.</p>
 </div>
 </div>
 </div>
@@ -26,44 +23,46 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: partition command into 3 role (manager, accountant and stock taker)</p>
+<p><strong>Major enhancement 1</strong>: Partition command into 3 roles (manager, accountant and stock taker)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allow 3 role to do explicit command that only related to their roles(more details are in user guide)</p>
+<p>What it does: Allow 3 roles to do explicit command that only related to their roles(more details are in the <a href="https://github.com/CS2113-AY1819S1-W12-4/main/blob/master/docs/UserGuide.adoc">user guide</a>)</p>
 </li>
 <li>
-<p>Justification: Definition of role is important as it prevent one user to abuse or misuse other user&#8217;s command. Hence, it increase the security of the application greatly.</p>
+<p>Justification: This prevents one user from misuse or abuse other user commands. Hence, it increases the security of the application.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. Any command added has either to fall the the 3 roles or create a new role to suit the command.
-The implementation too was challenging as it required changes to existing initiation ,model, storage.</p>
+<p>Highlights: The implementation too was challenging as it required changes to existing initiation,model, storage. SOLID principle are followed.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Major enhancement</strong>: User login</p>
+<p><strong>Major enhancement 2</strong>: User login</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allow different roles to login to the system.</p>
+<p>What it does: Allows different user to login to the system.</p>
 </li>
 <li>
 <p>Justification: This features increase the security of the product significantly because it restrict the application user to account holder.</p>
 </li>
 <li>
 <p>Highlights: The implementation too was challenging as it required changes to existing initiation and UI. It also create a standalone "addressbook" that stores user information using JSON file.
-Credits: <a href="http://www.appsdeveloperblog.com/encrypt-user-password-example-java/" class="bare">http://www.appsdeveloperblog.com/encrypt-user-password-example-java/</a> Learn the use javax.crypto and other java function to hashed and verify password.</p>
+I have use javax.crypto and other java function to hashed and verify password. Credits: <a href="http://www.appsdeveloperblog.com/encrypt-user-password-example-java/">learning material</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Morph command and command parser to fit the product</p>
+<p><strong>Minor enhancement</strong>: Create command and command parser for the product</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Minor enhancement</strong>: Create individual help window for respective roles.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com">Reposense(add later)</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -87,7 +86,7 @@ Credits: <a href="http://www.appsdeveloperblog.com/encrypt-user-password-example
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#6</a>, <a href="https://github.com">#32</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com/nusCS2113-AY1819S1/forum/issues/72" class="bare">https://github.com/nusCS2113-AY1819S1/forum/issues/72</a>, <a href="https://github.com/nusCS2113-AY1819S1/forum/issues/43" class="bare">https://github.com/nusCS2113-AY1819S1/forum/issues/43</a>)</p>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com/nusCS2113-AY1819S1/forum/issues/72">#72</a>, <a href="https://github.com/nusCS2113-AY1819S1/forum/issues/43">#43</a>)</p>
 </li>
 </ul>
 </div>
@@ -97,7 +96,7 @@ Credits: <a href="http://www.appsdeveloperblog.com/encrypt-user-password-example
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated sceneBuilder and JFoenix to the project (<a href="https://github.com/nusCS2113-AY1819S1/forum/issues/11" class="bare">https://github.com/nusCS2113-AY1819S1/forum/issues/11</a>)</p>
+<p>Integrated sceneBuilder and JFoenix to the project (<a href="https://github.com/nusCS2113-AY1819S1/forum/issues/11">#11</a>)</p>
 </li>
 </ul>
 </div>
@@ -123,7 +122,7 @@ Credits: <a href="http://www.appsdeveloperblog.com/encrypt-user-password-example
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="logging-in"><a class="link" href="#logging-in">Logging in</a></h3>
+<h3 id="login"><a class="link" href="#login">Logging in</a></h3>
 <div class="paragraph">
 <p>Upon entering starting up the application, you will be met by the login page below:</p>
 </div>
@@ -194,16 +193,43 @@ Credits: <a href="http://www.appsdeveloperblog.com/encrypt-user-password-example
 <div class="paragraph">
 <p><span class="example-title">Examples for CLI input:</span></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><span class="example"><code>tester 123</code></span></p>
-</li>
-<li>
-<p><span class="example"><code>stocktaker 123</code></span></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Table List of user accounts at first launch or upon reset</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">user name</th>
+<th class="tableblock halign-left valign-top">password</th>
+<th class="tableblock halign-left valign-top">authentication level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tester</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADMIN</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MANAGER</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stocktaker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STOCKTAKER</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ACCOUNTANT</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -225,7 +251,7 @@ Credits: <a href="http://www.appsdeveloperblog.com/encrypt-user-password-example
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/loginPic/login_confirmation.PNG" alt="login confirmation" width="300">
+<img src="../images/loginPic/login_confirmation.PNG" alt="login confirmation" width="">
 </div>
 </div>
 </div>
@@ -257,6 +283,10 @@ Credits: <a href="http://www.appsdeveloperblog.com/encrypt-user-password-example
 <div class="sect1">
 <h2 id="managing-your-drink-i-o-account"><a class="link" href="#managing-your-drink-i-o-account">Managing Your Drink I/O Account</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><strong><span class="blue"><em>Drink I/O</em></span></strong> has a login feature. This ensure that every user has to have an account before using the application.
+Hence, it would increase the security of the application.</p>
+</div>
 <div class="sect2">
 <h3 id="changing-your-password"><a class="link" href="#changing-your-password">Changing your password</a></h3>
 <div class="paragraph">
@@ -339,7 +369,7 @@ Format: <code>changePassword o/[OLD_PASSWORD] n/[NEW_PASSWORD]</code></p>
 <div class="sect2">
 <h3 id="delete-account"><a class="link" href="#delete-account">Delete account</a></h3>
 <div class="paragraph">
-<p>As a <span class="red">manager</span>, you want to delete a account when it is no longer used.
+<p>As a <span class="red">manager</span> or <span class="red">administrator</span>,, you want to delete a account when it is no longer used.
 Format: <code>deleteAccount u/USER_NAME</code></p>
 </div>
 <div class="exampleblock example">
@@ -508,4 +538,4 @@ It will also start the ui.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-08 07:17:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 04:04:34 UTC</div></div></div></body></html>
