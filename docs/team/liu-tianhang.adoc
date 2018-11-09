@@ -27,13 +27,13 @@ Most of the user interactions are via CLI, while there exists a GUI created with
 ** What it does: Allows different user to login to the system.
 ** Justification: This features increase the security of the product significantly because it restrict the application user to account holder.
 ** Highlights: The implementation too was challenging as it required changes to existing initiation and UI. It also create a standalone "addressbook" that stores user information using JSON file.
-Credits: http://www.appsdeveloperblog.com/encrypt-user-password-example-java/[source] Learn the use javax.crypto and other java function to hashed and verify password.
+I have use javax.crypto and other java function to hashed and verify password. Credits: http://www.appsdeveloperblog.com/encrypt-user-password-example-java/[learning material]
 
 
 * *Minor enhancement*: Create command and command parser for the product
 * *Minor enhancement*: Create individual help window for respective roles.
 
-* *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
+* *Code contributed*: [https://github.com[Reposense(add later)]] [https://github.com[Test code]] _{give links to collated code files}_
 
 * *Other contributions*:
 

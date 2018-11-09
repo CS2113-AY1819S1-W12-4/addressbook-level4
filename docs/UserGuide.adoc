@@ -132,7 +132,9 @@ The example provided is a default login account for admins. This account is crea
 
 After successfully logging in, a confirmation message would be shown indicating your authentication level:
 
-image::loginPic/login_confirmation.PNG[width="300"]
+image::loginPic/login_confirmation.PNG[width=""]
+
+
 === Logging out
 Logging out of the application will bring you back to the login screen.
 
@@ -157,8 +159,11 @@ account, and in a specific role, you can work with functions that are tailored t
 === Stock Taker
 === Accountant
 === Administrator
+
 //tag::account[]
 == Managing Your {product_name} Account
+*[blue]#_Drink I/O_#* has a login feature. This ensure that every user has to have an account before using the application.
+Hence, it would increase the security of the application.
 
 === Changing your password
 When you receive an account from manager, you want to change the password to increase security.
@@ -196,7 +201,7 @@ If create account is successful, a message will be shown:
 image::loginPic/create_new_account_successful.PNG[width="300"]
 ====
 === Delete account
-As a [red]#manager#, you want to delete a account when it is no longer used.
+As a [red]#manager# or [red]#administrator#,, you want to delete a account when it is no longer used.
 Format: `deleteAccount u/USER_NAME`
 [.example]
 ====
