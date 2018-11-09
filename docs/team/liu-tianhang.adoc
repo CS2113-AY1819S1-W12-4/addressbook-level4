@@ -17,13 +17,13 @@ Most of the user interactions are via CLI, while there exists a GUI created with
 
 == Summary of contributions
 
-* *Major enhancement*: Partition command into 3 roles (manager, accountant and stock taker)
+* *Major enhancement 1*: Partition command into 3 roles (manager, accountant and stock taker)
 ** What it does: Allow 3 roles to do explicit command that only related to their roles(more details are in the https://github.com/CS2113-AY1819S1-W12-4/main/blob/master/docs/UserGuide.adoc[user guide])
 ** Justification: This prevents one user from misuse or abuse other user commands. Hence, it increases the security of the application.
 ** Highlights: The implementation too was challenging as it required changes to existing initiation,model, storage. SOLID principle are followed.
 
 
-* *Major enhancement*: User login
+* *Major enhancement 2*: User login
 ** What it does: Allows different user to login to the system.
 ** Justification: This features increase the security of the product significantly because it restrict the application user to account holder.
 ** Highlights: The implementation too was challenging as it required changes to existing initiation and UI. It also create a standalone "addressbook" that stores user information using JSON file.
