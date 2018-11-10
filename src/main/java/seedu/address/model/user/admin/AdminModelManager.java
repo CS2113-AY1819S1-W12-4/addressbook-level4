@@ -1,9 +1,5 @@
 package seedu.address.model.user.admin;
 
-import java.util.List;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import seedu.address.analysis.AnalysisPeriodType;
 import seedu.address.commons.events.model.DrinkAttributeChangedEvent;
 import seedu.address.model.LoginInfoManager;
@@ -18,20 +14,29 @@ import seedu.address.model.transaction.TransactionList;
 import seedu.address.model.user.AuthenticationLevel;
 import seedu.address.model.user.Password;
 import seedu.address.model.user.UserName;
+import seedu.address.model.user.accountant.AccountantModel;
+import seedu.address.model.user.accountant.AccountantModelManager;
+import seedu.address.model.user.manager.ManagerModel;
+import seedu.address.model.user.manager.ManagerModelManager;
+import seedu.address.model.user.stocktaker.StockTakerModel;
+import seedu.address.model.user.stocktaker.StockTakerModelManager;
 
 /**
  * This is the API model for Admin command
  */
 public class AdminModelManager extends ModelManager implements AdminModel {
+    ManagerModel managerModel;
+    StockTakerModel stockTakerModel;
+    AccountantModel accountantModel;
     public AdminModelManager(ReadOnlyInventoryList inventoryList, UserPrefs userPrefs,
                              LoginInfoManager loginInfoManager, TransactionList transactionList) {
+
         super(inventoryList, userPrefs, loginInfoManager, transactionList);
+        managerModel = new ManagerModelManager (inventoryList, userPrefs, loginInfoManager, transactionList);
+        stockTakerModel = new StockTakerModelManager (inventoryList, userPrefs, loginInfoManager, transactionList);
+        accountantModel = new AccountantModelManager (inventoryList, userPrefs, loginInfoManager, transactionList);
     }
 
-    @Override
-    public boolean isValid () {
-        return false;
-    }
 
 
     /**
@@ -43,71 +48,37 @@ public class AdminModelManager extends ModelManager implements AdminModel {
     //===============manager command====================//
     @Override
     public void deleteDrink(Drink target) {
-        inventoryList.removeDrink(target);
-        indicateInventoryListChanged();
+        managerModel.deleteDrink (target);
     }
 
     @Override
     public void addDrink(Drink drink) {
-        inventoryList.addDrink(drink);
-        updateFilteredDrinkList(PREDICATE_SHOW_ALL_DRINKS);
-        indicateInventoryListChanged();
+        managerModel.addDrink (drink);
+    }
+    //=====================Manager login command=========================
+    @Override
+    public void createNewAccount (UserName userName, Password password, AuthenticationLevel authenticationLevel) {
+        managerModel.createNewAccount (userName, password, authenticationLevel);
+    }
+
+    @Override
+    public void deleteAccount (UserName userName) {
+        managerModel.deleteAccount (userName);
     }
 
     //=====================Stock taker commands====================
     @Override
     public void sellDrink(Transaction transaction) throws InsufficientQuantityException {
-        Price defaultSalePrice = inventoryList.getDefaultSellingPrice(transaction.getDrinkTransacted());
-        inventoryList.decreaseQuantity(transaction.getDrinkTransacted(), transaction.getQuantityTransacted());
-        Price defaultAmountTransacted = new Price(Float.toString(defaultSalePrice.getValue()
-                * transaction.getQuantityTransacted().getValue()));
-        transaction.setAmountMoney(defaultAmountTransacted);
-        recordTransaction(transaction);
-        indicateDrinkAttributesChanged(transaction.getDrinkTransacted());
+        stockTakerModel.sellDrink (transaction);
     }
 
     @Override
     public void buyDrink(Transaction transaction) {
-        Price defaultCostPrice = inventoryList.getDefaultCostPrice(transaction.getDrinkTransacted());
-        inventoryList.increaseDrinkQuantity(transaction.getDrinkTransacted(), transaction.getQuantityTransacted());
-        Price defaultAmountTransacted = new Price(Float.toString(defaultCostPrice.getValue()
-                * transaction.getQuantityTransacted().getValue()));
-        transaction.setAmountMoney(defaultAmountTransacted);
-        recordTransaction(transaction);
-
-        indicateDrinkAttributesChanged(transaction.getDrinkTransacted());
-    }
-
-    private void recordTransaction(Transaction transaction) {
-        transactionList.addTransaction(transaction);
+        stockTakerModel.buyDrink (transaction);
     }
 
 
-    /**
-     * Returns an unmodifiable view of the list of {@code Transaction} backed by the internal list of
-     * {@code transactionList}
-     */
-    @Override
-    public ObservableList<Transaction> getTransactionList() {
-        List<Transaction> transactions = transactionList.getTransactions();
-        return FXCollections.unmodifiableObservableList(FXCollections.observableList(transactions));
-    }
 
-    @Override
-    public String getTransactions() {
-        return transactionList.toString();
-    }
-
-    //=====================Manager command=========================
-    @Override
-    public void createNewAccount (UserName userName, Password password, AuthenticationLevel authenticationLevel) {
-        loginInfoManager.createNewAccount (userName, password, authenticationLevel);
-    }
-
-    @Override
-    public void deleteAccount (UserName userName) {
-        loginInfoManager.deleteAccount (userName);
-    }
 
     //=====================Accountant command======================
     @Override
