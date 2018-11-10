@@ -1,5 +1,4 @@
 package seedu.address;
-
 import static java.util.Objects.requireNonNull;
 
 import java.io.IOException;
@@ -263,14 +262,12 @@ public class MainApp extends Application {
      */
     private void closeUiWindow() {
         logger.info("============================ [ Stopping DRINK I/O ] =============================");
-        //EventsCenter.getInstance().post(new StopUiEvent ());
         try {
             storage.saveLoginInfo (loginInfoList);
             storage.saveUserPrefs(userPrefs);
         } catch (IOException e) {
             logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
         }
-        //EventsCenter.clearSubscribers ();
     }
     @Subscribe
     public void handleExitAppRequestEvent(ExitAppRequestEvent event) {
