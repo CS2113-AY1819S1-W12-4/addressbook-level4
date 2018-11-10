@@ -1,20 +1,22 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.HYPHEN_DAY;
+import static seedu.address.logic.parser.CliSyntax.HYPHEN_MONTH;
+import static seedu.address.logic.parser.CliSyntax.HYPHEN_WEEK;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import seedu.address.analysis.AnalysisPeriodType;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.drink.Date;
 import seedu.address.model.drink.Price;
 import seedu.address.model.drink.Quantity;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.user.AuthenticationLevel;
 import seedu.address.model.user.Password;
@@ -30,6 +32,7 @@ public class ParserUtil {
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
@@ -39,11 +42,11 @@ public class ParserUtil {
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
     }
+
     /**
      * Parses a {@code String userName} into a {@code UserName}.
      * Leading and trailing whitespaces will be trimmed.
      *
-
      * @throws ParseException if the given {@code UserName} is invalid .
      */
     public static UserName parseUserName(String userName) throws ParseException {
@@ -53,11 +56,12 @@ public class ParserUtil {
             throw new ParseException(UserName.MESSAGE_USER_NAME_CONSTRAINTS);
         }
 
-        if (UserName.isUserNameTooLong (trimmedUserName)) {
+        if (UserName.isUserNameTooLong(trimmedUserName)) {
             throw new ParseException(UserName.MESSAGE_USER_NAME_LENGTH_CONSTRAINTS);
         }
-        return new UserName (trimmedUserName);
+        return new UserName(trimmedUserName);
     }
+
     /**
      * Parses a {@code String password} into a {@code Password}.
      * Leading and trailing whitespaces will be trimmed.
@@ -67,15 +71,16 @@ public class ParserUtil {
     public static Password parsePassword(String password) throws ParseException {
         requireNonNull(password);
         String trimmedPassword = password.trim();
-        if (!Password.isValidPassword (trimmedPassword)) {
+        if (!Password.isValidPassword(trimmedPassword)) {
             throw new ParseException(Password.MESSAGE_PASSWORD_CONSTRAINTS);
         }
-        if (Password.isPasswordTooLong (trimmedPassword)) {
+        if (Password.isPasswordTooLong(trimmedPassword)) {
             throw new ParseException(Password.MESSAGE_PASSWORD_LENGTH_CONSTRAINTS);
         }
 
-        return new Password (trimmedPassword);
+        return new Password(trimmedPassword);
     }
+
     /**
      * Parses a {@code String authenticationLevel } into a {@code AuthenticationLevel}.
      * Leading and trailing whitespaces will be trimmed.
@@ -84,13 +89,14 @@ public class ParserUtil {
      */
     public static AuthenticationLevel parseAuthenticationLevel(String authenticationLevel) throws ParseException {
         requireNonNull(authenticationLevel);
-        String trimmedAuthenticationLevel = authenticationLevel.trim().toUpperCase ();
-        if (!AuthenticationLevel.isAuthenticationLevelValid (trimmedAuthenticationLevel)) {
+        String trimmedAuthenticationLevel = authenticationLevel.trim().toUpperCase();
+        if (!AuthenticationLevel.isAuthenticationLevelValid(trimmedAuthenticationLevel)) {
             throw new ParseException(AuthenticationLevel.MESSAGE_AUTHENTICATIONLEVEL_CONSTRAINTS);
         }
-        return new AuthenticationLevel (trimmedAuthenticationLevel);
+        return new AuthenticationLevel(trimmedAuthenticationLevel);
     }
     // ================== Drink-related parsing ===================
+
     /**
      * Parses a {@code String itemName} into a {@code String itenName}.
      * Leading and trailing whitespaces will be trimmed.
@@ -103,7 +109,7 @@ public class ParserUtil {
         if (!seedu.address.model.drink.Name.isValidName(trimmedName)) {
             throw new ParseException(seedu.address.model.drink.Name.MESSAGE_NAME_CONSTRAINTS);
         }
-        return new seedu.address.model.drink.Name (trimmedName);
+        return new seedu.address.model.drink.Name(trimmedName);
     }
 
     /**
@@ -112,7 +118,7 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code price} is invalid.
      */
-    public static Price parseDrinkCostPrice (String price) throws ParseException {
+    public static Price parseDrinkCostPrice(String price) throws ParseException {
         requireNonNull(price);
         String trimmedCostPrice = price.trim();
         if (!Price.isValidPrice(trimmedCostPrice)) {
@@ -127,7 +133,7 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code price} is invalid.
      */
-    public static Price parseDrinkDefaultSellingPrice (String defaultSellingPrice) throws ParseException {
+    public static Price parseDrinkDefaultSellingPrice(String defaultSellingPrice) throws ParseException {
         requireNonNull(defaultSellingPrice);
         String trimmedDefaultSellingPrice = defaultSellingPrice.trim();
         if (!Price.isValidPrice(trimmedDefaultSellingPrice)) {
@@ -147,65 +153,23 @@ public class ParserUtil {
         }
         return new Quantity(trimmedQuantity);
     }
-    /**
-     * Parses a {@code String name} into a {@code Name}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code name} is invalid.
-     */
-    public static Name parseName(String name) throws ParseException {
-        requireNonNull(name);
-        String trimmedName = name.trim();
-        if (!Name.isValidName(trimmedName)) {
-            throw new ParseException(Name.MESSAGE_NAME_CONSTRAINTS);
-        }
-        return new Name(trimmedName);
-    }
+
 
     /**
-     * Parses a {@code String phone} into a {@code Phone}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code phone} is invalid.
+     * Parses {@code String date} into a {@code Date}.
      */
-    public static Phone parsePhone(String phone) throws ParseException {
-        requireNonNull(phone);
-        String trimmedPhone = phone.trim();
-        if (!Phone.isValidPhone(trimmedPhone)) {
-            throw new ParseException(Phone.MESSAGE_PHONE_CONSTRAINTS);
+    public static Date parseDate(String date) throws ParseException {
+        requireNonNull(date);
+        String trimmedDate = date.trim();
+        if (!Date.isValidDate(trimmedDate)) {
+            throw new ParseException(Date.MESSAGE_DATE_CONSTRAINTS);
         }
-        return new Phone(trimmedPhone);
+        if (!Date.isExistingDate(trimmedDate)) {
+            throw new ParseException(Date.MESSAGE_NON_EXISTING_DATE);
+        }
+        return new Date(trimmedDate);
     }
 
-    /**
-     * Parses a {@code String address} into an {@code Address}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code address} is invalid.
-     */
-    public static Address parseAddress(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Address.isValidAddress(trimmedAddress)) {
-            throw new ParseException(Address.MESSAGE_ADDRESS_CONSTRAINTS);
-        }
-        return new Address(trimmedAddress);
-    }
-
-    /**
-     * Parses a {@code String email} into an {@code Email}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code email} is invalid.
-     */
-    public static Email parseEmail(String email) throws ParseException {
-        requireNonNull(email);
-        String trimmedEmail = email.trim();
-        if (!Email.isValidEmail(trimmedEmail)) {
-            throw new ParseException(Email.MESSAGE_EMAIL_CONSTRAINTS);
-        }
-        return new Email(trimmedEmail);
-    }
 
     /**
      * Parses a {@code String tag} into a {@code Tag}.
@@ -232,5 +196,25 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code string period} into a {@code AnalysisPeriodType}
+     */
+    public static AnalysisPeriodType parseAnalysisPeriod(String period) throws ParseException {
+        requireNonNull(period);
+        period = period.replaceAll("\\s+", "");
+
+        switch (period) {
+        case HYPHEN_DAY:
+            return AnalysisPeriodType.DAY;
+        case HYPHEN_WEEK:
+            return AnalysisPeriodType.WEEK;
+        case HYPHEN_MONTH:
+            return AnalysisPeriodType.MONTH;
+        default:
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    AnalysisPeriodType.WRONG_PERIOD_MESSAGE));
+        }
     }
 }

@@ -22,6 +22,7 @@ import seedu.address.commons.events.ui.InventoryPanelSelectionChangedEvent;
 import seedu.address.commons.events.ui.ShowHelpRequestEvent;
 import seedu.address.logic.Logic;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.drink.Drink;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -37,14 +38,25 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
+    private TransactionsPanel transactionsPanel;
     private DrinkDetailPane drinkDetailPane;
     private DrinkListPanel drinkListPanel;
     private BatchListPanel batchListPanel;
     private Config config;
     private UserPrefs prefs;
     private HelpWindow helpWindow;
+
+    // @FXML
+    // private StackPane transactionsPanelPlaceholder;
+
+    // Stores current selection
+    private Drink drinkSelection;
+
     @FXML
     private StackPane drinkDetailPanePlaceholder;
+
+    @FXML
+    private StackPane transactionsPanelPlaceholder;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -126,6 +138,9 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this loginWindow.
      */
     void fillInnerParts() {
+        transactionsPanel = new TransactionsPanel(logic.getFilteredTransactionList());
+        transactionsPanelPlaceholder.getChildren().add(transactionsPanel.getRoot());
+
         // drinkDetailPane = new DrinkDetailPane(null);
         // drinkDetailPanePlaceholder.getChildren().add(drinkDetailPane.getRoot());
 
@@ -154,14 +169,22 @@ public class MainWindow extends UiPart<Stage> {
         batchListPanel = new BatchListPanel(
                 event.getNewSelection().getObservableBatchList());
         batchListPanelPlaceholder.getChildren().add(batchListPanel.getRoot());
+        drinkSelection = event.getNewSelection();
     }
+
+
 
     @Subscribe
     private void handleDrinkAttributeChangedEvent(DrinkAttributeChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         drinkListPanel = new DrinkListPanel(logic.getFilteredDrinkList());
         drinkListPanelPlaceholder.getChildren().add(drinkListPanel.getRoot());
+        batchListPanel = new BatchListPanel(FXCollections.observableArrayList());
+        batchListPanelPlaceholder.getChildren().add(batchListPanel.getRoot());
+        drinkDetailPane = new DrinkDetailPane(new Drink(null));
+        drinkDetailPanePlaceholder.getChildren().add(drinkDetailPane.getRoot());
     }
+
 
     void hide() {
         primaryStage.hide();
@@ -218,6 +241,12 @@ public class MainWindow extends UiPart<Stage> {
     public DrinkListPanel getDrinkListPanel() {
         return drinkListPanel;
     }
+
+
+    public TransactionsPanel getTransactionsPanel() {
+        return transactionsPanel;
+    }
+
 
     @Subscribe
     private void handleShowHelpEvent(ShowHelpRequestEvent event) {

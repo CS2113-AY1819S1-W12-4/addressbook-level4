@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.LoginInfo;
 import seedu.address.model.drink.Drink;
+import seedu.address.model.transaction.ReadOnlyTransactionList;
 import seedu.address.model.transaction.Transaction;
 import seedu.address.model.user.Password;
 import seedu.address.model.user.UserName;
@@ -16,14 +17,22 @@ public interface Model {
 
 
     //==============Drink Model===========================//
-    /** {@code Predicate} that always evaluate to true */
-
+    /**
+     * {@code Predicate} that always evaluate to true
+     */
     Predicate<Drink> PREDICATE_SHOW_ALL_DRINKS = unused -> true;
+    Predicate<Transaction> PREDICATE_SHOW_ALL_TRANSACTIONS = unused -> true;
 
-    /** Clears existing backing model and replaces with the provided new data. */
+    Predicate<Drink> PREDICATE_SHOW_NO_DRINKS = unused -> false;
+
+    /**
+     * Clears existing backing model and replaces with the provided new data.
+     */
     void resetData(ReadOnlyInventoryList newData);
 
-    /** Returns the inventoryList */
+    /**
+     * Returns the inventoryList
+     */
     ReadOnlyInventoryList getInventoryList();
 
     /**
@@ -32,14 +41,11 @@ public interface Model {
     boolean hasDrink(Drink drink);
 
 
-    /**
-     * Replaces the given drink {@code target} with {@code editedDrink}.
-     * {@code target} must exist in the inventory list.
-     * The drink identity of {@code editedDrink} must not be the same as another existing drink in the inventory list.
-     */
-    // void updateDrink(Drink target, Drink editedDrink);
+    // ================ filtered drinks =======================
 
-    /** Returns an unmodifiable view of the filtered inventory list */
+    /**
+     * Returns an unmodifiable view of the filtered inventory list
+     */
     ObservableList<Drink> getFilteredDrinkList();
     //=============common command==========================//
 
@@ -52,32 +58,49 @@ public interface Model {
 
     /**
      * Updates the filter of the filtered drink list to filter by the given {@code predicate}.
+     *
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredDrinkList(Predicate<Drink> predicate);
 
 
+    // ================ transactions =========================
 
-    // =============== transactions commands =====================
+    /**
+     * Returns the transactionList
+     */
+    ReadOnlyTransactionList getTransactionList();
 
-    // ================ analysis commands ==========================
+
+    /**
+     * Returns an unmodifiable view of the filtered transaction list
+     */
+    ObservableList<Transaction> getFilteredTransactionList();
+
+    /**
+     * Updates the filter of the filtered drink list
+     *
+     * @param predicate
+     */
+    void updateFilteredTransactionList(Predicate<Transaction> predicate);
 
 
-
-
-    //================= login function command========================//
+    //================= login function command ========================//
 
     /**
      * change user password based on {@code userName} and {@code newHashedPassword}
      */
-    void changePassword (UserName userName, Password newHashedPassword);
+    void changePassword(UserName userName, Password newHashedPassword);
 
     /**
      * Get user loginInfo base on userName
      */
-    LoginInfo getLoginInfo (UserName userName);
+    LoginInfo getLoginInfo(UserName userName);
+
     /**
      * Check a userName exist in list
      */
     boolean isUserNameExist(UserName userName);
+
+
 }

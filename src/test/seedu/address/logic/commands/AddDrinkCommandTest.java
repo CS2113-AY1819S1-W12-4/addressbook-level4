@@ -4,15 +4,18 @@ import static java.util.Objects.requireNonNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static seedu.address.testutil.transaction.TypicalTransactions.getTypicalTransactions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.LoginInfo;
 import seedu.address.logic.CommandHistory;
@@ -22,6 +25,11 @@ import seedu.address.model.InventoryList;
 import seedu.address.model.ReadOnlyInventoryList;
 import seedu.address.model.drink.Drink;
 import seedu.address.model.transaction.Transaction;
+import seedu.address.model.drink.Price;
+import seedu.address.model.tag.Tag;
+import seedu.address.model.transaction.ReadOnlyTransactionList;
+import seedu.address.model.transaction.Transaction;
+import seedu.address.model.transaction.TransactionList;
 import seedu.address.model.user.AuthenticationLevel;
 import seedu.address.model.user.Password;
 import seedu.address.model.user.UserName;
@@ -145,6 +153,42 @@ public class AddDrinkCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
+        // TODO: to review
+        @Override
+        public ReadOnlyTransactionList getTransactionList() {
+            return new TransactionList();
+        }
+
+        @Override
+        public ObservableList<Transaction> getFilteredTransactionList() {
+            return FXCollections.observableList(getTypicalTransactions());
+        }
+
+        @Override
+        public void updateFilteredTransactionList(Predicate<Transaction> predicate) {
+            requireNonNull(predicate);
+            //filteredTransactions.setPredicate(predicate);
+        }
+
+        @Override
+        public void updateSellingPrice(Drink drinkToEdit, Price newSellingPrice) {
+            //inventoryList.updateSellingPrice(drinkToEdit, newSellingPrice);
+            //indicateDrinkAttributesChanged(drinkToEdit);
+        }
+
+        @Override
+        public void updateCostPrice(Drink drinkToEdit, Price newCostPrice) {
+            //inventoryList.updateCostPrice(drinkToEdit, newCostPrice);
+            //indicateDrinkAttributesChanged(drinkToEdit);
+        }
+
+        @Override
+        public void updateTags(Drink drinkToEdit, Set<Tag> newTags) {
+            //inventoryList.updateTags(drinkToEdit, newTags);
+            //indicateDrinkAttributesChanged(drinkToEdit);
+        }
+
+        // TODO: end of review area
         @Override
         public void changePassword (UserName userName, Password newHashedPassword) {
             throw new AssertionError("This method should not be called.");
