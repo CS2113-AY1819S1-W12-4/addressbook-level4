@@ -46,9 +46,9 @@ public class LogicManager extends ComponentManager implements Logic {
     public CommandResult execute(String commandText) throws CommandException, ParseException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
-            Command command = parseCommandAccordingToAuthentication(commandText);
-            history.add(commandText);
-            return command.execute(model, history);
+        Command command = parseCommandAccordingToAuthentication(commandText);
+        history.add(commandText);
+        return command.execute(model, history);
     }
 
     /**
@@ -56,7 +56,7 @@ public class LogicManager extends ComponentManager implements Logic {
      *  Returns {@code command} according to {@code commandText}
      *  @throws ParseException if there is no model
      */
-    private Command parseCommandAccordingToAuthentication(String commandText) throws ParseException{
+    private Command parseCommandAccordingToAuthentication(String commandText) throws ParseException {
         if (model instanceof AdminModel) {
             return adminParser.parseCommand(commandText);
         } else if (model instanceof StockTakerModel) {

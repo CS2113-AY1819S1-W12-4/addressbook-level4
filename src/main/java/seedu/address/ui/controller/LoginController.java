@@ -170,11 +170,11 @@ public class LoginController {
      * Returns true if the input follow the format of UserName and Password.
      */
     private boolean isFormatOfUserNameAndPasswordCorrect () {
-        if (isLengthOfUserNameInvalid ()){
+        if (isLengthOfUserNameInvalid ()) {
             loginError.setText(MAX_USERNAME_LENGTH_MESSAGE);
             return false;
         }
-        if (isLengthOfPasswordInvalid ()){
+        if (isLengthOfPasswordInvalid ()) {
             loginError.setText(MAX_PASSWORD_LENGTH_MESSAGE);
             return false;
         }

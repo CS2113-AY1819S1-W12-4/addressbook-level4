@@ -260,18 +260,6 @@ public class MainApp extends Application {
         return root;
     }
 
-    /**
-     * Close Ui window and load LoginInfo and UserPref into storage
-     */
-    private void closeUiWindow() {
-        logger.info("============================ [ Stopping DRINK I/O ] =============================");
-        try {
-            storage.saveLoginInfo (loginInfoList);
-            storage.saveUserPrefs(userPrefs);
-        } catch (IOException e) {
-            logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
-        }
-    }
 
     @Subscribe
     public void handleExitAppRequestEvent(ExitAppRequestEvent event) {
@@ -287,13 +275,13 @@ public class MainApp extends Application {
         showLoginWindow();
     }
 
-    private void showLoginWindow(){
+    private void showLoginWindow() {
         loginWindow.show ();
     }
     /**
      *  Hide the current stage that is showing
      */
-    private void hideCurrentWindow(){
+    private void hideCurrentWindow() {
         Window currentStage = Stage.getWindows().filtered(window -> window.isShowing()).get (0);
         currentStage.hide ();
     }

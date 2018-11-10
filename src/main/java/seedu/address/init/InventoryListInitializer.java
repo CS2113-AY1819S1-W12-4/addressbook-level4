@@ -22,7 +22,13 @@ import seedu.address.commons.events.model.InitInventoryListEvent;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
-import seedu.address.model.*;
+import seedu.address.model.AddressBook;
+import seedu.address.model.InventoryList;
+import seedu.address.model.LoginInfoManager;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.UserPrefs;
 import seedu.address.model.transaction.TransactionList;
 import seedu.address.model.user.accountant.AccountantModelManager;
 import seedu.address.model.user.admin.AdminModelManager;
@@ -91,7 +97,10 @@ public class InventoryListInitializer {
         return chooseModelAccordingToAuthentication(loginInfoManager);
     }
 
-    private ReadOnlyAddressBook initData(Storage storage){
+    /**
+     * Return data for new addressbook
+     */
+    private ReadOnlyAddressBook initData(Storage storage) {
         Optional<ReadOnlyAddressBook> addressBookOptional;
         try {
             addressBookOptional = storage.readAddressBook();
@@ -111,24 +120,24 @@ public class InventoryListInitializer {
      * Returns the respective {@code model} according to Authentication level.
      *
      */
-    private Model chooseModelAccordingToAuthentication(LoginInfoManager loginInfoManager){
+    private Model chooseModelAccordingToAuthentication(LoginInfoManager loginInfoManager) {
 
-        switch (CurrentUser.getAuthenticationLevel ()){
-            case AUTH_ADMIN:
-                return new AdminModelManager (new InventoryList (), userPrefs, loginInfoManager, new TransactionList());
-            case AUTH_MANAGER:
-                return new ManagerModelManager (new InventoryList (), userPrefs, loginInfoManager, new TransactionList());
-            case AUTH_STOCK_TAKER:
-                return new StockTakerModelManager (new InventoryList () , userPrefs, loginInfoManager,
-                        new TransactionList());
-            case AUTH_ACCOUNTANT:
-                return new AccountantModelManager (new InventoryList (), userPrefs, loginInfoManager,
-                        new TransactionList());
-            default:{
-                logger.severe ("Database authentication level do not match with predefined authentication level");
-                return new ModelManager (new InventoryList (), userPrefs, loginInfoManager,
-                        new TransactionList());
-            }
+        switch (CurrentUser.getAuthenticationLevel ()) {
+        case AUTH_ADMIN:
+            return new AdminModelManager (new InventoryList (), userPrefs, loginInfoManager, new TransactionList());
+        case AUTH_MANAGER:
+            return new ManagerModelManager (new InventoryList (), userPrefs, loginInfoManager, new TransactionList());
+        case AUTH_STOCK_TAKER:
+            return new StockTakerModelManager (new InventoryList () , userPrefs, loginInfoManager,
+                    new TransactionList());
+        case AUTH_ACCOUNTANT:
+            return new AccountantModelManager (new InventoryList (), userPrefs, loginInfoManager,
+                    new TransactionList());
+        default: {
+            logger.severe ("Database authentication level do not match with predefined authentication level");
+            return new ModelManager (new InventoryList (), userPrefs, loginInfoManager,
+                    new TransactionList());
+        }
         }
     }
 
