@@ -1,4 +1,4 @@
-package seedu.address.model.user.transaction;
+package seedu.address.model.transaction;
 
 import static org.junit.Assert.assertEquals;
 import static seedu.address.testutil.transaction.TypicalTransactions.getTypicalTransactionList;

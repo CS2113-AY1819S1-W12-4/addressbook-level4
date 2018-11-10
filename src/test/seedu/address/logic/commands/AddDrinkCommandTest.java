@@ -49,8 +49,7 @@ public class AddDrinkCommandTest {
 
         CommandResult commandResult = new AddDrinkCommand(validDrink).execute (modelStub, commandHistory);
 
-        assertEquals(String.format(AddDrinkCommand.MESSAGE_SUCCESS, validDrink.getName ().toString (),
-                                    validDrink.getRetailPrice ().toString ()), commandResult.feedbackToUser);
+        assertEquals(String.format(AddDrinkCommand.MESSAGE_SUCCESS, validDrink.toString ()), commandResult.feedbackToUser);
         assertEquals (Arrays.asList (validDrink), modelStub.drinksAdded);
         assertEquals(EMPTY_COMMAND_HISTORY, commandHistory);
     }
