@@ -62,13 +62,9 @@ public class LoginInfoManager {
     }
 
     /**
-     * Add in a new account to the list
-     * @param userName The username of the account
-     * @param password The Password of the account
-     * @param authenticationLevel  the authentication level of the account
+     * Add in a {@code newAccount} to the list
      */
-    public void createNewAccount(UserName userName, Password password, AuthenticationLevel authenticationLevel) {
-        LoginInfo newAccount = new LoginInfo (userName, password, authenticationLevel);
+    public void createNewAccount(LoginInfo newAccount) {
         loginInfoList.add (newAccount);
     }
 
@@ -79,7 +75,7 @@ public class LoginInfoManager {
     /**
      * Returns a predefined list of account.
      */
-    private ArrayList<LoginInfo> initialSetUpOfAccount(){
+    private ArrayList<LoginInfo> initialSetUpOfAccount() {
         ArrayList<LoginInfo> loginInfoList = new ArrayList<>();
         UserName userName = new UserName ("tester");
         Password password = new Password ("Gcf70h4aWQ1T9NMxE03XM3nq3nCmFGihnO4xMzHMgP0=");

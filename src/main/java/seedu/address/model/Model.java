@@ -47,14 +47,7 @@ public interface Model {
      * Returns an unmodifiable view of the filtered inventory list
      */
     ObservableList<Drink> getFilteredDrinkList();
-    //=============common command==========================//
-
-    /**
-     * Returns an unmodifiable view of the transaction list
-     */
-    ObservableList<Transaction> getTransactionList();
-
-    String getTransactions(); //TODO: will be removed when UI is up
+    //=============common command==========================/
 
     /**
      * Updates the filter of the filtered drink list to filter by the given {@code predicate}.

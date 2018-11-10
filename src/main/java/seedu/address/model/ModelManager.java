@@ -3,7 +3,6 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -120,15 +119,6 @@ public class ModelManager extends ComponentManager implements Model {
 
     // ========== common commands ====================================
     @Override
-    public ObservableList<Transaction> getTransactionList() {
-        List<Transaction> transactions = transactionList.getTransactions();
-        return FXCollections.unmodifiableObservableList(FXCollections.observableList(transactions));
-    }
-
-    @Override
-    public String getTransactions() {
-        return transactionList.toString();
-    }
     public ReadOnlyTransactionList getTransactionList() {
         return transactionList;
     }

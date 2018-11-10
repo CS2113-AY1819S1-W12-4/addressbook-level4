@@ -1,12 +1,13 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.drinks.TypicalDrinks.FNN_GRAPE;
 import static seedu.address.testutil.inventory.TypicalInventoryList.getTypicalInventoryList;
+import static seedu.address.testutil.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.testutil.logic.commands.CommandTestUtil.assertCommandSuccess;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.manager.AddDrinkCommand;
 import seedu.address.model.LoginInfoManager;
