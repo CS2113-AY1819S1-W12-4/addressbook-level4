@@ -5,7 +5,6 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.LoginInfo;
 import seedu.address.model.drink.Drink;
-import seedu.address.model.transaction.Transaction;
 import seedu.address.model.user.Password;
 import seedu.address.model.user.UserName;
 
@@ -41,14 +40,6 @@ public interface Model {
 
     /** Returns an unmodifiable view of the filtered inventory list */
     ObservableList<Drink> getFilteredDrinkList();
-    //=============common command==========================//
-
-    /**
-     * Returns an unmodifiable view of the transaction list
-     */
-    ObservableList<Transaction> getTransactionList();
-
-    String getTransactions(); //TODO: will be removed when UI is up
 
     /**
      * Updates the filter of the filtered drink list to filter by the given {@code predicate}.
