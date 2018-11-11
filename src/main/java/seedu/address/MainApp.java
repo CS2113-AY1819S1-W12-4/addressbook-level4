@@ -29,6 +29,7 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.init.InventoryListInitializer;
 import seedu.address.logic.Logic;
 import seedu.address.model.LoginInfoManager;
+import seedu.address.model.LoginInfoModel;
 import seedu.address.model.UserPrefs;
 import seedu.address.storage.InventoryListStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
@@ -59,7 +60,7 @@ public class MainApp extends Application {
     protected UserPrefs userPrefs;
     protected Stage loginWindow;
     private FXMLLoader fxmlLoader;
-    private LoginInfoManager loginInfoList;
+    private LoginInfoModel loginInfoList;
     private LoginController loginController;
     private String loginPathPath;
     private InventoryListInitializer inventoryListInitializer;
@@ -147,13 +148,13 @@ public class MainApp extends Application {
      * or a new {@code LoginInfoManager} with default configuration if errors occur when
      * reading from the file.
      */
-    protected LoginInfoManager initLoginInfo(LoginInfoStorage storage) {
+    protected LoginInfoModel initLoginInfo(LoginInfoStorage storage) {
         Path loginInfoFilePath = storage.getLoginInfoFilePath ();
         logger.info("Using Login information file : " + loginInfoFilePath);
 
-        LoginInfoManager initLoginInfoManager;
+        LoginInfoModel initLoginInfoManager;
         try {
-            Optional<LoginInfoManager> loginInfoOptional = storage.readLoginInfo();
+            Optional<LoginInfoModel> loginInfoOptional = storage.readLoginInfo();
             initLoginInfoManager = loginInfoOptional.orElse(new LoginInfoManager ());
         } catch (DataConversionException e) {
             logger.warning("Login Info file at " + loginInfoFilePath + " is not in the correct format. "
@@ -237,7 +238,7 @@ public class MainApp extends Application {
     }
 
     /**
-     * pass the loginInfoManager to controller
+     * pass the loginInfoModel to controller
      */
     private void passInLoginList() {
         loginController.getLoginInfoList (loginInfoList);

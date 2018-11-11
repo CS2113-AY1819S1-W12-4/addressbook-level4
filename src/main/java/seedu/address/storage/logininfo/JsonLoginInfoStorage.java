@@ -7,6 +7,7 @@ import java.util.Optional;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.commons.util.JsonUtil;
 import seedu.address.model.LoginInfoManager;
+import seedu.address.model.LoginInfoModel;
 
 /**
  * A class to access Login information stored in the hard disk as a json file
@@ -23,7 +24,7 @@ public class JsonLoginInfoStorage implements LoginInfoStorage {
     }
 
     @Override
-    public Optional<LoginInfoManager> readLoginInfo () throws DataConversionException {
+    public Optional<LoginInfoModel> readLoginInfo () throws DataConversionException {
         return readLoginInfo(filePath);
     }
     /**
@@ -31,12 +32,12 @@ public class JsonLoginInfoStorage implements LoginInfoStorage {
      * @param prefsFilePath location of the data. Cannot be null.
      * @throws DataConversionException if the file format is not as expected.
      */
-    public Optional<LoginInfoManager> readLoginInfo(Path prefsFilePath) throws DataConversionException {
-        return JsonUtil.readJsonFile(prefsFilePath, LoginInfoManager.class);
+    public Optional<LoginInfoModel> readLoginInfo(Path prefsFilePath) throws DataConversionException {
+        return JsonUtil.readJsonFile(prefsFilePath, LoginInfoModel.class);
     }
 
     @Override
-    public void saveLoginInfo (LoginInfoManager loginInfoManager) throws IOException {
+    public void saveLoginInfo (LoginInfoModel loginInfoManager) throws IOException {
         JsonUtil.saveJsonFile(loginInfoManager, filePath);
     }
 }

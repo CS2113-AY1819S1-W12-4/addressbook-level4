@@ -8,6 +8,7 @@ import seedu.address.commons.events.model.InventoryListChangedEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.LoginInfoManager;
+import seedu.address.model.LoginInfoModel;
 import seedu.address.model.ReadOnlyInventoryList;
 import seedu.address.model.UserPrefs;
 import seedu.address.storage.logininfo.LoginInfoStorage;
@@ -33,10 +34,10 @@ public interface Storage extends InventoryListStorage, UserPrefsStorage, LoginIn
     void saveInventoryList(ReadOnlyInventoryList inventoryList) throws IOException;
 
     @Override
-    Optional<LoginInfoManager> readLoginInfo() throws DataConversionException, IOException;
+    Optional<LoginInfoModel> readLoginInfo() throws DataConversionException, IOException;
 
     @Override
-    void saveLoginInfo(LoginInfoManager userPrefs) throws IOException;
+    void saveLoginInfo(LoginInfoModel userPrefs) throws IOException;
     /**
      * Saves the current version of the Address Book to the hard disk.
      *   Creates the data file if it is missing.

@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.LoginInfoManager;
+import seedu.address.model.LoginInfoModel;
 
 /**
  * Represents a storage for {@link LoginInfoManager}.
@@ -23,13 +24,13 @@ public interface LoginInfoStorage {
      * @throws DataConversionException if the data in storage is not in the expected format.
      * @throws IOException if there was any problem when reading from the storage.
      */
-    Optional<LoginInfoManager> readLoginInfo() throws DataConversionException, IOException;
+    Optional<LoginInfoModel> readLoginInfo() throws DataConversionException, IOException;
 
     /**
      * Saves the given {@link LoginInfoManager} to the storage.
      * @param userPrefs cannot be null.
      * @throws IOException if there was any problem writing to the file.
      */
-    void saveLoginInfo(LoginInfoManager userPrefs) throws IOException;
+    void saveLoginInfo(LoginInfoModel userPrefs) throws IOException;
 
 }

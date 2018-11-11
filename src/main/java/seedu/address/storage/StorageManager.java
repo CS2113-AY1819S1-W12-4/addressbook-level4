@@ -13,6 +13,7 @@ import seedu.address.commons.events.model.InventoryListChangedEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.LoginInfoManager;
+import seedu.address.model.LoginInfoModel;
 import seedu.address.model.ReadOnlyInventoryList;
 import seedu.address.model.UserPrefs;
 import seedu.address.storage.logininfo.LoginInfoStorage;
@@ -44,12 +45,12 @@ public class StorageManager extends ComponentManager implements Storage {
     }
 
     @Override
-    public Optional<LoginInfoManager> readLoginInfo() throws DataConversionException, IOException {
+    public Optional<LoginInfoModel> readLoginInfo() throws DataConversionException, IOException {
         return loginInfoStorage.readLoginInfo ();
     }
 
     @Override
-    public void saveLoginInfo(LoginInfoManager loginInfoManager) throws IOException {
+    public void saveLoginInfo(LoginInfoModel loginInfoManager) throws IOException {
         loginInfoStorage.saveLoginInfo (loginInfoManager);
     }
     // ================ UserPrefs methods ==============================
