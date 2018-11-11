@@ -124,8 +124,6 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     // ========== transactions  =================================================
-
-
     @Override
     public ObservableList<Transaction> getFilteredTransactionList() {
         return FXCollections.unmodifiableObservableList(filteredTransactions);
@@ -141,7 +139,7 @@ public class ModelManager extends ComponentManager implements Model {
      * Raises an event to indicate the transactions have changed
      */
     protected void indicateTransactionListChanged() {
-        raise(new TransactionListChangedEvent(filteredTransactions));
+        raise(new TransactionListChangedEvent(transactionList));
     }
 
 

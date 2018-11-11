@@ -50,9 +50,6 @@ public class MainWindow extends UiPart<Stage> {
     // @FXML
     // private StackPane transactionsPanelPlaceholder;
 
-    // Stores current selection
-    private Drink drinkSelection;
-
     @FXML
     private StackPane drinkDetailPanePlaceholder;
 
@@ -142,9 +139,6 @@ public class MainWindow extends UiPart<Stage> {
         transactionsPanel = new TransactionsPanel(logic.getFilteredTransactionList());
         transactionsPanelPlaceholder.getChildren().add(transactionsPanel.getRoot());
 
-        // drinkDetailPane = new DrinkDetailPane(null);
-        // drinkDetailPanePlaceholder.getChildren().add(drinkDetailPane.getRoot());
-
         drinkListPanel = new DrinkListPanel(logic.getFilteredDrinkList());
         drinkListPanelPlaceholder.getChildren().add(drinkListPanel.getRoot());
 
@@ -170,7 +164,6 @@ public class MainWindow extends UiPart<Stage> {
         batchListPanel = new BatchListPanel(
                 event.getNewSelection().getObservableBatchList());
         batchListPanelPlaceholder.getChildren().add(batchListPanel.getRoot());
-        drinkSelection = event.getNewSelection();
     }
 
 

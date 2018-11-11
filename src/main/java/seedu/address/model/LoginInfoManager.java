@@ -22,7 +22,6 @@ public class LoginInfoManager implements LoginInfoModel{
     public LoginInfoManager (ArrayList< LoginInfo > loginInfoList) {
         this.loginInfoList = loginInfoList;
     }
-
     public LoginInfo getLoginInfo(UserName userName) {
         for (LoginInfo loginInfo : loginInfoList) {
             if (loginInfo.isUserNameMatched (userName)) {

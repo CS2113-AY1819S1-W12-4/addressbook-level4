@@ -17,8 +17,8 @@ import seedu.address.model.drink.Drink;
 import seedu.address.model.drink.Price;
 import seedu.address.model.drink.exceptions.InsufficientQuantityException;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.transaction.ReadOnlyTransactionList;
 import seedu.address.model.transaction.Transaction;
-import seedu.address.model.transaction.TransactionList;
 import seedu.address.model.user.UserName;
 
 /**
@@ -35,7 +35,7 @@ public class AdminModelManager extends ModelManager implements AdminModel {
     /**
      * Raises an event to indicate the model has changed
      */
-    protected void indicateDrinkAttributesChanged(Drink drink) {
+    public void indicateDrinkAttributesChanged(Drink drink) {
         raise(new DrinkAttributeChangedEvent(drink));
     }
 
@@ -44,6 +44,7 @@ public class AdminModelManager extends ModelManager implements AdminModel {
     public void deleteDrink(Drink target) {
         inventoryList.removeDrink(target);
         indicateInventoryListChanged();
+        indicateDrinkAttributesChanged(target);
     }
 
     @Override
@@ -51,6 +52,7 @@ public class AdminModelManager extends ModelManager implements AdminModel {
         inventoryList.addDrink(drink);
         updateFilteredDrinkList(PREDICATE_SHOW_ALL_DRINKS);
         indicateInventoryListChanged();
+        indicateDrinkAttributesChanged(drink);
     }
 
     //=====================Stock taker commands====================
@@ -69,6 +71,7 @@ public class AdminModelManager extends ModelManager implements AdminModel {
         updateFilteredTransactionListToShowAll();
 
         indicateDrinkAttributesChanged(transaction.getDrinkTransacted());
+        indicateTransactionListChanged();
     }
 
     @Override
@@ -82,11 +85,12 @@ public class AdminModelManager extends ModelManager implements AdminModel {
         recordTransaction(transaction);
 
         indicateInventoryListChanged();
-        //updateFilteredDrinkList(PREDICATE_SHOW_ALL_DRINKS);
+        updateFilteredDrinkList(PREDICATE_SHOW_ALL_DRINKS);
 
         updateFilteredTransactionListToShowAll();
 
         indicateDrinkAttributesChanged(transaction.getDrinkTransacted());
+        indicateTransactionListChanged();
 
     }
 

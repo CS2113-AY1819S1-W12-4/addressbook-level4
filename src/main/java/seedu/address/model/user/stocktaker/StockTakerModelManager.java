@@ -8,8 +8,8 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.drink.Drink;
 import seedu.address.model.drink.Price;
 import seedu.address.model.drink.exceptions.InsufficientQuantityException;
+import seedu.address.model.transaction.ReadOnlyTransactionList;
 import seedu.address.model.transaction.Transaction;
-import seedu.address.model.transaction.TransactionList;
 
 /**
  * The solid class for API of the stock taker
