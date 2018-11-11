@@ -5,6 +5,7 @@ import java.util.Set;
 import seedu.address.commons.core.LoginInfo;
 import seedu.address.commons.events.model.DrinkAttributeChangedEvent;
 import seedu.address.model.LoginInfoManager;
+import seedu.address.model.LoginInfoModel;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyInventoryList;
 import seedu.address.model.UserPrefs;
@@ -20,20 +21,20 @@ import seedu.address.model.user.UserName;
 public class ManagerModelManager extends ModelManager implements ManagerModel {
 
     public ManagerModelManager(ReadOnlyInventoryList inventoryList,
-                               UserPrefs userPrefs, LoginInfoManager loginInfoManager,
+                               UserPrefs userPrefs, LoginInfoModel loginInfoModel,
                                TransactionList transactionList) {
-        super(inventoryList, userPrefs, loginInfoManager, transactionList);
+        super(inventoryList, userPrefs, loginInfoModel, transactionList);
     }
 
     //===============login command ============================//
     @Override
     public void createNewAccount(LoginInfo loginInfo) {
-        loginInfoManager.createNewAccount(loginInfo);
+        loginInfoModel.createNewAccount(loginInfo);
     }
 
     @Override
     public void deleteAccount(UserName userName) {
-        loginInfoManager.deleteAccount(userName);
+        loginInfoModel.deleteAccount(userName);
     }
 
     //================drink command==============================///

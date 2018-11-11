@@ -264,8 +264,8 @@ public class LoginController {
     /**
      * pass in {@code LoginInfo} list from main app
      */
-    public void getLoginInfoList (LoginInfoManager loginInfoManager) {
-        this.loginInfoModel = loginInfoManager;
+    public void getLoginInfoList (LoginInfoModel loginInfoModel) {
+        this.loginInfoModel = loginInfoModel;
     }
 
     private void openHelpWindow() {

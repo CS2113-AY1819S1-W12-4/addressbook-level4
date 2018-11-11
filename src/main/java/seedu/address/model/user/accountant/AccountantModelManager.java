@@ -6,6 +6,7 @@ import seedu.address.analysis.AnalysisPeriodType;
 import seedu.address.analysis.PurchaseTransactionPredicate;
 import seedu.address.analysis.SaleTransactionPredicate;
 import seedu.address.model.LoginInfoManager;
+import seedu.address.model.LoginInfoModel;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyInventoryList;
 import seedu.address.model.UserPrefs;
@@ -19,9 +20,9 @@ public class AccountantModelManager extends ModelManager implements AccountantMo
     private final Analysis analysis = new AnalysisManager(transactionList, filteredTransactions);
 
     public AccountantModelManager(ReadOnlyInventoryList inventoryList,
-                                  UserPrefs userPrefs, LoginInfoManager loginInfoManager,
+                                  UserPrefs userPrefs, LoginInfoModel loginInfoModel,
                                   TransactionList transactionList) {
-        super(inventoryList, userPrefs, loginInfoManager, transactionList);
+        super(inventoryList, userPrefs, loginInfoModel, transactionList);
     }
 
     @Override
