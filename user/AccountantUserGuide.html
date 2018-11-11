@@ -1,0 +1,501 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 4 - User Guide</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Drink-IO</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://cs2113-ay1819s1-w12-4.github.io/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 4 - User Guide</h1></div><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>By: <code>CS2113T-W12-4</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+</div>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle"></div>
+<ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#how-to-use-this-guide">1.1. How to use this guide</a></li>
+<li><a href="#how-to-navigate-drink-i-o-s-interface">1.2. How to navigate Drink I/O&#8217;s interface</a></li>
+</ul>
+</li>
+<li><a href="#quick-start">2. Quick Start</a></li>
+<li><a href="#Features">3. Getting Started</a>
+<ul class="sectlevel2">
+<li><a href="#login">3.1. Logging in</a></li>
+<li><a href="#logging-out">3.2. Logging out</a></li>
+</ul>
+</li>
+<li><a href="#help">4. Help</a>
+<ul class="sectlevel2">
+<li><a href="#changing-your-password">4.1. Changing your password</a></li>
+</ul>
+</li>
+<li><a href="#managing-transactions">5. Managing Transactions</a>
+<ul class="sectlevel2">
+<li><a href="#viewing-transactions">5.1. Viewing transactions</a></li>
+</ul>
+</li>
+<li><a href="#analysing-sales-performance">6. Analysing Sales Performance</a>
+<ul class="sectlevel2">
+<li><a href="#viewing-overall-cost-revenue-and-profit">6.1. Viewing overall cost, revenue and profit</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><span class="blue"><em>Drink I/O</em></span></strong> is a desktop application that helps you to manage your drink distribution company.
+You can use <strong><span class="blue"><em>Drink I/O</em></span></strong> to keep track of your inventory, analyse your company�s sales performance and
+set reminders to help you purchase more goods should their stocks fall low.
+<strong><span class="blue"><em>Drink I/O</em></span></strong> is optimised for Command Line Interface (CLI), allowing you to manage your store
+faster than traditional Graphical User Interface (GUI) apps, while retaining the benefits of a GUI</p>
+</div>
+<div class="paragraph">
+<p>This user guide provides comprehensive documentation on the <strong><span class="blue"><em>Drink I/O</em></span></strong> setup process, the features you can
+access and the commands you can use. Choose a topic from the Table of Contents above to find answers,
+get instructions and learn to improve your workflow with Drink I/O.</p>
+</div>
+<div class="sect2">
+<h3 id="how-to-use-this-guide"><a class="link" href="#how-to-use-this-guide">1.1. How to use this guide</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="how-to-navigate-drink-i-o-s-interface"><a class="link" href="#how-to-navigate-drink-i-o-s-interface">1.2. How to navigate Drink I/O&#8217;s interface</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
+</li>
+<li>
+<p>Download the latest <code>DrinkIO.jar</code> <a href="https://github.com/CS2113-AY1819S1-W12-4/main/releases">here</a>.</p>
+</li>
+<li>
+<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+</li>
+<li>
+<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+</li>
+<li>
+<p>Refer to <a href="#login">Logging in</a> to login the product.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginPic/login_page_main.PNG" alt="login page main" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>After login in, the main window will appear as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+</li>
+<li>
+<p>Some example commands you can try:<br>
+&lt;to be added&gt;</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Refer to <a href="#Features">Getting Started</a> for details of each command.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Features"><a class="link" href="#Features">3. Getting Started</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="login"><a class="link" href="#login">3.1. Logging in</a></h3>
+<div class="paragraph">
+<p>Upon entering starting up the application, you will be met by the login page below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginPic/login_page_main.PNG" alt="login page main" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>To login, you can use either the CLI or GUI to input your <code>USERNAME</code> and <code>PASSWORD</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>GUI Login</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter your <code>USERNAME</code> and <code>PASSWORD</code> into the respective username and password fields</p>
+</li>
+<li>
+<p>Click on the <kbd>LOGIN</kbd> button</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>CLI Login</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter your <code>USERNAME</code> and <code>PASSWORD</code> into the terminal in this format</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Format: <code>USERNAME</code> <code>PASSWORD</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Press the <kbd>ENTER</kbd> key</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>User name and password are seperated with a single space when using CLI input</p>
+</li>
+<li>
+<p>Both username and password are single words. No spaces are allowed in username or password.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples for CLI input:</span></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Table List of user accounts at first launch or upon reset</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">user name</th>
+<th class="tableblock halign-left valign-top">password</th>
+<th class="tableblock halign-left valign-top">authentication level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ACCOUNTANT</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The example provided is a default login account for admins. This account is created only for testing purposes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>After successfully logging in, a confirmation message would be shown indicating your authentication level:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginPic/login_confirmation.PNG" alt="login confirmation" width="">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-out"><a class="link" href="#logging-out">3.2. Logging out</a></h3>
+<div class="paragraph">
+<p>Logging out of the application will bring you back to the login screen.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>To log out, enter the following command into the command bar</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Command format: <code>logout</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Press the <kbd>ENTER</kbd> key</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="help"><a class="link" href="#help">4. Help</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Shows available commands with brief description of what can accountant do.<br>
+    Format: <code>help</code>
+== Managing Your Drink I/O Account
+<strong><span class="blue"><em>Drink I/O</em></span></strong> has a login feature. This ensure that every user has to have an account before using the application.
+Hence, it would increase the security of the application.</p>
+</div>
+<div class="sect2">
+<h3 id="changing-your-password"><a class="link" href="#changing-your-password">4.1. Changing your password</a></h3>
+<div class="paragraph">
+<p>When you receive an account from manager, you want to change the password to increase security.
+Format: <code>changePassword o/[OLD_PASSWORD] n/[NEW_PASSWORD]</code></p>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples for changePassword:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>changePassword o/123 n/1234</code></span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If password changes is successful, a message will be shown:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginPic/password_change_successful.PNG" alt="password change successful" width="300">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="managing-transactions"><a class="link" href="#managing-transactions">5. Managing Transactions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Buying and selling likely occurs frequently in your company. To manage the ins and outs of your drinks,
+you can record your sales and purchases of drinks into <strong><span class="blue"><em>Drink I/O</em></span></strong>, and let <strong><span class="blue"><em>Drink I/O</em></span></strong>
+handle the updating of the inventory for you in real-time.</p>
+</div>
+<div class="sect2">
+<h3 id="viewing-transactions"><a class="link" href="#viewing-transactions">5.1. Viewing transactions</a></h3>
+<div class="paragraph">
+<p>You can view the transactions entered into <strong><span class="blue"><em>Drink I/O</em></span></strong> to verify their accuracy.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Command format</strong>:
+<code>viewTrans</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step by Step Instructions</strong><br>
+To view all transactions entered,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>viewTrans</code> into the command box</p>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You will see a list of transactions displayed in the results panel.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="analysing-sales-performance"><a class="link" href="#analysing-sales-performance">6. Analysing Sales Performance</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Having up-to-date figures on how much you are making is definitely an important statistic to
+gauge the health of your company. <strong><span class="blue"><em>Drink I/O</em></span></strong> can crunch the numbers from your
+transactions for you, and present overall cost, revenue and profit, and
+individual drink&#8217;s sales figures.</p>
+</div>
+<div class="sect2">
+<h3 id="viewing-overall-cost-revenue-and-profit"><a class="link" href="#viewing-overall-cost-revenue-and-profit">6.1. Viewing overall cost, revenue and profit</a></h3>
+<div class="paragraph">
+<p>You can view the overall sales figures aggregated across all drinks.</p>
+</div>
+<div class="sect3">
+<h4 id="viewing-overall-cost"><a class="link" href="#viewing-overall-cost">6.1.1. Viewing overall cost</a></h4>
+<div class="paragraph">
+<p>You can check the total costs incurred by your company. Let <strong><span class="blue"><em>Drink I/O</em></span></strong>
+calculate the costs since the beginning of using <strong><span class="blue"><em>Drink I/O</em></span></strong> for you.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Command format</strong>:
+<code>analyseCosts</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step by Step Instructions</strong><br>
+To view the total costs incurred,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>analyseCosts</code> into the command box</p>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You should see a value displayed in the results panel.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-overall-revenue-code-coming-in-v1-4-code"><a class="link" href="#viewing-overall-revenue-code-coming-in-v1-4-code">6.1.2. Viewing overall revenue <code>[Coming in v1.4]</code></a></h4>
+<div class="paragraph">
+<p><strong><span class="blue"><em>Drink I/O</em></span></strong> can calculate the total revenue your company has earned
+since the beginning of using <strong><span class="blue"><em>Drink I/O</em></span></strong> for you.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Command format</strong>:
+<code>analyseRevenue</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step by Step Instructions</strong><br>
+To view the total revenue earned,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>analyseRevenue</code> into the command box</p>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You should see a value displayed in the results panel.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-overall-profit-code-coming-in-v1-4-code"><a class="link" href="#viewing-overall-profit-code-coming-in-v1-4-code">6.1.3. Viewing overall profit <code>[Coming in v1.4]</code></a></h4>
+<div class="paragraph">
+<p><strong><span class="blue"><em>Drink I/O</em></span></strong> can calculate the total profit your company has earned
+since the beginning of using <strong><span class="blue"><em>Drink I/O</em></span></strong> for you.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Command format</strong>:
+<code>analyseProfits</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step by Step Instructions</strong><br>
+To view the total profit earned,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>analyseProfits</code> into the command box</p>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You should see a value displayed in the results panel.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 11:05:08 UTC</div></div></div></body></html>
