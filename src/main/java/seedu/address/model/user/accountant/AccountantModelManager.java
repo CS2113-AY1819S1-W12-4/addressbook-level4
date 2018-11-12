@@ -27,18 +27,21 @@ public class AccountantModelManager extends ModelManager implements AccountantMo
     @Override
     public Price analyseCosts(AnalysisPeriodType period) {
         updateFilteredTransactionListToShowPurchases(period);
+        indicateTransactionListChanged ();
         return analysis.analyseCost(period);
     }
 
     @Override
     public Price analyseRevenue(AnalysisPeriodType period) {
         updateFilteredTransactionListToShowSales(period);
+        indicateTransactionListChanged ();
         return analysis.analyseRevenue(period);
     }
 
     @Override
     public Price analyseProfit(AnalysisPeriodType period) {
         updateFilteredTransactionListToShowProfitPeriod(period);
+        indicateTransactionListChanged ();
         return analysis.analyseProfit(period);
     }
 
