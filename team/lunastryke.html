@@ -15,9 +15,6 @@
 <div class="paragraph">
 <p>As part of the module, my teammates and I collaborated to develop a drink management application - Drink I/O. Drink I/O is targeted at small drink distribution companies and provides inventory management and financial tools. Users interact with the app using CLI, and it has a GUI created with JavaFX. This project is written in Java and has approximately &lt;To be filled&gt; kLoC.</p>
 </div>
-<div class="paragraph">
-<p><strong>TO BE CHANGED</strong></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -419,83 +416,195 @@ Format: <code>select INDEX</code></p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-<div class="paragraph">
-<p><span class="underline">testing</span></p>
+<div class="title">Figure 1. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><span class="white">DRINK I/O</span></p>
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p><span class="silver">DRINK I/O</span></p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>InventoryListPanel</code>, <code>BatchListPanel</code>, <code>StatusBarFooter</code>, <code>DrinkDetailPane</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p><span class="gray">DRINK I/O</span></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="{repoURL}/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
-<p><span class="black">DRINK I/O</span></p>
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Binds itself to some data in the <code>Model</code> so that the UI can auto-update when data in the <code>Model</code> change.</p>
+</li>
+<li>
+<p>Responds to events raised from various parts of the App and updates the UI accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inventory-management"><a class="link" href="#inventory-management">Inventory Management</a></h3>
+<div class="paragraph">
+<p>In Drink I/O, inventory is managed in the model, through the use of Drink Objects with the attributes <code>name</code> , <code>price</code> , <code>quantity</code> , <code>tags</code> , <code>UniqueBatchList</code> . In Drink I/O, drink purchases are stored in <code>Batch</code> objects which are made unique by their <code>BatchDate</code> attribute.
+These <code>Batch</code> objects contain a <code>BatchId</code> , a <code>BatchQuantity</code> and a <code>BatchDate</code> attribute and are stored in the <code>UniqueBatchList</code> of the relevant drink.</p>
+</div>
+<div class="sect3">
+<h4 id="buying-a-drink-with-code-buy-n-drink_name-q-quantity-code"><a class="link" href="#buying-a-drink-with-code-buy-n-drink_name-q-quantity-code">Buying a drink with <code>buy n/DRINK_NAME q/QUANTITY</code></a></h4>
+<div class="paragraph">
+<p>A user may enter a buy command with the above parameters to record a purchase of drinks.</p>
 </div>
 <div class="paragraph">
-<p><span class="red">DRINK I/O</span></p>
+<p>The following is the sequence of steps when the user enters an buy command with specified name and quantity:</p>
 </div>
 <div class="paragraph">
-<p><span class="maroon">DRINK I/O</span></p>
+<p>Step 1. User enters a buy command (i.e. <code>buy</code> <code>n/Coca cola</code> <code>q/400</code>).</p>
 </div>
 <div class="paragraph">
-<p><span class="yellow">DRINK I/O</span></p>
+<p>Step 2. The appropriate parser parses the name and quantity parameters and assigns the <code>name</code> and <code>quantity</code> variables to the <code>buy</code> command.</p>
 </div>
 <div class="paragraph">
-<p><span class="olive">DRINK I/O</span></p>
+<p>Step 3. The buy command is executed, and a new <code>Transaction</code> object is created with the <code>name</code> , <code>quantity</code> and a <code>transactionType</code> variable. This <code>Transaction</code> object is then passed to the StockTakerModelManager.</p>
 </div>
 <div class="paragraph">
-<p><span class="lime">DRINK I/O</span></p>
+<p>Step 4. In the StockTakerModelManager, <code>recordTransaction(Transaction)</code> is used to record the transaction and  <code>increaseDrinkQuantity(Name, Quantity)</code> is called to update the change in quantity in the inventory list.</p>
 </div>
 <div class="paragraph">
-<p><span class="green">DRINK I/O</span></p>
+<p>Step 5. The inventory list then passes the <code>name</code> and <code>quantity</code> variables down to the <code>UniqueDrinkList</code> which calls the <code>increaseQuantity(Quantity)</code> method in the relevant <code>Drink</code> object.</p>
 </div>
 <div class="paragraph">
-<p><span class="aqua">DRINK I/O</span></p>
+<p>Step 6. In the <code>Drink</code> object, a new <code>Batch</code> object is created with the <code>name</code> and <code>quantity</code> variables and passed to the Drink&#8217;s  <code>UniqueBatchList</code> through the <code>addBatch</code> method.</p>
 </div>
 <div class="paragraph">
-<p><span class="teal">DRINK I/O</span></p>
+<p>Step 7. In the <code>UniqueBatchList</code> , the <code>Batch</code> that was passed down would be checked against the other <code>Batch</code> objects in the list for uniqueness based on its date. If it has a unique date, a new <code>Batch</code> would be created and stored in the <code>UniqueBatchList</code>, else the currently existing <code>Batch</code> object in the <code>UniqueBatchList</code> with the same date will have its <code>Quantity</code> attribute incremented by the <code>quantity</code> value of the <code>Batch</code> object added.</p>
 </div>
 <div class="paragraph">
-<p><span class="blue">DRINK I/O</span></p>
+<p>Step 8. The <code>totalQuantity</code> attribute of the <code>UniqueBatchList</code> is then updated by looping through the batches in the list, and is handed up to the <code>Drink</code> object which updates its <code>Quantity</code> attribute with the value of the <code>totalQuantity</code> attribute.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BuyCommandSequenceDiagram1.png" alt="BuyCommandSequenceDiagram1" width="600">
+</div>
+<div class="title">Figure 2. Sequence Diagram of BuyCommand to StockTakerModelManager</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BuyCommandSequenceDiagram2.png" alt="BuyCommandSequenceDiagram2" width="800">
+</div>
+<div class="title">Figure 3. Sequence Diagram of StockTakerModelManager to Batch</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="selling-a-drink"><a class="link" href="#selling-a-drink">Selling a drink</a></h4>
+<div class="paragraph">
+<p>To facilitate sales of drinks from the stock of the company, sales of drinks from the inventory are conducted with the command <code>sell</code> <code>n/DRINK_NAME</code> <code>q/QUANTITY</code></p>
 </div>
 <div class="paragraph">
-<p><span class="navy">DRINK I/O</span></p>
+<p>A user may enter a buy command with the above parameters to record a purchase of drinks.</p>
 </div>
 <div class="paragraph">
-<p><span class="fuchsia">DRINK I/O</span></p>
+<p>The following is the sequence of steps when the user enters an buy command with specified name and quantity:</p>
 </div>
 <div class="paragraph">
-<p><span class="purple">DRINK I/O</span></p>
+<p>Step 1. User enters a sell command (i.e. <code>sell</code> <code>n/Coca cola</code> <code>q/400</code>).</p>
 </div>
 <div class="paragraph">
-<p><a href="#DRINK I/O">[DRINK I/O]</a></p>
+<p>Step 2. The appropriate parser parses the name and quantity parameters and assigns the <code>name</code> and <code>quantity</code> variables to the <code>sell</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Bold:</p>
+<p>Step 3. The sell command is executed, and a new <code>Transaction</code> object is created with the <code>name</code> , <code>quantity</code> and a <code>transactionType</code> variable. This <code>Transaction</code> object is then passed to the StockTakerModelManager.</p>
 </div>
 <div class="paragraph">
-<p><strong class="Blue">DRINK I/O</strong></p>
+<p>Step 4. In the StockTakerModelManager, <code>recordTransaction(Transaction)</code> is used to record the transaction and  <code>decreaseQuantity(Name, Quantity)</code> is called to update the change in quantity in the inventory list.</p>
 </div>
 <div class="paragraph">
-<p>Even a mixture of bold italic colour</p>
+<p>Step 5. The inventory list then passes the <code>name</code> and <code>quantity</code> variables down to the <code>UniqueDrinkList</code> which calls the <code>decreaseQuantity(Quantity)</code> method in the relevant <code>Drink</code> object.</p>
 </div>
 <div class="paragraph">
-<p><span class="blue">DRINK <strong class="red">I</strong>/<strong class="yellow">O</strong></span></p>
+<p>Step 6. In the <code>Drink</code> object, <code>updateBatchTransaction(Quantity)</code> is called and the <code>quantity</code> variable is passed down to the <code>UniqueBatchList</code>.</p>
 </div>
 <div class="paragraph">
-<p>Chars: n<em>i</em><strong>b</strong>m<span class="red">r</span></p>
+<p>Step 7. In the <code>UniqueBatchList</code> , <code>quantity</code> passed down will be checked against the <code>totalQuantity</code> variable. If <code>quantity</code> is more than <code>totalQuantity</code>, a InsufficientQuantityException will be thrown which would be handled in the <code>SellDrinkCommand</code> class. Else, the <code>updateBatchTransaction</code> would loop through the <code>UniqueBatchList</code> and decrement the quantity of the individual batches starting from the one with the oldest date.</p>
+</div>
+<div class="paragraph">
+<p>Step 8. The <code>totalQuantity</code> attribute of the <code>UniqueBatchList</code> is then updated by looping through the batches in the list, and is handed up to the <code>Drink</code> object which updates its <code>Quantity</code> attribute with the value of the <code>totalQuantity</code> attribute.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SellCommandSequenceDiagram1.png" alt="SellCommandSequenceDiagram1" width="600">
+</div>
+<div class="title">Figure 4. Sequence Diagram of SellCommand to StockTakerModelManager</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SellCommandSequenceDiagram2.png" alt="SellCommandSequenceDiagram2" width="800">
+</div>
+<div class="title">Figure 5. Sequence Diagram of StockTakerModelManager to Batch</div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:37:23 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: Facilitating the Buy and Sell Commands</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Current Implementation: Sorting the <code>UniqueBatchList</code> by <code>BatchDate</code> using a Custom Comparator.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Makes implementation of methods such as <code>addBatch</code> , <code>updateBatchTransaction</code> , <code>getEarliestBatchDate</code> , <code>getOldestBatchDate</code> much easier as <code>Batch</code> objects are already in <code>date</code> order.</p>
+</li>
+<li>
+<p>Easy to modify, allowing users to sort batches based on <code>quantity</code> by just editing the Custom Comparator.</p>
+</li>
+<li>
+<p>Allows batches shown in the BatchListPanel to be easily ordered based on date.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>When users replace the Custom Comparator with another comparator, methods such as <code>getEarliestBatchDate</code> will have to be edited as they  depend on the <code>UniqueBatchList</code> being in date-sorted order.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative: Loop through all batches in the <code>UniqueBatchList</code> for all methods.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: When the <code>UniqueBatchList</code> is sorted differently, methods do not have to be rewritten.</p>
+</li>
+<li>
+<p>Cons: May have time performance issues if there are many batches.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 16:17:56 UTC</div></div></div></body></html>

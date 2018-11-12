@@ -33,8 +33,9 @@
 <li><a href="#command-partition">3.2. Command partition</a></li>
 <li><a href="#login-logout-feature">3.3. Login/logout feature</a></li>
 <li><a href="#save-information-about-user-account">3.4. Save information about user account</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#inventory-management">3.5. Inventory Management</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -72,8 +73,11 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
-<li><a href="#saving-data">F.3. Saving data</a></li>
+<li><a href="#buying-a-drink">F.2. Buying a drink</a></li>
+<li><a href="#selling-a-drink-2">F.3. Selling a drink</a></li>
+<li><a href="#analysing-costs">F.4. Analysing costs</a></li>
+<li><a href="#analysing-revenue">F.5. Analysing revenue</a></li>
+<li><a href="#analysing-profit">F.6. Analysing profit</a></li>
 </ul>
 </li>
 </ul>
@@ -436,7 +440,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>InventoryListPanel</code>, <code>BatchListPanel</code>, <code>StatusBarFooter</code>, <code>DrinkDetailPane</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -1009,14 +1013,170 @@ The program also save the the login information to <code>loginInfoList.json</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="inventory-management"><a class="link" href="#inventory-management">3.5. Inventory Management</a></h3>
+<div class="paragraph">
+<p>In Drink I/O, inventory is managed in the model, through the use of Drink Objects with the attributes <code>name</code> , <code>price</code> , <code>quantity</code> , <code>tags</code> , <code>UniqueBatchList</code> . In Drink I/O, drink purchases are stored in <code>Batch</code> objects which are made unique by their <code>BatchDate</code> attribute.
+These <code>Batch</code> objects contain a <code>BatchId</code> , a <code>BatchQuantity</code> and a <code>BatchDate</code> attribute and are stored in the <code>UniqueBatchList</code> of the relevant drink.</p>
+</div>
+<div class="sect3">
+<h4 id="buying-a-drink-with-code-buy-n-drink_name-q-quantity-code"><a class="link" href="#buying-a-drink-with-code-buy-n-drink_name-q-quantity-code">3.5.1. Buying a drink with <code>buy n/DRINK_NAME q/QUANTITY</code></a></h4>
+<div class="paragraph">
+<p>A user may enter a buy command with the above parameters to record a purchase of drinks.</p>
+</div>
+<div class="paragraph">
+<p>The following is the sequence of steps when the user enters an buy command with specified name and quantity:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User enters a buy command (i.e. <code>buy</code> <code>n/Coca cola</code> <code>q/400</code>).</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The appropriate parser parses the name and quantity parameters and assigns the <code>name</code> and <code>quantity</code> variables to the <code>buy</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The buy command is executed, and a new <code>Transaction</code> object is created with the <code>name</code> , <code>quantity</code> and a <code>transactionType</code> variable. This <code>Transaction</code> object is then passed to the StockTakerModelManager.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. In the StockTakerModelManager, <code>recordTransaction(Transaction)</code> is used to record the transaction and  <code>increaseDrinkQuantity(Name, Quantity)</code> is called to update the change in quantity in the inventory list.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The inventory list then passes the <code>name</code> and <code>quantity</code> variables down to the <code>UniqueDrinkList</code> which calls the <code>increaseQuantity(Quantity)</code> method in the relevant <code>Drink</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. In the <code>Drink</code> object, a new <code>Batch</code> object is created with the <code>name</code> and <code>quantity</code> variables and passed to the Drink&#8217;s  <code>UniqueBatchList</code> through the <code>addBatch</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. In the <code>UniqueBatchList</code> , the <code>Batch</code> that was passed down would be checked against the other <code>Batch</code> objects in the list for uniqueness based on its date. If it has a unique date, a new <code>Batch</code> would be created and stored in the <code>UniqueBatchList</code>, else the currently existing <code>Batch</code> object in the <code>UniqueBatchList</code> with the same date will have its <code>Quantity</code> attribute incremented by the <code>quantity</code> value of the <code>Batch</code> object added.</p>
+</div>
+<div class="paragraph">
+<p>Step 8. The <code>totalQuantity</code> attribute of the <code>UniqueBatchList</code> is then updated by looping through the batches in the list, and is handed up to the <code>Drink</code> object which updates its <code>Quantity</code> attribute with the value of the <code>totalQuantity</code> attribute.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BuyCommandSequenceDiagram1.png" alt="BuyCommandSequenceDiagram1" width="600">
+</div>
+<div class="title">Figure 11. Sequence Diagram of BuyCommand to StockTakerModelManager</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BuyCommandSequenceDiagram2.png" alt="BuyCommandSequenceDiagram2" width="800">
+</div>
+<div class="title">Figure 12. Sequence Diagram of StockTakerModelManager to Batch</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="selling-a-drink"><a class="link" href="#selling-a-drink">3.5.2. Selling a drink</a></h4>
+<div class="paragraph">
+<p>To facilitate sales of drinks from the stock of the company, sales of drinks from the inventory are conducted with the command <code>sell</code> <code>n/DRINK_NAME</code> <code>q/QUANTITY</code></p>
+</div>
+<div class="paragraph">
+<p>A user may enter a buy command with the above parameters to record a purchase of drinks.</p>
+</div>
+<div class="paragraph">
+<p>The following is the sequence of steps when the user enters an buy command with specified name and quantity:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User enters a sell command (i.e. <code>sell</code> <code>n/Coca cola</code> <code>q/400</code>).</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The appropriate parser parses the name and quantity parameters and assigns the <code>name</code> and <code>quantity</code> variables to the <code>sell</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The sell command is executed, and a new <code>Transaction</code> object is created with the <code>name</code> , <code>quantity</code> and a <code>transactionType</code> variable. This <code>Transaction</code> object is then passed to the StockTakerModelManager.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. In the StockTakerModelManager, <code>recordTransaction(Transaction)</code> is used to record the transaction and  <code>decreaseQuantity(Name, Quantity)</code> is called to update the change in quantity in the inventory list.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The inventory list then passes the <code>name</code> and <code>quantity</code> variables down to the <code>UniqueDrinkList</code> which calls the <code>decreaseQuantity(Quantity)</code> method in the relevant <code>Drink</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. In the <code>Drink</code> object, <code>updateBatchTransaction(Quantity)</code> is called and the <code>quantity</code> variable is passed down to the <code>UniqueBatchList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. In the <code>UniqueBatchList</code> , <code>quantity</code> passed down will be checked against the <code>totalQuantity</code> variable. If <code>quantity</code> is more than <code>totalQuantity</code>, a InsufficientQuantityException will be thrown which would be handled in the <code>SellDrinkCommand</code> class. Else, the <code>updateBatchTransaction</code> would loop through the <code>UniqueBatchList</code> and decrement the quantity of the individual batches starting from the one with the oldest date.</p>
+</div>
+<div class="paragraph">
+<p>Step 8. The <code>totalQuantity</code> attribute of the <code>UniqueBatchList</code> is then updated by looping through the batches in the list, and is handed up to the <code>Drink</code> object which updates its <code>Quantity</code> attribute with the value of the <code>totalQuantity</code> attribute.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SellCommandSequenceDiagram1.png" alt="SellCommandSequenceDiagram1" width="600">
+</div>
+<div class="title">Figure 13. Sequence Diagram of SellCommand to StockTakerModelManager</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SellCommandSequenceDiagram2.png" alt="SellCommandSequenceDiagram2" width="800">
+</div>
+<div class="title">Figure 14. Sequence Diagram of StockTakerModelManager to Batch</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.3. Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: Facilitating the Buy and Sell Commands</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Current Implementation: Sorting the <code>UniqueBatchList</code> by <code>BatchDate</code> using a Custom Comparator.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Makes implementation of methods such as <code>addBatch</code> , <code>updateBatchTransaction</code> , <code>getEarliestBatchDate</code> , <code>getOldestBatchDate</code> much easier as <code>Batch</code> objects are already in <code>date</code> order.</p>
+</li>
+<li>
+<p>Easy to modify, allowing users to sort batches based on <code>quantity</code> by just editing the Custom Comparator.</p>
+</li>
+<li>
+<p>Allows batches shown in the BatchListPanel to be easily ordered based on date.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>When users replace the Custom Comparator with another comparator, methods such as <code>getEarliestBatchDate</code> will have to be edited as they  depend on the <code>UniqueBatchList</code> being in date-sorted order.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative: Loop through all batches in the <code>UniqueBatchList</code> for all methods.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: When the <code>UniqueBatchList</code> is sorted differently, methods do not have to be rewritten.</p>
+</li>
+<li>
+<p>Cons: May have time performance issues if there are many batches.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1047,7 +1207,7 @@ The program also save the the login information to <code>loginInfoList.json</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1113,7 +1273,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -1620,9 +1780,6 @@ b. Require developers to download those libraries manually (this creates extra w
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1710,9 +1867,6 @@ b. Require developers to download those libraries manually (this creates extra w
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1731,9 +1885,6 @@ b. Require developers to download those libraries manually (this creates extra w
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1744,10 +1895,6 @@ b. Require developers to download those libraries manually (this creates extra w
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
-</dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
-<dd>
-<p>A contact detail that is not meant to be shared with others</p>
 </dd>
 </dl>
 </div>
@@ -1784,7 +1931,7 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+Expected: Shows the GUI with a set of sample drinks and transactions. The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -1805,61 +1952,207 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.2. Deleting a person</a></h3>
+<h3 id="buying-a-drink"><a class="link" href="#buying-a-drink">F.2. Buying a drink</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Buy a certain quantity of a  drink using the <code>buy</code> command</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: There must be at least one drink in the inventory.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>buy n/NAME q/12</code><br>
+Expected: The drink by the name of NAME (case-sensitive) has its quantity increased by 12. The message that "Purchase transaction recorded!" is shown in the results panel.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Test case: 'buy n/NAME q/12', where NAME is the name of a drink that is not in the inventory<br>
+Expected: The message "The drink entered does not exist in the inventory list" is displayed.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
+<h3 id="selling-a-drink-2"><a class="link" href="#selling-a-drink-2">F.3. Selling a drink</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Sell a certain quantity of a drink using the <code>sell</code> command</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Prerequisites: There must be at least one drink in the inventory.</p>
+</li>
+<li>
+<p>Test case: <code>sell n/NAME q/12</code>, where NAME is the name of a drink that is in the inventory, and its quantity is 12 or more.<br>
+Expected: The drink by the name of NAME (case-sensitive) has its quantity decreased by 12. The message that "Sale transaction recorded!" is shown in the results panel.</p>
+</li>
+<li>
+<p>Test case: 'sell n/NAME q/12', where NAME is the name of a drink that is not in the inventory<br>
+Expected: The message "The drink entered does not exist in the inventory list" is displayed.</p>
+</li>
+<li>
+<p>Test case: 'sell n/NAME q/12', where NAME is the name of a drink that is in the inventory, and its quantity is less than 12.<br>
+Expected: The message "Insufficient quantity in stock to perform operation" is displayed.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect2">
+<h3 id="analysing-costs"><a class="link" href="#analysing-costs">F.4. Analysing costs</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Analyse costs over a period of a day</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one transaction in the transaction list.</p>
+</li>
+<li>
+<p>Test case: <code>costs</code><br>
+Expected: The total cost incurred <strong>in a day</strong> is calculated and shown. The <code>PURCHASE</code> transactions are listed in the transaction list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Analyse costs over a period of 7 days (including current day)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one transaction in the transaction list.</p>
+</li>
+<li>
+<p>Test case: <code>costs -w</code><br>
+Expected: The total cost incurred <strong>in 7 days</strong> is calculated and shown. The <code>PURCHASE</code> transactions are listed in the transaction list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Analyse costs over a period of 30 days (including current day)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one transaction in the transaction list.</p>
+</li>
+<li>
+<p>Test case: <code>costs -m</code><br>
+Expected: The total cost incurred <strong>in 30 days</strong> is calculated and shown. The <code>PURCHASE</code> transactions are listed in the transaction list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="analysing-revenue"><a class="link" href="#analysing-revenue">F.5. Analysing revenue</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Analyse revenue over a period of a day</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one transaction in the transaction list.</p>
+</li>
+<li>
+<p>Test case: <code>revenue</code><br>
+Expected: The total revenue earned <strong>in a day</strong> is calculated and shown. The <code>SALE</code> transactions are listed in the transaction list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Analyse revenue over a period of 7 days (including current day)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one transaction in the transaction list.</p>
+</li>
+<li>
+<p>Test case: <code>revenue -w</code><br>
+Expected: The total revenue earned <strong>in 7 days</strong> is calculated and shown. The <code>SALE</code> transactions are listed in the transaction list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Analyse revenue over a period of 30 days (including current day)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one transaction in the transaction list.</p>
+</li>
+<li>
+<p>Test case: <code>revenue -m</code><br>
+Expected: The total revenue earned <strong>in 30 days</strong> is calculated and shown. The <code>SALE</code> transactions are listed in the transaction list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="analysing-profit"><a class="link" href="#analysing-profit">F.6. Analysing profit</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Analyse profit over a period of a day</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one transaction in the transaction list.</p>
+</li>
+<li>
+<p>Test case: <code>profit</code><br>
+Expected: The total profit earned <strong>in a day</strong> is calculated and shown. The <code>SALE</code> and <code>PURCHASE</code> transactions within the time period are listed in the transaction list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Analyse profit over a period of 7 days (including current day)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one transaction in the transaction list.</p>
+</li>
+<li>
+<p>Test case: <code>profit -w</code><br>
+Expected: The total profit earned <strong>in 7 days</strong> is calculated and shown. The <code>SALE</code> and <code>PURCHASE</code> transactions within the time period are listed in the transaction list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Analyse profit over a period of 30 days (including current day)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one transaction in the transaction list.</p>
+</li>
+<li>
+<p>Test case: <code>profit -m</code><br>
+Expected: The total profit earned <strong>in 30 days</strong> is calculated and shown. The <code>SALE</code> and <code>PURCHASE</code> transactions within the time period are listed in the transaction list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:37:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 16:17:56 UTC</div></div></div></body></html>
