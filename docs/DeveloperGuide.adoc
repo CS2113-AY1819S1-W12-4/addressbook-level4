@@ -847,7 +847,6 @@ These instructions only provide a starting point for testers to work on; testers
 |===
 
 =======
->>>>>>> parent of 4dd92168... Dgchange (#187)
 
 . Saving window preferences
 
@@ -855,7 +854,6 @@ These instructions only provide a starting point for testers to work on; testers
 .. Re-launch the app by double-clicking the jar file. +
    Expected: The most recent window size and location is retained.
 
-<<<<<<< HEAD
 . logout
 .. Test case: `logout` +
    Expected:
@@ -869,7 +867,6 @@ These instructions only provide a starting point for testers to work on; testers
 
 =======
 _{ more test cases ... }_
->>>>>>> parent of 4dd92168... Dgchange (#187)
 
 === Deleting a person
 
