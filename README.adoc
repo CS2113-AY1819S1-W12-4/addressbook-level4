@@ -36,6 +36,7 @@ endif::[]
 * https://cs2113-ay1819s1-w12-4.github.io/main/StockTakerUserGuide.html[Stock taker user guide]
 * https://cs2113-ay1819s1-w12-4.github.io/main/AdminUserGuide.html[Admin user guide]
 
+
 == Acknowledgements
 * Original source of code: Addressbook-Level4 project created by SE-EDU initiative at [https://github.com/se-edu]
 * Some parts of this application were inspired by the excellent http://code.makery.ch/library/javafx-8-tutorial/[Java FX tutorial] by
