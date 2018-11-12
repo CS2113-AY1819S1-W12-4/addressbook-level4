@@ -375,6 +375,7 @@ is within the desired time period
 
 // end::analyses[]
 
+//tag::commandPartition[]
 === Command partition
 
 ==== Current Implementation
@@ -392,6 +393,7 @@ image::LoginUMLDiagram/Logic-UML-design-Login.png[width="800"]
 After login, `logicManager` will assign a particular role to user according to their
 `authenticationLevel`. As such, it will prevent one role from accessing other role's
 command.
+//end::commandPartition[]
 
 //tag::login[]
 === Login/logout feature
@@ -418,7 +420,6 @@ The `LoginController` will check for username and password will the `LoginUtils`
 
 
 image::LoginUMLDiagram/LoginUtils_Sequence_Diagram.png[width="600" height ="400"]
-
 
 === Save information about user account
 Given below is a structure of `Model` components that is related to login feature.
