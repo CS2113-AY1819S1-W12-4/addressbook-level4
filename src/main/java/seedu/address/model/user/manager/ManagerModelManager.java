@@ -13,6 +13,7 @@ import seedu.address.model.drink.Drink;
 import seedu.address.model.drink.Price;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.transaction.ReadOnlyTransactionList;
+import seedu.address.model.transaction.TransactionList;
 import seedu.address.model.user.UserName;
 
 /**
@@ -22,7 +23,7 @@ public class ManagerModelManager extends ModelManager implements ManagerModel {
 
     public ManagerModelManager(ReadOnlyInventoryList inventoryList,
                                UserPrefs userPrefs, LoginInfoModel loginInfoModel,
-                               TransactionList transactionList) {
+                               ReadOnlyTransactionList transactionList) {
         super(inventoryList, userPrefs, loginInfoModel, transactionList);
     }
     /**

@@ -37,7 +37,7 @@ public class ModelManager extends ComponentManager implements Model {
      * Initializes a ModelManager with the given inventoryList, userPrefs and transactionList
      */
     public ModelManager(ReadOnlyInventoryList readOnlyInventoryList, UserPrefs userPrefs,
-                        LoginInfoModel loginInfoModel , TransactionList transactionList) {
+                        LoginInfoModel loginInfoModel , ReadOnlyTransactionList transactionList) {
 
         super();
         requireAllNonNull(readOnlyInventoryList, userPrefs);

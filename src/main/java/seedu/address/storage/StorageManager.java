@@ -50,12 +50,12 @@ public class StorageManager extends ComponentManager implements Storage {
     }
 
     @Override
-    public Optional<LoginInfoModel> readLoginInfo() throws DataConversionException, IOException {
+    public Optional<LoginInfoManager> readLoginInfo() throws DataConversionException, IOException {
         return loginInfoStorage.readLoginInfo ();
     }
 
     @Override
-    public void saveLoginInfo(LoginInfoModel loginInfoManager) throws IOException {
+    public void saveLoginInfo(LoginInfoManager loginInfoManager) throws IOException {
         loginInfoStorage.saveLoginInfo (loginInfoManager);
     }
     // ================ UserPrefs methods ==============================

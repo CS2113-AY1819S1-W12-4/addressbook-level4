@@ -162,7 +162,7 @@ public class MainApp extends Application {
 
         LoginInfoModel initLoginInfoManager;
         try {
-            Optional<LoginInfoModel> loginInfoOptional = storage.readLoginInfo();
+            Optional<LoginInfoManager> loginInfoOptional = storage.readLoginInfo();
             initLoginInfoManager = loginInfoOptional.orElse(new LoginInfoManager ());
 
         } catch (DataConversionException e) {
@@ -179,7 +179,7 @@ public class MainApp extends Application {
 
         //Update prefs file in case it was missing to begin with or there are new/unused fields
         try {
-            storage.saveLoginInfo(initLoginInfoManager);
+            storage.saveLoginInfo((LoginInfoManager) initLoginInfoManager);
         } catch (IOException e) {
             logger.warning("Failed to save LoginInfoManager file : " + StringUtil.getDetails(e));
         }
@@ -316,7 +316,7 @@ public class MainApp extends Application {
      */
     private void saveLoginInfo() {
         try {
-            storage.saveLoginInfo(loginInfoList);
+            storage.saveLoginInfo((LoginInfoManager) loginInfoList);
         } catch (IOException e) {
             logger.severe("Failed to save Login information " + StringUtil.getDetails(e));
         }

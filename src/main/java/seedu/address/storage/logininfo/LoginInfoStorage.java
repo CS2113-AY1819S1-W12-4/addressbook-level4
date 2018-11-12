@@ -24,13 +24,13 @@ public interface LoginInfoStorage {
      * @throws DataConversionException if the data in storage is not in the expected format.
      * @throws IOException if there was any problem when reading from the storage.
      */
-    Optional<LoginInfoModel> readLoginInfo() throws DataConversionException, IOException;
+    Optional<LoginInfoManager> readLoginInfo() throws DataConversionException, IOException;
 
     /**
      * Saves the given {@link LoginInfoManager} to the storage.
      * @param userPrefs cannot be null.
      * @throws IOException if there was any problem writing to the file.
      */
-    void saveLoginInfo(LoginInfoModel userPrefs) throws IOException;
+    void saveLoginInfo(LoginInfoManager userPrefs) throws IOException;
 
 }

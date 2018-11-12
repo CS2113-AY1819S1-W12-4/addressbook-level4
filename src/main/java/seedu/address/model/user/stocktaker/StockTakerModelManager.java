@@ -16,7 +16,7 @@ import seedu.address.model.transaction.Transaction;
  */
 public class StockTakerModelManager extends ModelManager implements StockTakerModel {
     public StockTakerModelManager(ReadOnlyInventoryList inventoryList, UserPrefs userPrefs,
-                                  LoginInfoModel loginInfoModel, TransactionList transactionList) {
+                                  LoginInfoModel loginInfoModel, ReadOnlyTransactionList transactionList) {
         super(inventoryList, userPrefs, loginInfoModel, transactionList);
     }
 

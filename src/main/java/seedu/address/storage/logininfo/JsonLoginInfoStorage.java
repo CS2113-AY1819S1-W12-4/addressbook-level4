@@ -24,7 +24,7 @@ public class JsonLoginInfoStorage implements LoginInfoStorage {
     }
 
     @Override
-    public Optional<LoginInfoModel> readLoginInfo () throws DataConversionException {
+    public Optional<LoginInfoManager> readLoginInfo () throws DataConversionException {
         return readLoginInfo(filePath);
     }
     /**
@@ -32,12 +32,12 @@ public class JsonLoginInfoStorage implements LoginInfoStorage {
      * @param prefsFilePath location of the data. Cannot be null.
      * @throws DataConversionException if the file format is not as expected.
      */
-    public Optional<LoginInfoModel> readLoginInfo(Path prefsFilePath) throws DataConversionException {
-        return JsonUtil.readJsonFile(prefsFilePath, LoginInfoModel.class);
+    public Optional<LoginInfoManager> readLoginInfo(Path prefsFilePath) throws DataConversionException {
+        return JsonUtil.readJsonFile(prefsFilePath, LoginInfoManager.class);
     }
 
     @Override
-    public void saveLoginInfo (LoginInfoModel loginInfoManager) throws IOException {
+    public void saveLoginInfo (LoginInfoManager loginInfoManager) throws IOException {
         JsonUtil.saveJsonFile(loginInfoManager, filePath);
     }
 }
