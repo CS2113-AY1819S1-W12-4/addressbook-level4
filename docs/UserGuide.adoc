@@ -86,7 +86,6 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 [[Features]]
 == Getting Started
 
-// tag::login[]
 [[login]]
 === Logging in
 
@@ -94,6 +93,7 @@ Upon entering starting up the application, you will be met by the login page bel
 
 image::login_page_main.PNG[width="800"]
 
+// tag::login[]
 To login, you can use either the CLI or GUI to input your `USERNAME` and `PASSWORD`.
 
 *GUI Login*

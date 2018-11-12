@@ -410,16 +410,16 @@ Given below is a class diagram for login function. LoginUtils has attributes of 
  `userName` and `Password`. It also use `passwordUtils` to hashed verify the password with `LoginInfoModel`
 
 .Class diagram for Login related Utils
-image::LoginUMLDiagram/Login_Class_Diagram.png[width="800"]
+image::LoginUMLDiagram/Login_Class_Diagram.png[width="300" height"200"]
 
 
 Given below is an example usage scenario and how login mechanism behave at each step.
 
-image::LoginUMLDiagram/Login_sequence_diagram.png[width="600" height ="400"]
+image::LoginUMLDiagram/Login_sequence_diagram.png[width="600" height ="300"]
 The `LoginController` will check for username and password will the `LoginUtils`.
 
 
-image::LoginUMLDiagram/LoginUtils_Sequence_Diagram.png[width="600" height ="400"]
+image::LoginUMLDiagram/LoginUtils_Sequence_Diagram.png[width="600" height ="300"]
 
 === Save information about user account
 Given below is a structure of `Model` components that is related to login feature.
@@ -435,7 +435,7 @@ image::LoginUMLDiagram/createAccountSequenceDiagram.png[width="800"]
 Given below is an sequence diagram of access login information for `loginInfoList.json` during initiation of the application.
 The program also save the the login information to `loginInfoList.json` when `logout` or `exit`.
 
-image::LoginUMLDiagram/Logic-UML-design-ReadLoginInfoList.png[width="800" height ="400"]
+image::LoginUMLDiagram/Logic-UML-design-ReadLoginInfoList.png[width="800" height ="300"]
 
 
 ==== Design Considerations
@@ -794,7 +794,6 @@ _{More to be added}_
 .  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 .  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
-_{More to be added}_
 
 [appendix]
 == Glossary
@@ -822,13 +821,47 @@ These instructions only provide a starting point for testers to work on; testers
 .. Double-click the jar file +
    Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
+. Login to system
+ List of user accounts at first launch or upon reset
+
+|===
+|User Name |Password |Authentication Level
+
+|tester
+|123
+|ADMIN
+
+|manager
+|123
+|MANAGER
+
+|stocktaker
+|123
+|STOCKTAKER
+
+|accountant
+|123
+|ACCOUNTANT
+|===
+
+
 . Saving window preferences
 
 .. Resize the window to an optimum size. Move the window to a different location. Close the window.
 .. Re-launch the app by double-clicking the jar file. +
    Expected: The most recent window size and location is retained.
 
-_{ more test cases ... }_
+. logout
+.. Test case: `logout` +
+   Expected:
+
+=== Change Password
+. change password after the account is given by manager.
+
+.. Test case: `changePassword o/123 n/1234`(assuming default password is 123) +
+    Expected: change password from 123 to 1234. You have to login with password 1234
+.. Test case: `delete 0` +
+
 
 === Deleting a person
 
