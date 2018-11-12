@@ -62,7 +62,7 @@ image::Ui.png[width="790"]
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 .  Refer to <<login>> to login the product.
 +
-image::loginPic/login_page_main.PNG[width="800"]
+image::login_page_main.PNG[width="800"]
 +
 . After login in, the main window will appear as shown below.
 
@@ -92,7 +92,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 Upon entering starting up the application, you will be met by the login page below:
 
-image::loginPic/login_page_main.PNG[width="800"]
+image::login_page_main.PNG[width="800"]
 
 To login, you can use either the CLI or GUI to input your `USERNAME` and `PASSWORD`.
 
@@ -149,7 +149,7 @@ The example provided is a default login account for admins. This account is crea
 
 After successfully logging in, a confirmation message would be shown indicating your authentication level:
 
-image::loginPic/login_confirmation.PNG[width=""]
+image::login_confirmation.PNG[width=""]
 
 
 === Logging out
@@ -193,6 +193,13 @@ as a manager.
 *[blue]#_Drink I/O_#* has a login feature. This ensure that every user has to have an account before using the application.
 Hence, it would increase the security of the application.
 
+=== Confirmation of Command
+When you enter command that will change the data storage, you will be prompted with a message as shown below:
+
+image::Command_confirmation.PNG[width="400"]
+
+If you have confirmed the command, key in y or Y to confirm.
+
 === Changing your password
 When you receive an account from manager, you want to change the password to increase security.
 Format: `changePassword o/[OLD_PASSWORD] n/[NEW_PASSWORD]`
@@ -204,7 +211,7 @@ Format: `changePassword o/[OLD_PASSWORD] n/[NEW_PASSWORD]`
 
 If password changes is successful, a message will be shown:
 
-image::loginPic/password_change_successful.PNG[width="300"]
+image::password_change_successful.PNG[width="300"]
 ====
 === Create additional account
 As a [red]#manager# or [red]#administrator#, you want to create new account for new employee.
@@ -226,7 +233,7 @@ Format: `createAccount u/USER_NAME p/PASSWORD a/AUTHENTICATION_LEVEL`
 
 If create account is successful, a message will be shown:
 
-image::loginPic/create_new_account_successful.PNG[width="300"]
+image::create_new_account_successful.PNG[width="300"]
 ====
 === Delete account
 As a [red]#manager# or [red]#administrator#, you might want to delete a account when it is no longer used.
@@ -239,7 +246,7 @@ Format: `deleteAccount u/USER_NAME`
 
 If delete account is successful, a message will be shown:
 
-image::loginPic/deleteAccount_successful.PNG[width="300"]
+image::deleteAccount_successful.PNG[width="300"]
 ====
 //end::account[]
 
