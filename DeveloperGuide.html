@@ -73,11 +73,16 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#buying-a-drink">F.2. Buying a drink</a></li>
-<li><a href="#selling-a-drink-2">F.3. Selling a drink</a></li>
-<li><a href="#analysing-costs">F.4. Analysing costs</a></li>
-<li><a href="#analysing-revenue">F.5. Analysing revenue</a></li>
-<li><a href="#analysing-profit">F.6. Analysing profit</a></li>
+<li><a href="#add-a-drink">F.2. Add a drink</a></li>
+<li><a href="#delete-a-drink">F.3. Delete a drink</a></li>
+<li><a href="#edit-details-of-a-drink">F.4. Edit details of a drink</a></li>
+<li><a href="#buying-a-drink">F.5. Buying a drink</a></li>
+<li><a href="#selling-a-drink-2">F.6. Selling a drink</a></li>
+<li><a href="#analysing-costs">F.7. Analysing costs</a></li>
+<li><a href="#analysing-revenue">F.8. Analysing revenue</a></li>
+<li><a href="#analysing-profit">F.9. Analysing profit</a></li>
+<li><a href="#changing-password">F.10. Changing password</a></li>
+<li><a href="#deleting-account">F.11. Deleting account</a></li>
 </ul>
 </li>
 </ul>
@@ -1940,7 +1945,103 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="buying-a-drink"><a class="link" href="#buying-a-drink">F.2. Buying a drink</a></h3>
+<h3 id="add-a-drink"><a class="link" href="#add-a-drink">F.2. Add a drink</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a drink into the inventory, using the <code>Manager</code> or <code>Admin</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add n/Coca Cola Original2 p/20.00 cp/10.00 t/SoftDrink</code><br>
+Expected:  Message displayed - "New drink added: Drink name: Coca Cola Original2 Cost price: 10.00 Selling price: 20.00, Tags: [SoftDrink]"</p>
+</li>
+<li>
+<p>Test case: <code>add n/Coca Cola Original2 p/20.00 cp/10.00 t/SoftDrink</code>  (repetitive test)<br>
+Expected:  Message displayed - "This drink already exists in the inventory list"</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-a-drink"><a class="link" href="#delete-a-drink">F.3. Delete a drink</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a drink from the inventory, using the <code>Manager</code> or <code>Admin</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one drink in the inventory</p>
+</li>
+<li>
+<p>Test case: <code>delete 1</code><br>
+Expected: Message displayed - "Deleted Drink:", followed by deleted drink&#8217;s details (name, cost price, selling price and tags)</p>
+</li>
+<li>
+<p>Test case: <code>delete 100000</code><br>
+Expected: Message displayed - "The drink index provided is invalid"</p>
+</li>
+<li>
+<p>Test case: <code>delete 0</code><br>
+Expected: Message displayed - "Invalid command format!"</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-details-of-a-drink"><a class="link" href="#edit-details-of-a-drink">F.4. Edit details of a drink</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a drink&#8217;s selling price, cost price or tags, using the <code>Manager</code> or <code>Admin</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be at least one drink in the inventory</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 cp/400</code><br>
+Expected: Message displayed - "Edited Drink:", followed by edited drink&#8217;s details (name, cost price, selling price and tags)</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 p/1</code><br>
+Expected: Message displayed - "Edited Drink:", followed by edited drink&#8217;s details (name, cost price, selling price and tags)</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 t/PROMO</code><br>
+Expected: Message displayed - "Edited Drink:", followed by edited drink&#8217;s details (name, cost price, selling price and tags)</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 cp/40 p/80</code><br>
+Expected: Message displayed - "Edited Drink:", followed by edited drink&#8217;s details (name, cost price, selling price and tags)</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 cp/40 t/TAG1 t/TAG2</code><br>
+Expected: Message displayed - "Edited Drink:", followed by edited drink&#8217;s details (name, cost price, selling price and tags)</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 cp/bla</code><br>
+Expected: Message displayed - "Price should contain only numbers and at most 1 decimal point. It must be least 1 digit long with a maximum of 2 digits after the decimal point"</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 t/PROMO_TOO</code>
+Expected: Message displayed - "Tags names should be alphanumeric"</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="buying-a-drink"><a class="link" href="#buying-a-drink">F.5. Buying a drink</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1948,7 +2049,7 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There must be at least one drink in the inventory.</p>
+<p>Prerequisites: There must be at least one drink in the inventory, with one drink by the name of NAME.</p>
 </li>
 <li>
 <p>Test case: <code>buy n/NAME q/12</code><br>
@@ -1965,7 +2066,7 @@ Expected: The message "The drink entered does not exist in the inventory list" i
 </div>
 </div>
 <div class="sect2">
-<h3 id="selling-a-drink-2"><a class="link" href="#selling-a-drink-2">F.3. Selling a drink</a></h3>
+<h3 id="selling-a-drink-2"><a class="link" href="#selling-a-drink-2">F.6. Selling a drink</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1973,7 +2074,7 @@ Expected: The message "The drink entered does not exist in the inventory list" i
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There must be at least one drink in the inventory.</p>
+<p>Prerequisites: There must be at least one drink in the inventory, with one drink by the name of NAME.</p>
 </li>
 <li>
 <p>Test case: <code>sell n/NAME q/12</code>, where NAME is the name of a drink that is in the inventory, and its quantity is 12 or more.<br>
@@ -1994,7 +2095,7 @@ Expected: The message "Insufficient quantity in stock to perform operation" is d
 </div>
 </div>
 <div class="sect2">
-<h3 id="analysing-costs"><a class="link" href="#analysing-costs">F.4. Analysing costs</a></h3>
+<h3 id="analysing-costs"><a class="link" href="#analysing-costs">F.7. Analysing costs</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2043,11 +2144,11 @@ Expected: The total cost incurred <strong>in 30 days</strong> is calculated and 
 </div>
 </div>
 <div class="sect2">
-<h3 id="analysing-revenue"><a class="link" href="#analysing-revenue">F.5. Analysing revenue</a></h3>
+<h3 id="analysing-revenue"><a class="link" href="#analysing-revenue">F.8. Analysing revenue</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Analyse revenue over a period of a day</p>
+<p>Analyse revenue over a period of a day, using an <code>Accountant</code> or <code>Admin</code> account</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2092,11 +2193,11 @@ Expected: The total revenue earned <strong>in 30 days</strong> is calculated and
 </div>
 </div>
 <div class="sect2">
-<h3 id="analysing-profit"><a class="link" href="#analysing-profit">F.6. Analysing profit</a></h3>
+<h3 id="analysing-profit"><a class="link" href="#analysing-profit">F.9. Analysing profit</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Analyse profit over a period of a day</p>
+<p>Analyse profit over a period of a day, using an <code>Accountant</code> or <code>Admin</code> account</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2140,5 +2241,49 @@ Expected: The total profit earned <strong>in 30 days</strong> is calculated and 
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="changing-password"><a class="link" href="#changing-password">F.10. Changing password</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Changing the password using <code>changePassword</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>changePassword o/123 n/1234</code> (assuming 123 is the default old password)<br>
+Expected:  Password has successfully changed to: 1234</p>
+</li>
+<li>
+<p>Test case: <code>changePassword o/123xyz n/1234</code> (assuming 123 is the default old password)<br>
+Expected:  The old password is wrong</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 17:01:50 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-account"><a class="link" href="#deleting-account">F.11. Deleting account</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an account, using the <code>Manager</code> or <code>Admin</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>deleteAccount u/manager</code><br>
+Expected:The account has been deleted</p>
+</li>
+<li>
+<p>Test case: <code>deleteAccount u/unknownAccount</code><br>
+Expected:  This account does not exist</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 17:33:36 UTC</div></div></div></body></html>
