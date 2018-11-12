@@ -413,18 +413,18 @@ image::LoginUMLDiagram/Login_Class_Diagram.png[width="800"]
 
 Given below is an example usage scenario and how login mechanism behave at each step.
 
-image::LoginUMLDiagram/Login_sequence_diagram.png[width="800"]
+image::LoginUMLDiagram/Login_sequence_diagram.png[width="600" height ="400"]
 The `LoginController` will check for username and password will the `LoginUtils`.
 
 
-image::LoginUMLDiagram/LoginUtils_Sequence_Diagram.png[width="800"]
+image::LoginUMLDiagram/LoginUtils_Sequence_Diagram.png[width="600" height ="400"]
 
 
 === Save information about user account
 Given below is a structure of `Model` components that is related to login feature.
 The model stores loginInfo of the user.
 
-image::LoginUMLDiagram/Logic_LoginInfo_Model.png[width="800"]
+image::LoginUMLDiagram/Logic_LoginInfo_Model.png[width="800" height "200"]
 
 The sequence diagram below shows the interactions within the logic components for the execuion of `createAccount` command.
 
