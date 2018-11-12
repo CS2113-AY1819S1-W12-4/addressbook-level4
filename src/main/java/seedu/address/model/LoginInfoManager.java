@@ -12,7 +12,7 @@ import seedu.address.model.user.UserName;
 /**
  * Represents the facade of loginInfo
  */
-public class LoginInfoManager implements LoginInfoModel{
+public class LoginInfoManager implements LoginInfoModel {
     private ArrayList< LoginInfo > loginInfoList;
 
     public LoginInfoManager () {

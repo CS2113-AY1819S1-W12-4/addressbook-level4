@@ -23,7 +23,6 @@ import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
 import seedu.address.model.InventoryList;
-import seedu.address.model.LoginInfoManager;
 import seedu.address.model.LoginInfoModel;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;

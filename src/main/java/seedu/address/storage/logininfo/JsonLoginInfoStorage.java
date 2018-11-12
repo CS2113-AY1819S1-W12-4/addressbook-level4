@@ -7,7 +7,6 @@ import java.util.Optional;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.commons.util.JsonUtil;
 import seedu.address.model.LoginInfoManager;
-import seedu.address.model.LoginInfoModel;
 
 /**
  * A class to access Login information stored in the hard disk as a json file

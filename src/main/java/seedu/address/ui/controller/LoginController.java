@@ -32,7 +32,6 @@ import seedu.address.commons.events.model.ChangeModelEvent;
 import seedu.address.commons.events.model.InitInventoryListEvent;
 import seedu.address.commons.events.ui.RestartUiEvent;
 import seedu.address.commons.events.ui.StartUiEvent;
-import seedu.address.model.LoginInfoManager;
 import seedu.address.model.LoginInfoModel;
 import seedu.address.model.user.Password;
 import seedu.address.model.user.UserName;

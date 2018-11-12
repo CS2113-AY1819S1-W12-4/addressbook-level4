@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.util.ArrayList;
+
 import seedu.address.commons.core.LoginInfo;
 import seedu.address.model.user.Password;
 import seedu.address.model.user.UserName;

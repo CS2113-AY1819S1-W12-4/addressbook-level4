@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.LoginInfoManager;
-import seedu.address.model.LoginInfoModel;
 
 /**
  * Represents a storage for {@link LoginInfoManager}.

@@ -14,7 +14,6 @@ import seedu.address.commons.events.model.TransactionListChangedEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.LoginInfoManager;
-import seedu.address.model.LoginInfoModel;
 import seedu.address.model.ReadOnlyInventoryList;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.transaction.ReadOnlyTransactionList;

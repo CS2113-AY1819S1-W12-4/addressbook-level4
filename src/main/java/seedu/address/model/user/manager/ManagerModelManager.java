@@ -4,7 +4,6 @@ import java.util.Set;
 
 import seedu.address.commons.core.LoginInfo;
 import seedu.address.commons.events.model.DrinkAttributeChangedEvent;
-import seedu.address.model.LoginInfoManager;
 import seedu.address.model.LoginInfoModel;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyInventoryList;
@@ -13,7 +12,6 @@ import seedu.address.model.drink.Drink;
 import seedu.address.model.drink.Price;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.transaction.ReadOnlyTransactionList;
-import seedu.address.model.transaction.TransactionList;
 import seedu.address.model.user.UserName;
 
 /**
