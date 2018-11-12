@@ -15,6 +15,9 @@
 <div class="paragraph">
 <p>As part of the module, my teammates and I collaborated to develop a drink management application - Drink I/O. Drink I/O is targeted at small drink distribution companies and provides inventory management and financial tools. Users interact with the app using CLI, and it has a GUI created with JavaFX. This project is written in Java and has approximately &lt;To be filled&gt; kLoC.</p>
 </div>
+<div class="paragraph">
+<p><strong>TO BE CHANGED</strong></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -23,26 +26,59 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: <strong>Added Batch List and Batch Handling functionality</strong><br>
+In drink companies, whenever drinks are imported, they are imported in batches and cartons. This enhancement simulates the situation in the real world and helps drink companies to manage their stock better.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p><strong>Functionality:</strong> Each drink has its own batches stored in a batch list. Whenever drinks are purchased, they are assigned to a batch based on date of import and stored in the batch list for that drink. Whenever drinks are sold, the stocks are automatically deducted across the batches, deducting from the batch with the earliest import date first.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p><strong>Justification:</strong> This feature improves inventory management significantly as it ensures that drinks that were imported first into the warehouse are sold first. This reduces turnover time and wastage due to drinks expiring. This is especially applicable as drink distribution companies often have multiple batches of the same drink with different import dates in their warehouse at any time.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p><strong>Highlights:</strong> This enhancement required in-depth knowledge of the model and the associations between the different classes to properly handle updates to the objects.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Major enhancement</strong>: <strong>Displaying of Drink Details</strong><br>
+Added display panels to summarise and display more details about a drink allowing users to view the information they need in a organised and easy to understand manner.
+In drink companies, whenever drinks are imported, they are imported in batches and cartons. This enhancement simulates the situation in the real world and helps drink companies to manage their stock better.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Functionality:</strong>  Allows users to see at a glance a summary of the details of the drinks and upon selecting the relevant drink, to see all other details such as every batch in the batch list of a drink and the import date of the earliest and latest batch.</p>
+</li>
+<li>
+<p><strong>Justification:</strong> Applications should be easy for the user to use to be effective, so this enables users to easily retrieve more details and data in an easy to read and understand form with a single click or a single command.</p>
+</li>
+<li>
+<p><strong>Highlights:</strong> Required knowledge of JavaFx and FXML to construct the various panels and an understanding of event handlers to ensure that the panels remain updated when there were changes to the batches.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: <strong>Enhancement of Search function</strong>
+Enhanced the Search function allowing users to search through the inventory based on name, quantity and date.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Functionality:</strong> Users can search through the entire inventory list for drinks by name, drinks that have quantity less than or equal to the input, and drinks that have dates earlier than or equal to the input.</p>
+</li>
+<li>
+<p><strong>Justification:</strong> The main concern of small drink distribution companies when managing their inventory is how to know which drink is low on stock and requires restocking or which drink batches have been in the inventory for very long and need to be cleared before they expire. This feature allows them to get this information quickly and easily via just 1 command.</p>
+</li>
+<li>
+<p><strong>Highlights:</strong> Implementing this feature required in-depth knowledge of the logic and model components and the way in which they interact together.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Morphed the existing storage to store the drinks and their respective batch lists. Required knowledge of XML to wrap the batch lists in a wrapper such that they would be stored properly.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -66,10 +102,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#55</a>, <a href="https://github.com">#34</a>)</p>
 </li>
 </ul>
 </div>
@@ -135,10 +168,242 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section documents my contributions to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="searching-for-specific-drink-s"><a class="link" href="#searching-for-specific-drink-s">Searching for specific drink(s)</a></h3>
+<div class="paragraph">
+<p>Finds drinks which meet specific criteria depending on the input prefix.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br>
+<strong>Command format</strong>:<br>
+ <code>find n/</code> <code>KEYWORD [MORE_KEYWORDS]</code><br>
+ <code>find q/</code> <code>QUANTITY</code><br>
+ <code>find d/</code> <code>DATE</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="searching-by-drink-name"><a class="link" href="#searching-by-drink-name">Searching by drink name</a></h4>
+<div class="paragraph">
+<p>You can search for specific drinks by name using this search function</p>
+</div>
+<div class="paragraph">
+<p>Finds all drinks which names contain any of the given keywords.<br>
+Format: <code>find n/KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>coke</code> will match <code>Coke</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Tea Green</code> will match <code>Green Tea</code></p>
+</li>
+<li>
+<p>Only the drink name is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Cok</code> will not match <code>Coke</code></p>
+</li>
+<li>
+<p>Drinks matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Tea</code> will return <code>Green Tea</code>, <code>Milk Tea</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find n/Tea</code><br>
+Returns <code>Milk Tea</code> and <code>Green Tea</code></p>
+</li>
+<li>
+<p><code>find n/Tea Milk Coke</code><br>
+Returns any drink having <code>Tea</code>, <code>Milk</code>, or <code>Coke</code> in their names</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="searching-by-drink-quantity"><a class="link" href="#searching-by-drink-quantity">Searching by drink quantity</a></h4>
+<div class="paragraph">
+<p>To find out which drinks in your drink company are in need of restocking, you can utilise this search function which will return the drinks with quantity less than or equal to the quantity input.<br></p>
+</div>
+<div class="paragraph">
+<p>Finds all drinks which have quantity less than or equal to the given quantity.<br>
+Format: <code>find q/QUANTITY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Only numbers are allowed in the Quantity field</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find q/400</code><br>
+Returns <code>Coke</code> and <code>Green Tea</code> which have a quantity less than 400</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="searching-by-batch-import-date"><a class="link" href="#searching-by-batch-import-date">Searching by batch import date</a></h4>
+<div class="paragraph">
+<p>To find out which drinks have been in the warehouse for a long period of time you can utilise this search function which will return the drinks that have batches older than or have the same date as the date input.<br></p>
+</div>
+<div class="paragraph">
+<p>Find drinks which have batches that are older or have the same date as the given date.<br>
+Format <code>find d/DATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Date must be in either of the following formats:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DD/MM/YYYY</code></p>
+</li>
+<li>
+<p><code>D/MM/YYYY</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Date must be an existing date in the calendar</p>
+<div class="ulist">
+<ul>
+<li>
+<p>i.e. 30/02/2018 is a nonexistent date</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Even if a drink has only 1 batch that meets the requirements, it will be shown</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find d/02/11/2018</code><br>
+Returns all drinks which have batches imported on or before 2nd November 2018</p>
+</li>
+<li>
+<p><code>find d/9/11/2018</code><br>
+Returns all drinks which have batches imported on or before 9th November 2018</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-all-drinks-in-inventory"><a class="link" href="#viewing-all-drinks-in-inventory">Viewing all drinks in inventory</a></h3>
+<div class="paragraph">
+<p>To show the full list of drinks in the inventory list, use <code>list</code>.
+This is especially useful after using a <code>find</code> command.<br></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br>
+<strong>Command format</strong>: <code>list</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step-by-Step Instructions</strong><br>
+To view all drinks in <strong><span class="blue"><em>Drink I/O</em></span></strong>,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>list</code> into the command box</p>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+<li>
+<p>You will see all the drinks listed in the inventory panel on the left of the interface.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-drink-details"><a class="link" href="#viewing-drink-details">Viewing drink details</a></h3>
+<div class="paragraph">
+<p>To view further details of the drink such as its batches that are not displayed on the drink card panel, you can simply click on the relevant drink card to select it or use the select command.</p>
+</div>
+<div class="paragraph">
+<p>Selects the drink identified by the index number used in the displayed drink list.<br>
+Format: <code>select INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the drink and loads the Drink detail page and the batch list page of the drink at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the numbered bullet shown in the displayed drink list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -441,4 +706,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Chars: n<em>i</em><strong>b</strong>m<span class="red">r</span></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:49:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:02:46 UTC</div></div></div></body></html>
