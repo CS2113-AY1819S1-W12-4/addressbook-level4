@@ -794,6 +794,7 @@ _{More to be added}_
 .  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 .  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
+_{More to be added}_
 
 [appendix]
 == Glossary
@@ -820,6 +821,7 @@ These instructions only provide a starting point for testers to work on; testers
 .. Download the jar file and copy into an empty folder
 .. Double-click the jar file +
    Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+<<<<<<< HEAD
 
 . Login to system
  List of user accounts at first launch or upon reset
@@ -844,6 +846,8 @@ These instructions only provide a starting point for testers to work on; testers
 |ACCOUNTANT
 |===
 
+=======
+>>>>>>> parent of 4dd92168... Dgchange (#187)
 
 . Saving window preferences
 
@@ -851,6 +855,7 @@ These instructions only provide a starting point for testers to work on; testers
 .. Re-launch the app by double-clicking the jar file. +
    Expected: The most recent window size and location is retained.
 
+<<<<<<< HEAD
 . logout
 .. Test case: `logout` +
    Expected:
@@ -862,6 +867,9 @@ These instructions only provide a starting point for testers to work on; testers
     Expected: change password from 123 to 1234. You have to login with password 1234
 .. Test case: `delete 0` +
 
+=======
+_{ more test cases ... }_
+>>>>>>> parent of 4dd92168... Dgchange (#187)
 
 === Deleting a person
 
