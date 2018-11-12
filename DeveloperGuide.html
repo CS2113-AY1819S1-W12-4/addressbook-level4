@@ -1944,7 +1944,7 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Buy a certain quantity of a  drink using the <code>buy</code> command</p>
+<p>Buy a certain quantity of a  drink using the <code>buy</code> command, using a <code>Stock Taker</code> or <code>Admin</code> account</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1955,7 +1955,7 @@ Expected: The most recent window size and location is retained.</p>
 Expected: The drink by the name of NAME (case-sensitive) has its quantity increased by 12. The message that "Purchase transaction recorded!" is shown in the results panel.</p>
 </li>
 <li>
-<p>Test case: 'buy n/NAME q/12', where NAME is the name of a drink that is not in the inventory<br>
+<p>Test case: <code>buy n/NAME q/12</code>, where NAME is the name of a drink that is not in the inventory<br>
 Expected: The message "The drink entered does not exist in the inventory list" is displayed.</p>
 </li>
 </ol>
@@ -1969,7 +1969,7 @@ Expected: The message "The drink entered does not exist in the inventory list" i
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sell a certain quantity of a drink using the <code>sell</code> command</p>
+<p>Sell a certain quantity of a drink using the <code>sell</code> command, using a <code>Stock Taker</code> or <code>Admin</code> account</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1980,11 +1980,11 @@ Expected: The message "The drink entered does not exist in the inventory list" i
 Expected: The drink by the name of NAME (case-sensitive) has its quantity decreased by 12. The message that "Sale transaction recorded!" is shown in the results panel.</p>
 </li>
 <li>
-<p>Test case: 'sell n/NAME q/12', where NAME is the name of a drink that is not in the inventory<br>
+<p>Test case: <code>sell n/NAME q/12</code>, where NAME is the name of a drink that is not in the inventory<br>
 Expected: The message "The drink entered does not exist in the inventory list" is displayed.</p>
 </li>
 <li>
-<p>Test case: 'sell n/NAME q/12', where NAME is the name of a drink that is in the inventory, and its quantity is less than 12.<br>
+<p>Test case: <code>sell n/NAME q/12</code>, where NAME is the name of a drink that is in the inventory, and its quantity is less than 12.<br>
 Expected: The message "Insufficient quantity in stock to perform operation" is displayed.</p>
 </li>
 </ol>
@@ -1998,7 +1998,7 @@ Expected: The message "Insufficient quantity in stock to perform operation" is d
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Analyse costs over a period of a day</p>
+<p>Analyse costs over a period of a day, using an <code>Accountant</code> or <code>Admin</code> account</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2141,4 +2141,4 @@ Expected: The total profit earned <strong>in 30 days</strong> is calculated and 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 16:47:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 16:52:15 UTC</div></div></div></body></html>
