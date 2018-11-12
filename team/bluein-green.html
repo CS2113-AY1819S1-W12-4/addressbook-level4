@@ -1,0 +1,721 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Jin Minjia - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">Drink I/O</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Drink I/O</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://cs2113-ay1819s1-w12-4.github.io/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Jin Minjia - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-drink-i-o"><a class="link" href="#project-drink-i-o">PROJECT: Drink I/O</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As part of a NUS Software Engineering project, my group and I built <strong><span class="blue"><em>Drink I/O</em></span></strong>,
+a <strong>one-stop, comprehensive inventory manager</strong> for small drink distribution companies.
+<strong><span class="blue"><em>Drink I/O</em></span></strong> enables these companies to <strong>keep track of their inventory</strong> and
+<strong>analyse their sales performance</strong>, and hence increase their productivity.</p>
+</div>
+<div class="paragraph">
+<p><strong><span class="blue"><em>Drink I/O</em></span></strong> is optimised for Command Line Interface (CLI), with a Graphic User Interface (GUI)
+to make it easier for users to interact with the app. It is written in Java, and has about 10kLoC.</p>
+</div>
+<div class="paragraph">
+<p>This project portfolio documents my contributions to the project, in particular the major feature I made:
+the sales performance analyser feature.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major feature implemented</strong>: Feature to <strong>analyse cost, revenue and profit</strong> over specific time periods</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>What it does</em>: Allows the user to calculate the overall cost, revenue and profit of the company
+over based on its transactions. The statistics can be calculated over the time periods of:
+a day, the past 7 days (including the current day), the past 30 days (including the current day).</p>
+</li>
+<li>
+<p><em>Justification</em>: This feature enables the accountants in a small company to calculate the company&#8217;s sales performance quickly.
+It also allows the company to keep track of its finances simultaneously with its inventory.</p>
+</li>
+<li>
+<p><em>Highlights</em>: This feature required the building of new classes to record the transactions: a <code>Transaction</code> class, and a <code>TransactionList</code> class to hold the <code>Transaction</code> s.
+I was also challenged to optimise the code by using <code>Predicate</code> s to filter the list of transactions by date and <code>TransactionType</code>.
+This filtered list of transactions is then used for the computation of the sales figures.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=bluein-green">Functional and test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Morphing of existing model</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The original code base is for an address book. Hence, the fundamental model used has to be changed to suit
+<strong><span class="blue"><em>Drink I/O</em></span></strong>. I morphed the model from that of a <code>Person</code> to a <code>Drink</code>, and created the relevant <code>Drink</code> attributes, such as <code>Price</code>.</p>
+</li>
+<li>
+<p>Commands to buy and sell drinks did not exist in the original code base, but are necessary for an app for a drink distribution company.
+I implemented the <code>buy</code> and <code>sell</code> commands, which required an in-depth understanding of how the <code>Model</code> and <code>Logic</code> components worked.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor feature implemented</strong>: Feature to <strong>edit</strong> the details of a drink in the inventory</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This enables the user to edit the cost price, selling price and tags of a drink.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases for <strong><span class="blue"><em>Drink I/O</em></span></strong>: <code>v1.2</code> and <code>v1.3</code> on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs for Team F09-3 in the class: <a href="https://github.com/CS2113-AY1819S1-F09-3/main/issues/244">#244</a>,
+<a href="https://github.com/CS2113-AY1819S1-F09-3/main/issues/245">#245</a>
+<a href="https://github.com/CS2113-AY1819S1-F09-3/main/issues/249">#249</a>,
+<a href="https://github.com/CS2113-AY1819S1-F09-3/main/issues/251">#251</a>,
+<a href="https://github.com/CS2113-AY1819S1-F09-3/main/issues/257">#257</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section showcases my contribution to the User Guide in relation to the sales performance analysis feature.
+The performance statistics that can be calculated are cost, revenue and profit, and they can be computed over specific time periods.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="analysing-sales-performance"><a class="link" href="#analysing-sales-performance">Analysing Sales Performance</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><span class="blue"><em>Drink I/O</em></span></strong> can calculate the overall cost, revenue and profit aggregated across all drinks,
+for various periods based on your list of transactions.</p>
+</div>
+<div class="sect2">
+<h3 id="indicating-time-period-for-analysis"><a class="link" href="#indicating-time-period-for-analysis">Indicating time period for analysis</a></h3>
+<div class="paragraph">
+<p>You can indicate the time period for the analysis of overall sales figures.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br>
+<strong>Time period parameters</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Current day: (none)</p>
+</li>
+<li>
+<p>Past 7 days (including current day): <code>-w</code></p>
+</li>
+<li>
+<p>Past 30 days (including current day): <code>-m</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The time periods available are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>within the current day</p>
+</li>
+<li>
+<p>within the week (including current day)</p>
+</li>
+<li>
+<p>within 30 days (including current day)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To indicate the time periods desired in your analysis, append one of the following period parameters to the end of the command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>-w</code> for a period of a week</p>
+</li>
+<li>
+<p><code>-m</code> for a period of 30 days</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>No parameter is required for analysis in the period of a day.
+See <a href="#viewing-overall-cost">Viewing overall cost</a> for concrete usage examples and step-by-step instructions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-overall-cost"><a class="link" href="#viewing-overall-cost">Viewing overall cost</a></h3>
+<div class="paragraph">
+<p>You can check the total costs incurred by your company, over a specified period.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br>
+<strong>Command format</strong>:
+<code>costs [PERIOD_PARAMETER]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>[PERIOD_PARAMETER]</code> is the parameter indicating the time period for analyses.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It can be one of: (none), <code>-w</code> or <code>-m</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step by Step Instructions</strong><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To view the total costs incurred within the <strong>current day</strong>:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>costs</code> into the command box</p>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You should see the value of the total costs displayed in the results panel.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To view the total costs incurred within the <strong>past 7 days</strong> (inclusive of current day):</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>costs -w</code> into the command box</p>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You should see the value of the total costs incurred over the week displayed in the results panel.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To view the total costs incurred within the <strong>past 30 days</strong> (inclusive of current day):</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>costs -m</code> into the command box</p>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You should see the value of the total costs incurred over the past 30 days displayed in the results panel.
+The transactions list will also show the relevant transactions included in the analysis.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-overall-revenue"><a class="link" href="#viewing-overall-revenue">Viewing overall revenue</a></h3>
+<div class="paragraph">
+<p>You can check the total revenue earned by your company, over a specified period.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br>
+<strong>Command format</strong>:
+<code>revenue [PERIOD_PARAMETER]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>[PERIOD_PARAMETER]</code> is the parameter indicating the time period for analyses.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It can be one of: (none), <code>-w</code> or <code>-m</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step by Step Instructions</strong><br>
+To view the total revenue earned,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>revenue</code> into the command box</p>
+</li>
+<li>
+<p>Append a desired period parameter</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>-w</code>, <code>-m</code> (see <a href="#indicating-time-period-for-analysis">Indicating time period for analysis</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You should see the value of the total revenue earned in the specified period displayed in the results panel.
+The transactions list will also show the relevant transactions included in the analysis.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-overall-profit"><a class="link" href="#viewing-overall-profit">Viewing overall profit</a></h3>
+<div class="paragraph">
+<p>You can check the total profit earned by your company, over a specified period.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Summary</em></strong><br>
+<strong>Command format</strong>:
+<code>profit [PERIOD_PARAMETER]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>[PERIOD_PARAMETER]</code> is the parameter indicating the time period for analyses.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It can be one of: (none), <code>-w</code> or <code>-m</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step by Step Instructions</strong><br>
+To view the total profit earned,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>profit</code> into the command box</p>
+</li>
+<li>
+<p>Append a desired period parameter</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>-w</code>, <code>-m</code> (see <a href="#indicating-time-period-for-analysis">Indicating time period for analysis</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Press <kbd>enter</kbd></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You should see the value of the total profit earned displayed in the results panel.
+The transactions list will also show the relevant transactions included in the analysis.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shown below are the sections I contributed to the Developer Guide in relation to the sales performance analysis feature.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="analyses-of-costs-revenue-and-profit-in-the-company-over-periods-of-time"><a class="link" href="#analyses-of-costs-revenue-and-profit-in-the-company-over-periods-of-time">Analyses of costs, revenue and profit in the company over periods of time</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>To facilitate the analyses of total profit, revenue and costs of the company over various periods of time,
+transactions (sales and purchases) are logged using <code>Transaction</code> s.
+They will be logged when the drink stock increases due to a purchase (<code>TransactionType</code> is <code>PURCHASE</code>),
+or when they decrease due to a sale (<code>TransactionType</code> is <code>SALE</code>).
+These transactions are stored into a list of transactions, in <code>TransactionList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Analyses are conducted in <code>AnalysisManager</code>, with the API exposed in <code>Analysis</code>.
+The following operations are implemented for the analyses of profit, revenue and costs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Analysis#analyseCost(AnalysisPeriodType period)</code></p>
+</li>
+<li>
+<p><code>Analysis#analyseRevenue(AnalysisPeriodType period)</code></p>
+</li>
+<li>
+<p><code>Analysis#analyseProfit(AnalysisPeriodType period)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The implementation of these operations are elaborated in the below sub-sections.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="indicating-the-analysis-period-with-code-analysisperiodtype-code"><a class="link" href="#indicating-the-analysis-period-with-code-analysisperiodtype-code">Indicating the analysis period with <code>AnalysisPeriodType</code></a></h4>
+<div class="paragraph">
+<p><code>AnalysisPeriodType</code> is an enum class that denotes the period for analysis:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>in the current day</p>
+</li>
+<li>
+<p>within the past 7 days (including the current day)</p>
+</li>
+<li>
+<p>within the past 30 days (including the current day)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These are indicated respectively as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AnalysisPeriodType.DAY</code></p>
+</li>
+<li>
+<p><code>AnalysisPeriodType.WEEK</code></p>
+</li>
+<li>
+<p><code>AnalysisPeriodType.MONTH</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A user may enter an analysis command with additional time period parameters.
+For the period of a day, no parameter is indicated.
+For the period of 7 days, <code>-w</code> is appended to the command. (e.g. <code>costs -w</code>)
+For the period of 30 days, <code>-m</code> is appended to the command. (e.g. <code>costs -m</code>)</p>
+</div>
+<div class="paragraph">
+<p>The following is the sequence of steps when the user enters an analysis command with a time period:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1.</strong> User enters an analysis command (e.g. <code>costs -m</code>).</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2.</strong> The appropriate parser (e.g. <code>AnalyseCostsCommandParser</code>) parses the time period parameter,
+and retrieves the <code>AnalysisPeriodType</code> value corresponding to the time period.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3.</strong> The relevant <code>TransactionPeriodPredicate</code> for the <code>AnalysisPeriodType</code> value is retrieved. It is assigned to an Analysis Command (e.g. <code>AnalyseCostsCommand</code>).</p>
+</div>
+<div class="paragraph">
+<p>The available <code>TransactionPeriodPredicate</code> s corresponding to each <code>AnalysisPeriodType</code> are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DAY</code>: <code>TransactionInADayPredicate</code></p>
+</li>
+<li>
+<p><code>WEEK</code>: <code>TransactionInSevenDaysPredicate</code></p>
+</li>
+<li>
+<p><code>MONTH</code>: <code>TransactionInThirtyDaysPredicate</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These are retrieved using <code>AnalysisPeriodType#getPeriodFilterPredicate()</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4.</strong> The analysis command is executed, and the <code>TransactionPeriodPredicate</code> predicate is passed to the appropriate <code>ModelManager</code>.
+This is done through the <code>analyseCosts()</code> method in the appropriate <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5.</strong> In the appropriate <code>ModelManager</code> (Accountant or Manager), the predicate is passed to the filtered transaction list.
+This is in order to filter the transactions by their dates such that
+the filtered transaction list only contains transactions with dates within the relevant period.</p>
+</div>
+<div class="paragraph">
+<p><code>FilteredList&lt;Transaction&gt;</code> handles the filtering using the given predicate.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the first part of the <code>AnalyseCostCommand</code> works, as described above:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AnalyseCostsSequenceDiagram_p1.png" alt="AnalyseCostsSequenceDiagram p1" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-code-analysis-analysecost-code"><a class="link" href="#implementation-of-code-analysis-analysecost-code">Implementation of <code>Analysis#analyseCost()</code></a></h4>
+<div class="paragraph">
+<p>The actual analysis of costs continues from the the filtering of the filtered transaction list.
+This section focuses on the actual computation of the costs incurred by the company.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1.</strong> In addition to passing the analysis period Predicate, a <code>PurchaseTransactionPredicate</code> is
+also passed to the filtered transaction list simultaneously.<br></p>
+</div>
+<div class="paragraph">
+<p>This filters the list further, leaving only the <code>TransactionType.PURCHASE</code> transactions, which contribute
+to the costs of the company.<br></p>
+</div>
+<div class="paragraph">
+<p>Overall, the filtered transaction list will also be updated in the UI.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2.</strong> <code>ModelManager</code> passes control to the <code>AnalysisManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3.</strong> In <code>AnalysisManager</code>, the helper method <code>AnalysisManager#calculateTotalCost()</code> is called
+to compute the total costs of the filtered transactions.</p>
+</div>
+<div class="paragraph">
+<p>It iterates through the filtered transaction list, and checks the <code>Transaction</code> 's <code>TransactionType</code>
+as a precuation. If the <code>TransactionType</code> is <code>PURCHASE</code>, the <code>amountMoney</code> transacted is obtained and
+added to a sum of costs. The sum of costs is then wrapped in a <code>Price</code> object and returned to the calling function.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-code-analysis-analyserevenue-code"><a class="link" href="#implementation-of-code-analysis-analyserevenue-code">Implementation of <code>Analysis#analyseRevenue()</code></a></h4>
+<div class="paragraph">
+<p>The implementation of the analysis of revenue is similar to that of costs. However, a <code>SaleTransactionPredicate</code>
+is passed to the filtered transaction list instead.</p>
+</div>
+<div class="paragraph">
+<p>In <strong>Step 3</strong>, the helper method <code>AnalysisManager#calculateTotalRevenue()</code> is called. It iterates
+through the filtered transaction list, and checks if the <code>Transaction</code> 's <code>TransactionType</code> is
+<code>SALE</code>. If so, the <code>amountMoney</code> transacted is added to the sum of revenues. The sum of revenues
+is then wrapped in a <code>Price</code> object and returned to the calling function.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-code-analysis-analyseprofit-code"><a class="link" href="#implementation-of-code-analysis-analyseprofit-code">Implementation of <code>Analysis#analyseProfit()</code></a></h4>
+<div class="paragraph">
+<p>The analysis of profit continues from the filtering of the filtered transaction list by period.
+This section focuses on the actual computation of the profit earned by the company.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1.</strong> <code>ModelManager</code> passes control to the <code>AnalysisManager</code>. No additional filtering is done.<br>
+<strong>Step 2.</strong> In <code>AnalysisManager</code>, the helper method <code>AnalysisManager#calculateTotalProfit()</code> is called
+to compute the total profit of the filtered transactions.</p>
+</div>
+<div class="paragraph">
+<p>It iterates through the filtered transaction list, and checks the <code>Transaction</code> 's <code>TransactionType</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>TransactionType</code> is <code>PURCHASE</code>, the <code>amountMoney</code> transacted is obtained and added to a sum of costs.</p>
+</li>
+<li>
+<p>If the <code>TransactionType</code> is <code>SALE</code>, the <code>amountMoney</code> transacted is obtained and added to a sum of revenues.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Step 3.</strong> Total profit is calculated using the formula: "profit = revenue - cost".
+This total profit value is checked to determine whether it is negative.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If total profit is positive or zero, it is wrapped in a <code>Price</code> object and returned to the calling function.</p>
+</li>
+<li>
+<p>If the total profit is negative, the absolute value is taken, and a special <code>NegativePrice</code> object is used to wrap the value.
+It is then returned to the calling function.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NegativePrice</code> is a sub-class of <code>Price</code>, and is used only when calculating profit.</p>
+</li>
+<li>
+<p>The <code>value</code> of the <code>NegativePrice</code> object is the absolute value of the profit.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: Filtering the transactions by date</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Current implementation:</strong> Pass predicates to the filtered transaction list, before performing analyses using that list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Extensible as more Predicates can be created and passed to the filtered transaction list to filter
+the transactions by different facets.</p>
+</li>
+<li>
+<p>Enhances reusability especially of the <code>updateFilteredTransactionList(Predicate predicate)</code> method.</p>
+</li>
+<li>
+<p>Allows the transaction list panel in the UI to be updated automatically.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons: We must ensure that the implementation of each Predicate is correct.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative:</strong> Loop through all transactions in the <code>TransactionList</code>, and check if the transaction date
+is within the desired time period</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have time performance issues if there are many transactions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:31:45 UTC</div></div></div></body></html>
