@@ -88,7 +88,10 @@ public class InventoryListInitializer {
         return chooseModelAccordingToAuthentication (initialData, initialTransactionData);
     }
 
-    private ReadOnlyInventoryList readInventoryDataFromStorage(){
+    /**
+     *  Returns {@code ReadOnlyInventoryList} after reading from storage
+     */
+    private ReadOnlyInventoryList readInventoryDataFromStorage() {
         Optional<ReadOnlyInventoryList> inventoryListOptional;
         try {
             inventoryListOptional = storage.readInventoryList();
@@ -105,8 +108,10 @@ public class InventoryListInitializer {
         }
 
     }
-
-    private ReadOnlyTransactionList readTransactionListFromStorage(){
+    /**
+     *  Returns {@code ReadOnlyTransactionList} after reading from storage
+     */
+    private ReadOnlyTransactionList readTransactionListFromStorage() {
         Optional<ReadOnlyTransactionList> transactionListOptional;
         try {
             transactionListOptional = storage.readTransactionList();
@@ -125,19 +130,23 @@ public class InventoryListInitializer {
         }
     }
 
-    private Model chooseModelAccordingToAuthentication (ReadOnlyInventoryList initialData, ReadOnlyTransactionList initialTransactionData){
+    /**
+     * Returns {@code Model} according to their AuthenticationLevel
+     */
+    private Model chooseModelAccordingToAuthentication (ReadOnlyInventoryList initialData,
+                                                        ReadOnlyTransactionList initialTransactionData) {
         switch (CurrentUser.getAuthenticationLevel()) {
-            case AUTH_ADMIN:
-                return new AdminModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
-            case AUTH_MANAGER:
-                return new ManagerModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
-            case AUTH_STOCK_TAKER:
-                return new StockTakerModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
-            case AUTH_ACCOUNTANT:
-                return new AccountantModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
-            default:
-                logger.severe("Database authentication level do not match with predefined authentication level");
-                return new ModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
+        case AUTH_ADMIN:
+            return new AdminModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
+        case AUTH_MANAGER:
+            return new ManagerModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
+        case AUTH_STOCK_TAKER:
+            return new StockTakerModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
+        case AUTH_ACCOUNTANT:
+            return new AccountantModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
+        default:
+            logger.severe("Database authentication level do not match with predefined authentication level");
+            return new ModelManager(initialData, userPrefs, loginInfoModel, initialTransactionData);
         }
     }
 
